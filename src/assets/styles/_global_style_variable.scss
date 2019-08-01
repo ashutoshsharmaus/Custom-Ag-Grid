@@ -1,0 +1,46 @@
+/**
+This are all the primary colors that is going to be used through the apps.
+Currently the css variable is added in both root and as a variable.
+The root is native to css variable which should be used. but since ie doesn't
+support it this will be the hack.
+ */
+
+:root {
+  --primary-gold: #f4ba05;
+  --primary-darkgrey: #2C2D28;
+
+  --secondary-black: #1D1D1D;
+  --secondary-medium-grey: #555650;
+  --secondary-light-gold: #FAE39B;
+  --secondary-dark-gold: #c39404;
+
+  --supporting-medium: #969696;
+  --supporting-light: #c8c8c9;
+  --supporting-super-light: #efefef;
+  --supporting-beige: #f7f7f3;
+  --supporting-white: #ffffff;
+
+  --status-danger: #d0021b;
+  --status-success: #4f772c;
+  --status-update: #0f4749;
+  --status-warning: #E07600;
+}
+
+$primary-gold: #f4ba05;
+$primary-darkgrey: #2C2D28;
+
+$secondary-black: #1D1D1D;
+$secondary-medium-grey: #555650;
+$secondary-light-gold: #FAE39B;
+$secondary-dark-gold: #c39404;
+
+$supporting-medium: #969696;
+$supporting-light: #c8c8c9;
+$supporting-super-light: #efefef;
+$supporting-beige: #f7f7f3;
+$supporting-white: #ffffff;
+
+$status-danger: #d0021b;
+$status-success: #4f772c;
+$status-update: #0f4749;
+$status-warning: #E07600;

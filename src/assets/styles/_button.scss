@@ -1,0 +1,190 @@
+@import "/global_style_variable";
+/**
+All the global button css is written over here
+ */
+
+button {
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  &:active {
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+@mixin ng-button() {
+  font-family: Lato-Bold, sans-serif;
+  border-radius:2px;
+  font-size:12px;
+  letter-spacing:0.3px;
+  text-align:center;
+}
+
+.primary-button {
+  @include ng-button();
+  &:hover {
+    color:$supporting-white;
+  }
+  color: $primary-darkgrey;
+  background-color: $primary-gold;
+  width:156px;
+  height:35px;
+  border: none;
+
+  @supports (display: var(--prop)) {
+    &:hover {
+      color: var(--supporting-white);
+    }
+    color: var(--primary-darkgrey);
+    background-color: var(--primary-gold);
+  }
+}
+
+.secondary-button {
+  @include ng-button();
+  &:hover {
+    color: $primary-darkgrey;
+  }
+  color: $primary-darkgrey;
+  background-color: $supporting-white;
+  border:1px solid $primary-gold;
+  width:153px;
+  height:32px;
+
+  @supports (display: var(--prop)) {
+    &:hover {
+      color: var(--primary-darkgrey);
+    }
+    color:var(--primary-darkgrey);
+    background-color: var(--supporting-white);
+    border:1px solid var(--primary-gold);
+  }
+}
+
+.primary-disabled-button {
+  @include ng-button();
+  &:hover {
+    color: $supporting-beige;
+  }
+  background-color: $supporting-light;
+  color: $primary-darkgrey;
+  border: none;
+  width:156px;
+  height:35px;
+  @supports (display: var(--prop)) {
+    &:hover {
+      color: var(--supporting-beige);
+    }
+    background-color:var(--supporting-light);
+    color:var(--primary-darkgrey);
+  }
+}
+
+.cancel-button {
+  @include ng-button();
+  &:hover {
+    background-color: $status-danger;
+    color: $supporting-white;
+  }
+  border:1px solid $status-danger;
+  background-color: $supporting-white;
+  color: $status-danger;
+  width:154px;
+  height:33px;
+
+  @supports (display: var(--prop)) {
+    &:hover {
+      background-color: var(--status-danger);
+      color: var(--supporting-white);
+    }
+
+    border:1px solid var(--status-danger);
+    background-color: var(--supporting-white);
+    color:var(--status-danger);
+  }
+}
+
+
+@mixin filter-button() {
+  color: $secondary-medium-grey;
+  @supports (display: var(--prop)) {
+    color:var(--secondary-medium-grey);
+  }
+  font-family: Lato-Bold, sans-serif;
+  font-size:12px;
+  letter-spacing:0.72px;
+  border-radius:100px;
+  width:97px;
+  height:27px;
+
+  [data-icon] {
+    float: right;
+    padding-left: 10px;
+    &:before { content: attr(data-icon); }
+  }
+}
+
+.primary-filter-button {
+  @include filter-button();
+  background: $supporting-super-light;
+  @supports (display: var(--prop)) {
+    background:var(--supporting-super-light);
+  };
+  border: none;
+  &:before {
+    content: "Filter";
+  }
+}
+
+.map-filter-button {
+  @include filter-button();
+  background: $supporting-white;
+  @supports (display: var(--prop)) {
+    background:var(--supporting-white);
+  }
+  box-shadow:0 1px 2px 0 rgba(0,0,0,0.30);
+  &:before {
+    content: "Filter";
+  }
+}
+
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  width: 160px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
