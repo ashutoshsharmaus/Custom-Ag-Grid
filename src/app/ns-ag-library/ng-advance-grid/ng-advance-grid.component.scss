@@ -1,0 +1,14 @@
+.full-screen {
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: pink;
+  height: 100%;
+  width: 100%;
+}
+
+.regular-fit {
+  height: 100%;
+  width: 100%;
+}

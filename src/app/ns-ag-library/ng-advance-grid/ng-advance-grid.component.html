@@ -1,2 +1,52 @@
-<button mat-button>ng</button>
+<div [ngClass]="activeFullScreen">
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Advance Search" (keyup)="onAdvanceSearchType($event)">
+    </mat-form-field>
+    <button mat-button>
+      <mat-icon>search</mat-icon>
+    </button>
 
+    <mat-form-field>
+      <mat-label>Group By</mat-label>
+      <mat-select (selectionChange)="onGroupBySelect($event)" [(ngModel)]="selectedGroupBy">
+        <mat-option *ngFor="let groupByObject of groupByList" [value]="groupByObject.value">
+          {{groupByObject.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button matTooltip="Clear Group By" (click)="onResetGroupBy()">Reset Group By</button>
+    <button mat-button matTooltip="Group By +" (click)="onGroupByPlus()">+</button>
+    <button mat-button matTooltip="Group By -" (click)="onGroupByMinus()">-</button>
+    <button mat-button matTooltip="Increase Font Size" (click)="onIncreaseFontSizeClick()">
+      <mat-icon>zoom_in</mat-icon>
+    </button>
+    <button mat-button matTooltip="Decrease Font Size" (click)="onDecreaseFontSizeClick()">
+      <mat-icon>zoom_out</mat-icon>
+    </button>
+    <button mat-button matTooltip="Column Selector" (click)="onColumnSelectorClick()">
+      <mat-icon>settings</mat-icon>
+    </button>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="onGridExportExcelClick()">
+        <mat-icon>save_alt</mat-icon>
+        Export Excel
+      </button>
+      <button mat-menu-item (click)="onGridPrintPdfClick()">
+        <mat-icon>print</mat-icon>
+        Print PDF
+      </button>
+    </mat-menu>
+
+    <button mat-button matTooltip="Expand Grid" (click)="onToggleFullScreenClick()">
+      <mat-icon>fullscreen</mat-icon>
+    </button>
+  </div>
+
+  <ng-content></ng-content>
+</div>

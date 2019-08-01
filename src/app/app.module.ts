@@ -7,19 +7,51 @@ import { NgAdvanceGridComponent } from './ns-ag-library/ng-advance-grid/ng-advan
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AgGridModule } from 'ag-grid-angular';
 import 'ag-grid-enterprise';
-import {MatButtonModule} from '@angular/material';
+
+import {
+  MatCardModule,
+  MatButtonModule,
+  MatInputModule,
+  MatIconModule,
+  MatMenuModule,
+  MatTooltipModule, MatFormFieldModule, MatDialogModule, MatOptionModule, MatSelectModule, MatCheckboxModule
+} from '@angular/material';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {FormsModule} from '@angular/forms';
+import { NgColumnSelectorComponent } from './ns-ag-library/ng-column-selector/ng-column-selector.component';
+import { NgGridTbarComponent } from './ns-ag-library/ng-grid-tbar/ng-grid-tbar.component';
+import { NgShowcaseComponent } from './ng-showcase/ng-showcase.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NgAdvanceGridComponent
+    NgAdvanceGridComponent,
+    NgColumnSelectorComponent,
+    NgGridTbarComponent,
+    NgShowcaseComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     AgGridModule.withComponents([]),
-    MatButtonModule
+
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    DragDropModule,
+    MatOptionModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
