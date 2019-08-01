@@ -14,7 +14,7 @@ import {
   MatInputModule,
   MatIconModule,
   MatMenuModule,
-  MatTooltipModule, MatFormFieldModule, MatDialogModule, MatOptionModule, MatSelectModule, MatCheckboxModule
+  MatTooltipModule, MatFormFieldModule, MatDialogModule, MatOptionModule, MatSelectModule, MatCheckboxModule, MatRadioModule
 } from '@angular/material';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {FormsModule} from '@angular/forms';
@@ -48,6 +48,7 @@ import { NgGroupbyGridComponent } from './ns-ag-library/ng-groupby-grid/ng-group
     MatInputModule,
     MatIconModule,
     MatMenuModule,
+    MatRadioModule,
     MatButtonModule,
     MatTooltipModule,
     MatFormFieldModule,

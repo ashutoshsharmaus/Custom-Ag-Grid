@@ -1,3 +1,5 @@
 <div class="ng-group-by-css">
-  <p>ng-groupby-grid works!</p>
+  <div *ngFor="let groupByItem of groupByList">
+    <mat-radio-button>{{groupByItem.columnName}}</mat-radio-button>
+  </div>
 </div>
