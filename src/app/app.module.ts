@@ -23,6 +23,7 @@ import { NgGridTbarComponent } from './ns-ag-library/ng-grid-tbar/ng-grid-tbar.c
 import { NgShowcaseComponent } from './ng-showcase/ng-showcase.component';
 import {NgSampleGridComponent} from './ng-showcase/ng-sample-grid/ng-sample-grid.component';
 import {HttpClientModule} from '@angular/common/http';
+import { NgGroupbyGridComponent } from './ns-ag-library/ng-groupby-grid/ng-groupby-grid.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {HttpClientModule} from '@angular/common/http';
     NgColumnSelectorComponent,
     NgGridTbarComponent,
     NgShowcaseComponent,
-    NgSampleGridComponent
+    NgSampleGridComponent,
+    NgGroupbyGridComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -61,6 +63,7 @@ import {HttpClientModule} from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
+    NgGroupbyGridComponent,
     NgColumnSelectorComponent
   ]
 })

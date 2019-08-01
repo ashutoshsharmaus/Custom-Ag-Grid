@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {NgColumnSelectorComponent} from '../ng-column-selector/ng-column-selector.component';
+import {NgGroupbyGridComponent} from '../ng-groupby-grid/ng-groupby-grid.component';
 
 export interface GroupByObject {
   value: string;
@@ -96,8 +97,12 @@ export class NgAdvanceGridComponent implements OnInit {
   }
 
   onColumnSelectorClick() {
-    debugger;
     const columnSelectorDialog = this.dialog.open(NgColumnSelectorComponent, {});
     columnSelectorDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
+  }
+
+  onGroupyByClick() {
+    const groupByDialog = this.dialog.open(NgGroupbyGridComponent, {});
+    groupByDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
   }
 }
