@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {MatDialogRef} from '@angular/material';
 
 class GroupByObject {
   groupById: string;
@@ -19,7 +20,7 @@ export class NgGroupbyGridComponent implements OnInit {
   groupByNewList = [];
   @Input() gridColumnApi: any;
 
-  constructor() { }
+  constructor(private dialogRef: MatDialogRef<NgGroupbyGridComponent>) { }
 
   ngOnInit() {
     this.populateGroupBy();
@@ -34,5 +35,12 @@ export class NgGroupbyGridComponent implements OnInit {
         this.groupByNewList.push({field: column.colDef.field, name: column.colDef.headerName});
       }
     });
+  }
+
+  onGroupByClose() {
+    this.dialogRef.close();
+  }
+
+  onGroupyByApply() {
   }
 }
