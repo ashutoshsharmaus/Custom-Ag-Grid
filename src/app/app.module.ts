@@ -21,6 +21,7 @@ import {FormsModule} from '@angular/forms';
 import { NgColumnSelectorComponent } from './ns-ag-library/ng-column-selector/ng-column-selector.component';
 import { NgGridTbarComponent } from './ns-ag-library/ng-grid-tbar/ng-grid-tbar.component';
 import { NgShowcaseComponent } from './ng-showcase/ng-showcase.component';
+import {NgSampleGridComponent} from './ng-showcase/ng-sample-grid/ng-sample-grid.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NgShowcaseComponent } from './ng-showcase/ng-showcase.component';
     NgAdvanceGridComponent,
     NgColumnSelectorComponent,
     NgGridTbarComponent,
-    NgShowcaseComponent
+    NgShowcaseComponent,
+    NgSampleGridComponent
   ],
   imports: [
     BrowserAnimationsModule,
