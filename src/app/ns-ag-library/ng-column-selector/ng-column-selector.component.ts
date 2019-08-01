@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {MatDialogRef} from '@angular/material';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-ng-column-selector',
@@ -6,10 +8,70 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ng-column-selector.component.scss']
 })
 export class NgColumnSelectorComponent implements OnInit {
+  @Input() gridColumnApi: any;
 
-  constructor() { }
+  unSelectedColumn = [];
+  selectedColumn = [];
+
+  constructor(private dialogRef: MatDialogRef<NgColumnSelectorComponent>) {
+  }
 
   ngOnInit() {
+    this.initializeColumnSelectorData();
+  }
+
+  initializeColumnSelectorData() {
+    const allColumns = this.gridColumnApi.getColumnState();
+    for (const column of allColumns) {
+      const columnHidden = column.hide;
+      if (columnHidden) {
+        this.unSelectedColumn.push(column.colId);
+      } else {
+        this.selectedColumn.push(column.colId);
+      }
+    }
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
+  }
+
+  onLeftClick() {
+    // transferArrayItem(this.selectedColumn, this.selectedColumn, 0, 0);
+  }
+
+  onRightClick() {
+  }
+
+  onUpClick() {
+  }
+
+  onDownClick() {
+  }
+
+  onCancelColumnSelectorClick() {
+    this.dialogRef.close();
+  }
+
+  onSaveColumnSettingClick() {
+    const selectedColumn = this.selectedColumn;
+    const unSelectedColumn = this.unSelectedColumn;
+    selectedColumn.forEach(function(record, index) {
+      this.moveColumn(record, index);
+      this.setColumnVisible(record, true);
+    }, this.gridColumnApi);
+
+    unSelectedColumn.forEach(function(record) {
+      this.setColumnVisible(record, false);
+    }, this.gridColumnApi);
+    this.dialogRef.close();
   }
 
 }

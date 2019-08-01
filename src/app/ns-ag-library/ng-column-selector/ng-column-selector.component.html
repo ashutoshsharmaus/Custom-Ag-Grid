@@ -1,1 +1,33 @@
-<p>ng-column-selector works!</p>
+<div cdkDropListGroup>
+  <div class="example-container">
+    <h2>Unselected</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="unSelectedColumn"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <mat-checkbox class="example-box" *ngFor="let item of unSelectedColumn" cdkDrag>{{item}}</mat-checkbox>
+    </div>
+  </div>
+  <div class="example-container">
+    <button class="example-list" (click)="onLeftClick()"><mat-icon>arrow_back</mat-icon></button>
+    <button class="example-list" (click)="onRightClick()"><mat-icon>arrow_forward</mat-icon></button>
+    <button class="example-list" (click)="onRightClick()"><mat-icon>arrow_upward</mat-icon></button>
+    <button class="example-list" (click)="onDownClick()"><mat-icon>arrow_downward</mat-icon></button>
+  </div>
+  <div class="example-container">
+    <h2>Selected</h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="selectedColumn"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <mat-checkbox class="example-box" *ngFor="let item of selectedColumn" cdkDrag>{{item}}</mat-checkbox>
+    </div>
+  </div>
+</div>
+<footer>
+  <button mat-button (click)="onCancelColumnSelectorClick()">Cancel</button>
+  <button mat-button (click)="onSaveColumnSettingClick()">Save Column Setting</button>
+</footer>

@@ -59,6 +59,9 @@ import {HttpClientModule} from '@angular/common/http';
     MatCheckboxModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    NgColumnSelectorComponent
+  ]
 })
 export class AppModule { }

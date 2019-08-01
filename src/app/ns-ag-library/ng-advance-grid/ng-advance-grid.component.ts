@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
+import {NgColumnSelectorComponent} from '../ng-column-selector/ng-column-selector.component';
 
 export interface GroupByObject {
   value: string;
@@ -34,7 +35,6 @@ export class NgAdvanceGridComponent implements OnInit {
 
   onAdvanceSearchType(event) {
     if (event.key === 'Enter') {
-      debugger;
       const typedValue = event.currentTarget.value;
       this.gridApi.api.setQuickFilter(typedValue);
     }
@@ -96,7 +96,8 @@ export class NgAdvanceGridComponent implements OnInit {
   }
 
   onColumnSelectorClick() {
-    // const columnSelectorDialog = this.dialog.open(NgColumnSelectorComponent, {});
-    // columnSelectorDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
+    debugger;
+    const columnSelectorDialog = this.dialog.open(NgColumnSelectorComponent, {});
+    columnSelectorDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
   }
 }
