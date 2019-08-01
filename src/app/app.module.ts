@@ -22,6 +22,7 @@ import { NgColumnSelectorComponent } from './ns-ag-library/ng-column-selector/ng
 import { NgGridTbarComponent } from './ns-ag-library/ng-grid-tbar/ng-grid-tbar.component';
 import { NgShowcaseComponent } from './ng-showcase/ng-showcase.component';
 import {NgSampleGridComponent} from './ng-showcase/ng-sample-grid/ng-sample-grid.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,8 @@ import {NgSampleGridComponent} from './ng-showcase/ng-sample-grid/ng-sample-grid
     BrowserModule,
     AppRoutingModule,
     AgGridModule.withComponents([]),
+
+    HttpClientModule,
 
     MatButtonModule,
     MatCardModule,
