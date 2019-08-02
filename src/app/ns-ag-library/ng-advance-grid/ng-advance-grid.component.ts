@@ -43,24 +43,9 @@ export class NgAdvanceGridComponent implements OnInit {
     this.gridApi.api.exportDataAsExcel();
   }
 
-  onGroupBySelect(event) {
-    this.gridApi.columnApi.addRowGroupColumn(event.value);
-  }
-
   onGridPrintPdfClick() {
     this.setPrinterFriendly(this.gridApi);
     print();
-  }
-
-  onResetGroupBy() {
-    const allGroupBy = this.gridApi.columnApi.getRowGroupColumns();
-    debugger;
-    // for (const i = 0; i < allGroupBy.length; i++) {
-    //   this.agGrid.columnApi.removeRowGroupColumns(allGroupBy[i]);
-    //
-    // }
-    this.gridApi.columnApi.removeRowGroupColumns(allGroupBy);
-    // this.selectedGroupBy = null;
   }
 
   onDecreaseFontSizeClick() {
