@@ -2,7 +2,7 @@
   <ag-grid-angular
     #agGrid
     class="ag-theme-balham"
-    style="width: 100%; height: 80%;"
+    style="width: 95%; height: 92%;"
     [rowData]="rowData | async"
     [columnDefs]="columnDefinition"
     [autoGroupColumnDef]="autoGroupColumnDef"
@@ -11,5 +11,7 @@
     enableGroupEdit="true"
     [statusBar]="statusBar"
     [enableRangeSelection]="true"
+    [defaultColDef]="defaultColDef"
+    [rowHeight]="getRowHeight"
   >
   </ag-grid-angular></app-ng-advance-grid>

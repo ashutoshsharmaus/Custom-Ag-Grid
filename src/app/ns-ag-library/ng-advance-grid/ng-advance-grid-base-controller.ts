@@ -12,6 +12,12 @@ export abstract class NgAdvanceGridBaseController {
       { statusPanel: 'agAggregationComponent', align: 'left'}
     ]
   };
+  defaultColDef = {
+    sortable: true,
+    resizable: true,
+    filter: true
+  };
+  getRowHeight = 50;
 
   onGridReady(params) {
     this.gridApi = params.api;
