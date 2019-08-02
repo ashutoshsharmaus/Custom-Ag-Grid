@@ -4,9 +4,11 @@ import {MatDialogRef} from '@angular/material';
 class GroupByObject {
   groupById: string;
   columnName: string;
-  constructor(groupById, columnName) {
+  groupedBy = false;
+  constructor(groupById, columnName, groupedBy) {
     this.groupById = groupById;
     this.columnName = columnName;
+    this.groupedBy = groupedBy;
   }
 }
 
@@ -16,11 +18,8 @@ class GroupByObject {
   styleUrls: ['./ng-groupby-grid.component.scss']
 })
 export class NgGroupbyGridComponent implements OnInit {
-  tempVariable = 'hola';
-
   @ViewChild('groupByRadioGroup', {static: false}) groupByRadioGroup;
   groupByList: Array<GroupByObject> = [];
-  groupByNewList = [];
   @Input() gridColumnApi: any;
 
   constructor(private dialogRef: MatDialogRef<NgGroupbyGridComponent>) { }
@@ -33,9 +32,7 @@ export class NgGroupbyGridComponent implements OnInit {
     const columns = this.gridColumnApi.getAllColumns();
     columns.forEach(column => {
       if (column.visible) {
-        const groupByItem = new GroupByObject(column.colDef.field, column.colDef.headerName);
-        this.groupByList.push(groupByItem);
-        this.groupByNewList.push({field: column.colDef.field, name: column.colDef.headerName});
+        this.groupByList.push(new GroupByObject(column.colDef.field, column.colDef.headerName, column.rowGroupActive));
       }
     });
   }

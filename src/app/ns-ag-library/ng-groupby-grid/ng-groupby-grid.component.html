@@ -1,5 +1,5 @@
 <mat-radio-group name="groupBySelectedValue" ngModel="" #groupByRadioGroup *ngFor="let groupByItem of groupByList">
-  <mat-radio-button value="{{groupByItem.groupById}}">{{groupByItem.columnName}}</mat-radio-button>
+  <mat-radio-button name="groupBySelectedValue" value="{{groupByItem.groupById}}">{{groupByItem.columnName}}</mat-radio-button>
 </mat-radio-group>
 
 <footer>
