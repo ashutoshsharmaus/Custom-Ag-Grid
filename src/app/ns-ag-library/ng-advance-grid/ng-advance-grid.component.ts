@@ -15,13 +15,6 @@ export interface GroupByObject {
 })
 export class NgAdvanceGridComponent implements OnInit {
   @Input() gridApi: any;
-  selectedGroupBy: string;
-
-  groupByList: GroupByObject[] = [
-    {value: 'make', viewValue: 'make'},
-    {value: 'model', viewValue: 'model'},
-    {value: 'price', viewValue: 'price'}
-  ];
 
   fullScreenActive = false;
   activeFullScreen = {
@@ -42,7 +35,6 @@ export class NgAdvanceGridComponent implements OnInit {
   }
 
   onGroupByPlus() {
-    debugger;
     this.gridApi.api.expandAll();
   }
 
