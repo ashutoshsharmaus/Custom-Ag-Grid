@@ -6,6 +6,7 @@ class GroupByObject {
   groupById: string;
   columnName: string;
   groupedBy = false;
+
   constructor(groupById, columnName, groupedBy) {
     this.groupById = groupById;
     this.columnName = columnName;
@@ -47,6 +48,11 @@ export class NgGroupbyGridComponent implements OnInit {
   }
 
   onGroupyByApply() {
-    this.gridColumnApi.addRowGroupColumn(this.groupByForm.value);
+    if (this.groupByForm.value) {
+      this.gridColumnApi.addRowGroupColumn(this.groupByForm.value);
+    } else {
+      const allGroupBy = this.gridColumnApi.getRowGroupColumns();
+      this.gridColumnApi.removeRowGroupColumns(allGroupBy);
+    }
   }
 }
