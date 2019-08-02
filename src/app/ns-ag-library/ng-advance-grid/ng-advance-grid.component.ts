@@ -17,6 +17,8 @@ export class NgAdvanceGridComponent implements OnInit {
     'regular-fit': !this.fullScreenActive
   };
 
+  gridTitle: '';
+
   constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
