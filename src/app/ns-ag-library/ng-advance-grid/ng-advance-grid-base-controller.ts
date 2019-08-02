@@ -3,7 +3,7 @@ export abstract class NgAdvanceGridBaseController {
   rowData: any;
   gridColumnApi: any;
   gridApi: any;
-  totalRecordCount: any;
+  gridTitle: string;
   statusBar = {
     statusPanels: [
       {statusPanel: 'agTotalRowCountComponent', align: 'left'},

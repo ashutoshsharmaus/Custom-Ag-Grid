@@ -10,14 +10,13 @@ import {NgGroupbyGridComponent} from '../ng-groupby-grid/ng-groupby-grid.compone
 })
 export class NgAdvanceGridComponent implements OnInit {
   @Input() gridApi: any;
+  @Input() gridTitle: string;
 
   fullScreenActive = false;
   activeFullScreen = {
     'full-screen': this.fullScreenActive,
     'regular-fit': !this.fullScreenActive
   };
-
-  gridTitle = 'New Grid';
 
   constructor(private dialog: MatDialog) {
   }
@@ -80,9 +79,9 @@ export class NgAdvanceGridComponent implements OnInit {
 
   setPrinterFriendly(api) {
     debugger;
-    // var eGridDiv = document.querySelector(".my-grid");
-    // eGridDiv.style.width = "";
-    // eGridDiv.style.height = "";
+    // const eGridDiv = document.querySelector(".my-grid");
+    // eGridDiv.style.width = '';
+    // eGridDiv.style.height = '';
     // api.setDomLayout("print");
   }
 

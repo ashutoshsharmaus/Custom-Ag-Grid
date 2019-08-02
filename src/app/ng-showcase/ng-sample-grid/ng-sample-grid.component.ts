@@ -8,6 +8,7 @@ import {NgAdvanceGridBaseController} from '../../ns-ag-library/ng-advance-grid/n
   styleUrls: ['./ng-sample-grid.component.scss']
 })
 export class NgSampleGridComponent extends NgAdvanceGridBaseController implements OnInit {
+  gridTitle = 'Pacesetter Grid';
   columnDefinition = [
     {
       headerName: 'make',
