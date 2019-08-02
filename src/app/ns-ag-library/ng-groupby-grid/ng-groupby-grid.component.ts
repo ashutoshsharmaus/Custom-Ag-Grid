@@ -1,5 +1,6 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
+import {FormControl} from '@angular/forms';
 
 class GroupByObject {
   groupById: string;
@@ -21,9 +22,11 @@ export class NgGroupbyGridComponent implements OnInit {
   @Input() gridColumnApi: any;
   @ViewChild('groupByRadioGroup', {static: false}) groupByRadioGroup;
   groupByList: Array<GroupByObject> = [];
-  private currentSelectedGroupBy: null;
+  groupByForm = new FormControl('');
 
-  constructor(private dialogRef: MatDialogRef<NgGroupbyGridComponent>) { }
+  constructor(private dialogRef: MatDialogRef<NgGroupbyGridComponent>) {
+
+  }
 
   ngOnInit() {
     this.populateGroupBy();
@@ -43,7 +46,6 @@ export class NgGroupbyGridComponent implements OnInit {
   }
 
   onGroupyByApply() {
-    debugger;
-    this.gridColumnApi.addRowGroupColumn();
+    this.gridColumnApi.addRowGroupColumn(this.groupByForm.value);
   }
 }

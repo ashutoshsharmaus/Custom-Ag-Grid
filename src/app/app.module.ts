@@ -17,7 +17,7 @@ import {
   MatTooltipModule, MatFormFieldModule, MatDialogModule, MatOptionModule, MatSelectModule, MatCheckboxModule, MatRadioModule
 } from '@angular/material';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgColumnSelectorComponent } from './ns-ag-library/ng-column-selector/ng-column-selector.component';
 import { NgGridTbarComponent } from './ns-ag-library/ng-grid-tbar/ng-grid-tbar.component';
 import { NgShowcaseComponent } from './ng-showcase/ng-showcase.component';
@@ -40,7 +40,6 @@ import { NgGroupbyGridComponent } from './ns-ag-library/ng-groupby-grid/ng-group
     BrowserModule,
     AppRoutingModule,
     AgGridModule.withComponents([]),
-
     HttpClientModule,
 
     MatButtonModule,
@@ -60,6 +59,7 @@ import { NgGroupbyGridComponent } from './ns-ag-library/ng-groupby-grid/ng-group
     BrowserModule,
     FormsModule,
     MatCheckboxModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
