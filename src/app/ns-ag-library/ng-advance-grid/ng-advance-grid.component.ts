@@ -18,7 +18,17 @@ export class NgAdvanceGridComponent implements OnInit {
     'full-screen': this.fullScreenActive,
     'regular-fit': !this.fullScreenActive
   };
-  gridRowHeight = 16 ;
+  tbarItemVisibility = {
+    hideTitle: false,
+    hideAdvanceSearch: false,
+    hideGroupBy: false,
+    hideFontSizeChange: false,
+    hideHamburgerMenu: false,
+    hidePrintExcel: false,
+    hidePrintPDF: false,
+    hideDownloadPDF: false,
+    hideCustomizeReporting: false,
+  };
 
   constructor(private dialog: MatDialog) {
   }
@@ -55,9 +65,8 @@ export class NgAdvanceGridComponent implements OnInit {
 
   onIncreaseFontSizeClick() {
     // debugger;
-    // this.gridRowHeight += (22 >= this.gridRowHeight) ? 2 : 0;
-    this.gridRowHeight += 2;
-    this.gridApi.api.resetRowHeights(this.gridRowHeight);
+    // this.gridRowHeight += 2;
+    // this.gridApi.api.resetRowHeights(this.gridRowHeight);
   }
 
   onToggleFullScreenClick() {
