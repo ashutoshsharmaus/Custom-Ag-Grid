@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
 
 class GroupByObject {
@@ -16,6 +16,9 @@ class GroupByObject {
   styleUrls: ['./ng-groupby-grid.component.scss']
 })
 export class NgGroupbyGridComponent implements OnInit {
+  tempVariable = 'hola';
+
+  @ViewChild('groupByRadioGroup', {static: false}) groupByRadioGroup;
   groupByList: Array<GroupByObject> = [];
   groupByNewList = [];
   @Input() gridColumnApi: any;
@@ -42,5 +45,7 @@ export class NgGroupbyGridComponent implements OnInit {
   }
 
   onGroupyByApply() {
+    debugger;
+    this.gridColumnApi.addRowGroupColumn();
   }
 }
