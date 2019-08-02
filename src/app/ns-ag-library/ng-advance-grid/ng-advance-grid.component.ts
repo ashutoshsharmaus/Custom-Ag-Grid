@@ -3,11 +3,6 @@ import {MatDialog} from '@angular/material';
 import {NgColumnSelectorComponent} from '../ng-column-selector/ng-column-selector.component';
 import {NgGroupbyGridComponent} from '../ng-groupby-grid/ng-groupby-grid.component';
 
-export interface GroupByObject {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
   selector: 'app-ng-advance-grid',
   templateUrl: './ng-advance-grid.component.html',
