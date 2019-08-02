@@ -18,9 +18,10 @@ class GroupByObject {
   styleUrls: ['./ng-groupby-grid.component.scss']
 })
 export class NgGroupbyGridComponent implements OnInit {
+  @Input() gridColumnApi: any;
   @ViewChild('groupByRadioGroup', {static: false}) groupByRadioGroup;
   groupByList: Array<GroupByObject> = [];
-  @Input() gridColumnApi: any;
+  private currentSelectedGroupBy: null;
 
   constructor(private dialogRef: MatDialogRef<NgGroupbyGridComponent>) { }
 
