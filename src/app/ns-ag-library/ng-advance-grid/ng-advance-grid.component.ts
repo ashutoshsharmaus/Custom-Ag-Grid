@@ -13,6 +13,7 @@ export class NgAdvanceGridComponent implements OnInit {
   @Input() gridTitle: string;
 
   fullScreenActive = false;
+  fullScreenRegularBtnIcon = 'fullscreen';
   activeFullScreen = {
     'full-screen': this.fullScreenActive,
     'regular-fit': !this.fullScreenActive
@@ -60,6 +61,7 @@ export class NgAdvanceGridComponent implements OnInit {
       'full-screen': this.fullScreenActive,
       'regular-fit': !this.fullScreenActive
     };
+    this.fullScreenRegularBtnIcon = (this.fullScreenActive) ? 'fullscreen_exit' : 'fullscreen';
   }
 
   setPrinterFriendly(api) {
