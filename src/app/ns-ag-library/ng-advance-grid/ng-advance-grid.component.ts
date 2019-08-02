@@ -23,7 +23,7 @@ export class NgAdvanceGridComponent implements OnInit {
     {value: 'price', viewValue: 'price'}
   ];
 
-  fullScreenActive = true;
+  fullScreenActive = false;
   activeFullScreen = {
     'full-screen': this.fullScreenActive,
     'regular-fit': !this.fullScreenActive
