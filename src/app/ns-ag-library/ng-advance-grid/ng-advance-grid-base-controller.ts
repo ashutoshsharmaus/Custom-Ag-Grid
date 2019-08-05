@@ -18,6 +18,7 @@ export abstract class NgAdvanceGridBaseController {
     filter: true
   };
   getRowHeight = 50;
+  enableRangeSelection = 'true';
 
   onGridReady(params) {
     this.gridApi = params.api;

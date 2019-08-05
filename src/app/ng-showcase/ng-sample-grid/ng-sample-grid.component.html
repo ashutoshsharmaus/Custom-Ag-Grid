@@ -2,7 +2,7 @@
   <ag-grid-angular
     #agGrid
     class="ag-theme-balham"
-    style="width: 95%; height: 92%;"
+    style="width: 99%; height: 92%;"
     [rowData]="rowData | async"
     [columnDefs]="columnDefinition"
     [autoGroupColumnDef]="autoGroupColumnDef"
@@ -10,7 +10,7 @@
     (gridReady)="onGridReady($event)"
     enableGroupEdit="true"
     [statusBar]="statusBar"
-    [enableRangeSelection]="true"
+    [enableRangeSelection]="enableRangeSelection"
     [defaultColDef]="defaultColDef"
     [rowHeight]="getRowHeight"
   >
