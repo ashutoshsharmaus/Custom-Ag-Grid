@@ -18,17 +18,15 @@ export class NgAdvanceGridComponent implements OnInit {
     'full-screen': this.fullScreenActive,
     'regular-fit': !this.fullScreenActive
   };
-  tbarItemVisibility = {
-    hideTitle: false,
-    hideAdvanceSearch: false,
-    hideGroupBy: false,
-    hideFontSizeChange: false,
-    hideHamburgerMenu: false,
-    hidePrintExcel: false,
-    hidePrintPDF: false,
-    hideDownloadPDF: false,
-    hideCustomizeReporting: false,
-  };
+    hideTitle: false;
+    hideAdvanceSearch: false;
+    hideGroupBy: false;
+    hideFontSizeChange: false;
+    hideHamburgerMenu: false;
+    hidePrintExcel: false;
+    hidePrintPDF: false;
+    hideDownloadPDF: false;
+    hideCustomizeReporting: false;
 
   constructor(private dialog: MatDialog) {
   }
