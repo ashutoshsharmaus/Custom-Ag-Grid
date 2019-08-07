@@ -56,8 +56,13 @@ export class NgAdvanceGridComponent implements OnInit {
   }
 
   onGridPrintPdfClick() {
-    this.setPrinterFriendly(this.gridApi);
+    this.setPrinterFriendly();
     print();
+  }
+
+  setPrinterFriendly() {
+    const currentGrid = this.gridApi.api;
+    currentGrid.setDomLayout('print');
   }
 
   onDecreaseFontSizeClick() {
@@ -118,14 +123,6 @@ export class NgAdvanceGridComponent implements OnInit {
       'regular-fit': !this.fullScreenActive
     };
     this.fullScreenRegularBtnIcon = (this.fullScreenActive) ? 'fullscreen_exit' : 'fullscreen';
-  }
-
-  setPrinterFriendly(api) {
-    debugger;
-    // const eGridDiv = document.querySelector(".my-grid");
-    // eGridDiv.style.width = '';
-    // eGridDiv.style.height = '';
-    // api.setDomLayout("print");
   }
 
   onColumnSelectorClick() {

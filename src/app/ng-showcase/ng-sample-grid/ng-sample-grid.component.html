@@ -1,6 +1,7 @@
 <app-ng-advance-grid [gridApi]="agGrid" [gridTitle]="gridTitle">
   <ag-grid-angular
     #agGrid
+    id="my-grid"
     class="ag-theme-balham ag-grid-style"
     [rowData]="rowData | async"
     [columnDefs]="columnDefinition"
