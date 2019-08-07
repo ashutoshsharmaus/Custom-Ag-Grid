@@ -63,7 +63,7 @@ export class NgAdvanceGridComponent implements OnInit {
     const fontDetail = this.getFontDetail('-');
     const currentFont = fontDetail.currentFont;
     const newFontCss = fontDetail.newFontCss;
-    if (newFontCss === 'font-16' || newFontCss === 'font-50') {
+    if (newFontCss === 'font-14' || newFontCss === 'font-50') {
       if (!currentFont) {  currentGrid.classList.add(newFontCss); }
     } else {
       currentGrid.classList.add(newFontCss);
@@ -77,7 +77,7 @@ export class NgAdvanceGridComponent implements OnInit {
     const currentFont = fontDetail.currentFont;
     const newFontCss = fontDetail.newFontCss;
 
-    if (newFontCss === 'font-16' || newFontCss === 'font-50') {
+    if (newFontCss === 'font-14' || newFontCss === 'font-50') {
       if (!currentFont) {  currentGrid.classList.add(newFontCss); }
     } else {
       currentGrid.classList.add(newFontCss);
