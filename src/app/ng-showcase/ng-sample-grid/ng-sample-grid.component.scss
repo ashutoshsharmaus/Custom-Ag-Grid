@@ -1,11 +1,4 @@
 .ag-grid-style {
   width: 100%;
   height: 90%;
-  font-size: 14px;
-}
-
-@for $i from 14 through 50 {
-  .font-#{$i} {
-    font-size: #{$i}px;
-  }
 }

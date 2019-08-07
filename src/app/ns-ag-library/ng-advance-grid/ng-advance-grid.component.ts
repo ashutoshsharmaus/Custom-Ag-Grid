@@ -93,9 +93,11 @@ export class NgAdvanceGridComponent implements OnInit {
       const reg = new RegExp('font-');
       return typeof record === 'string' && record.match(reg);
     })[0];
-    const currentFontSize = (currentFont) ? parseInt(currentFont.split('font-')[1], 0) : null;
-    const newFontSize = (newFontOperation === '+') ? currentFontSize + 1 : currentFontSize - 1;
-    const newFontCss = (currentFontSize) ? 'font-' + newFontSize : 'font-16';
+    const currentFontSize = (currentFont) ? parseInt(currentFont.split('font-')[1], 0) : 14; // default font size
+    let newFontSize = (newFontOperation === '+') ? currentFontSize + 1 : currentFontSize - 1;
+    if (newFontSize < 14) { newFontSize = 14; }
+    if (newFontSize > 50) { newFontSize = 50; }
+    const newFontCss = (currentFontSize) ? 'font-' + newFontSize : 'font-14';
     return {currentFont, newFontCss};
   }
 
