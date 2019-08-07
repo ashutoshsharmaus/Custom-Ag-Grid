@@ -18,15 +18,17 @@ export class NgAdvanceGridComponent implements OnInit {
     'full-screen': this.fullScreenActive,
     'regular-fit': !this.fullScreenActive
   };
-    hideTitle: false;
-    hideAdvanceSearch: false;
-    hideGroupBy: false;
-    hideFontSizeChange: false;
-    hideHamburgerMenu: false;
-    hidePrintExcel: false;
-    hidePrintPDF: false;
-    hideDownloadPDF: false;
-    hideCustomizeReporting: false;
+  hideTitle: false;
+  hideAdvanceSearch: false;
+  hideGroupBy: false;
+  hideFontSizeChange: false;
+  hideHamburgerMenu: false;
+  hidePrintExcel: false;
+  hidePrintPDF: false;
+  hideDownloadPDF: false;
+  hideCustomizeReporting: false;
+  filterCount = '(0)';
+  groupByCount = '(0)';
 
   constructor(private dialog: MatDialog) {
   }
@@ -64,7 +66,9 @@ export class NgAdvanceGridComponent implements OnInit {
     const currentFont = fontDetail.currentFont;
     const newFontCss = fontDetail.newFontCss;
     if (newFontCss === 'font-14' || newFontCss === 'font-50') {
-      if (!currentFont) {  currentGrid.classList.add(newFontCss); }
+      if (!currentFont) {
+        currentGrid.classList.add(newFontCss);
+      }
     } else {
       currentGrid.classList.add(newFontCss);
       currentGrid.classList.remove(currentFont);
@@ -78,7 +82,9 @@ export class NgAdvanceGridComponent implements OnInit {
     const newFontCss = fontDetail.newFontCss;
 
     if (newFontCss === 'font-14' || newFontCss === 'font-50') {
-      if (!currentFont) {  currentGrid.classList.add(newFontCss); }
+      if (!currentFont) {
+        currentGrid.classList.add(newFontCss);
+      }
     } else {
       currentGrid.classList.add(newFontCss);
       currentGrid.classList.remove(currentFont);
@@ -95,8 +101,12 @@ export class NgAdvanceGridComponent implements OnInit {
     })[0];
     const currentFontSize = (currentFont) ? parseInt(currentFont.split('font-')[1], 0) : 14; // default font size
     let newFontSize = (newFontOperation === '+') ? currentFontSize + 1 : currentFontSize - 1;
-    if (newFontSize < 14) { newFontSize = 14; }
-    if (newFontSize > 50) { newFontSize = 50; }
+    if (newFontSize < 14) {
+      newFontSize = 14;
+    }
+    if (newFontSize > 50) {
+      newFontSize = 50;
+    }
     const newFontCss = (currentFontSize) ? 'font-' + newFontSize : 'font-14';
     return {currentFont, newFontCss};
   }
