@@ -59,12 +59,44 @@ export class NgAdvanceGridComponent implements OnInit {
   }
 
   onDecreaseFontSizeClick() {
+    const currentGrid = this.gridApi._nativeElement;
+    const fontDetail = this.getFontDetail('-');
+    const currentFont = fontDetail.currentFont;
+    const newFontCss = fontDetail.newFontCss;
+    if (newFontCss === 'font-16' || newFontCss === 'font-50') {
+      if (!currentFont) {  currentGrid.classList.add(newFontCss); }
+    } else {
+      currentGrid.classList.add(newFontCss);
+      currentGrid.classList.remove(currentFont);
+    }
   }
 
   onIncreaseFontSizeClick() {
-    // debugger;
-    // this.gridRowHeight += 2;
-    // this.gridApi.api.resetRowHeights(this.gridRowHeight);
+    const currentGrid = this.gridApi._nativeElement;
+    const fontDetail = this.getFontDetail('+');
+    const currentFont = fontDetail.currentFont;
+    const newFontCss = fontDetail.newFontCss;
+
+    if (newFontCss === 'font-16' || newFontCss === 'font-50') {
+      if (!currentFont) {  currentGrid.classList.add(newFontCss); }
+    } else {
+      currentGrid.classList.add(newFontCss);
+      currentGrid.classList.remove(currentFont);
+    }
+  }
+
+  getFontDetail(newFontOperation) {
+    const currentGrid = this.gridApi._nativeElement;
+    const classList = [];
+    currentGrid.classList.forEach(eachClass => classList.push(eachClass));
+    const currentFont = classList.filter(record => {
+      const reg = new RegExp('font-');
+      return typeof record === 'string' && record.match(reg);
+    })[0];
+    const currentFontSize = (currentFont) ? parseInt(currentFont.split('font-')[1], 0) : null;
+    const newFontSize = (newFontOperation === '+') ? currentFontSize + 1 : currentFontSize - 1;
+    const newFontCss = (currentFontSize) ? 'font-' + newFontSize : 'font-16';
+    return {currentFont, newFontCss};
   }
 
   onToggleFullScreenClick() {
