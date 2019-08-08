@@ -23,18 +23,16 @@
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="onGridExportExcelClick()">
-      <mat-icon>save_alt</mat-icon>
-      Export Excel
+      <mat-icon>save_alt</mat-icon>Export Excel
     </button>
     <button mat-menu-item (click)="onGridPrintPdfClick()">
-      <mat-icon>print</mat-icon>
-      Print PDF
+      <mat-icon>print</mat-icon>Print PDF
     </button>
     <button mat-menu-item matTooltip="Column Selector" (click)="onColumnSelectorClick()">
-      <mat-icon>settings</mat-icon>
-      Column Selector
+      <mat-icon>settings</mat-icon>Column Selector
     </button>
   </mat-menu>
+
   <button mat-button matTooltip="Expand Grid" (click)="onToggleFullScreenClick()">
     <mat-icon>{{fullScreenRegularBtnIcon}}</mat-icon>
   </button>
