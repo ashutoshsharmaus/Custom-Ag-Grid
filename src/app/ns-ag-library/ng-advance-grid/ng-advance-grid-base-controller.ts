@@ -27,6 +27,14 @@ export abstract class NgAdvanceGridBaseController {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.gridApi.sizeColumnsToFit();
+    this.applyColumnSetting(true);
+  }
+
+  applyColumnSetting(hasSavedColumn) {
+    const savedColumnState = '[{"colId":"ag-Grid-AutoColumn","hide":false,"aggFunc":null,"width":200,"pivotIndex":null,"pinned":null,"rowGroupIndex":null},{"colId":"model","hide":false,"aggFunc":null,"width":102,"pivotIndex":null,"pinned":null,"rowGroupIndex":null},{"colId":"make","hide":false,"aggFunc":null,"width":475,"pivotIndex":null,"pinned":null,"rowGroupIndex":0},{"colId":"price","hide":false,"aggFunc":null,"width":713,"pivotIndex":null,"pinned":null,"rowGroupIndex":null}]';
+    if (hasSavedColumn) {
+      this.gridApi.columnController.setColumnState(JSON.parse(savedColumnState));
+    }
   }
 
   onGroupByChange() {
