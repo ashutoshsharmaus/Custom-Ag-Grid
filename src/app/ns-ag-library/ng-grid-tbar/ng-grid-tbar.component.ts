@@ -127,6 +127,12 @@ export class NgGridTbarComponent implements OnInit {
     columnSelectorDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
   }
 
+  onSaveColumnSettingClick() {
+    debugger;
+    this.gridApi.api.columnController.getColumnState();
+    // TODO - Save the column setting;
+  }
+
   onGroupyByClick() {
     const groupByDialog = this.dialog.open(NgGroupbyGridComponent, {});
     groupByDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
