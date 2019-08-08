@@ -8,12 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class NgAdvanceGridComponent implements OnInit {
   @Input() gridApi: any;
   @Input() gridTitle: string;
-
-  fullScreenActive = false;
-  activeFullScreen = {
-    'full-screen': this.fullScreenActive,
-    'regular-fit': !this.fullScreenActive
-  };
+  @Input() groupByApplied: any;
 
   constructor() {
   }

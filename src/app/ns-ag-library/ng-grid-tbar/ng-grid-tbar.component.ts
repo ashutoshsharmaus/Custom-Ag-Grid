@@ -12,6 +12,7 @@ export class NgGridTbarComponent implements OnInit {
   @Input() gridApi: any;
   @Input() gridTitle: string;
   @Input() nsAdvanceGridWrapper: any;
+  @Input() groupByApplied: any;
 
   fullScreenRegularBtnIcon = 'fullscreen';
   hideTitle = true;

@@ -1,4 +1,5 @@
 export abstract class NgAdvanceGridBaseController {
+
   columnDefinition: any;
   rowData: any;
   gridColumnApi: any;
@@ -20,13 +21,15 @@ export abstract class NgAdvanceGridBaseController {
   getRowHeight = 50;
   enableRangeSelection = 'true';
 
+  groupByApplied = false;
+
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.gridApi.sizeColumnsToFit();
   }
 
-  onCellChanged() {
-
+  onGroupByChange() {
+    (this.gridColumnApi.getRowGroupColumns().length > 0) ? this.groupByApplied = true : this.groupByApplied = false;
   }
 }
