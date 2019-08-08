@@ -11,6 +11,7 @@ import {NgGroupbyGridComponent} from '../ng-groupby-grid/ng-groupby-grid.compone
 export class NgGridTbarComponent implements OnInit {
   @Input() gridApi: any;
   @Input() gridTitle: string;
+  @Input() nsAdvanceGridWrapper: any;
 
   fullScreenActive = false;
   fullScreenRegularBtnIcon = 'fullscreen';

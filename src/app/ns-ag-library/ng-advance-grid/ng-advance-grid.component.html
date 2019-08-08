@@ -1,6 +1,9 @@
-<div [ngClass]="activeFullScreen">
+<div #nsAdvanceGridWrapper [ngClass]="activeFullScreen">
   <div class="regular-fit">
-    <app-ng-grid-tbar [gridApi]="gridApi" [gridTitle]="gridTitle"></app-ng-grid-tbar>
+    <app-ng-grid-tbar [gridApi]="gridApi"
+                      [gridTitle]="gridTitle"
+                      [nsAdvanceGridWrapper]="nsAdvanceGridWrapper">
+    </app-ng-grid-tbar>
     <ng-content></ng-content>
   </div>
 </div>
