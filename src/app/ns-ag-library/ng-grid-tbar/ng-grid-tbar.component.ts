@@ -16,7 +16,7 @@ export class NgGridTbarComponent implements OnInit {
   @Input() groupByApplied: any;
 
   fullScreenRegularBtnIcon = 'fullscreen';
-  hideTitle = true;
+  hideTitle = false;
   hideAdvanceSearch = true;
   hideGroupBy: false;
   hideFontSizeChange: false;
