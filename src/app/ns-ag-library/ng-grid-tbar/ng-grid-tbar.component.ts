@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {NgColumnSelectorComponent} from '../ng-column-selector/ng-column-selector.component';
 import {NgGroupbyGridComponent} from '../ng-groupby-grid/ng-groupby-grid.component';
+import {NgFilterModalComponent} from '../ng-filter-modal/ng-filter-modal.component';
 
 @Component({
   selector: 'app-ng-grid-tbar',
@@ -129,6 +130,11 @@ export class NgGridTbarComponent implements OnInit {
   onGroupyByClick() {
     const groupByDialog = this.dialog.open(NgGroupbyGridComponent, {});
     groupByDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
+  }
+
+  onFilterBtnClick() {
+    const filterDialog = this.dialog.open(NgFilterModalComponent, {});
+    filterDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
   }
 
 }

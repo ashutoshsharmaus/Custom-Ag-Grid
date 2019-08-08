@@ -45,7 +45,8 @@ import { NgFilterModalComponent } from './ns-ag-library/ng-filter-modal/ng-filte
   bootstrap: [AppComponent],
   entryComponents: [
     NgGroupbyGridComponent,
-    NgColumnSelectorComponent
+    NgColumnSelectorComponent,
+    NgFilterModalComponent,
   ]
 })
 export class AppModule { }
