@@ -14,8 +14,8 @@ export class NgGridTbarComponent implements OnInit {
   @Input() nsAdvanceGridWrapper: any;
 
   fullScreenRegularBtnIcon = 'fullscreen';
-  hideTitle: false;
-  hideAdvanceSearch: false;
+  hideTitle = true;
+  hideAdvanceSearch = true;
   hideGroupBy: false;
   hideFontSizeChange: false;
   hideHamburgerMenu: false;
@@ -23,6 +23,7 @@ export class NgGridTbarComponent implements OnInit {
   hidePrintPDF: false;
   hideDownloadPDF: false;
   hideCustomizeReporting: false;
+  appliedGroupBy = true;
   filterCount = '(0)';
   groupByCount = '(0)';
 
