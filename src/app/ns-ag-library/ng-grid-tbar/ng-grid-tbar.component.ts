@@ -13,12 +13,7 @@ export class NgGridTbarComponent implements OnInit {
   @Input() gridTitle: string;
   @Input() nsAdvanceGridWrapper: any;
 
-  fullScreenActive = false;
   fullScreenRegularBtnIcon = 'fullscreen';
-  activeFullScreen = {
-    'full-screen': this.fullScreenActive,
-    'regular-fit': !this.fullScreenActive
-  };
   hideTitle: false;
   hideAdvanceSearch: false;
   hideGroupBy: false;
@@ -118,12 +113,10 @@ export class NgGridTbarComponent implements OnInit {
   }
 
   onToggleFullScreenClick() {
-    this.fullScreenActive = !this.fullScreenActive;
-    this.activeFullScreen = {
-      'full-screen': this.fullScreenActive,
-      'regular-fit': !this.fullScreenActive
-    };
-    this.fullScreenRegularBtnIcon = (this.fullScreenActive) ? 'fullscreen_exit' : 'fullscreen';
+    const gridWrapperClassList = this.nsAdvanceGridWrapper.classList;
+    const activeFullScreen = !gridWrapperClassList.contains('full-screen');
+    (activeFullScreen) ? gridWrapperClassList.add('full-screen') : gridWrapperClassList.remove('full-screen');
+    this.fullScreenRegularBtnIcon = (activeFullScreen) ? 'fullscreen_exit' : 'fullscreen';
   }
 
   onColumnSelectorClick() {
