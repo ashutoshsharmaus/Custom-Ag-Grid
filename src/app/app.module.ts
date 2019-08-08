@@ -17,6 +17,7 @@ import {NgSampleGridComponent} from './ng-showcase/ng-sample-grid/ng-sample-grid
 import {HttpClientModule} from '@angular/common/http';
 import { NgGroupbyGridComponent } from './ns-ag-library/ng-groupby-grid/ng-groupby-grid.component';
 import {NgAdvanceGridModule} from './ns-ag-library/ng-advance-grid/ng-advance-grid.module';
+import { NgFilterModalComponent } from './ns-ag-library/ng-filter-modal/ng-filter-modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {NgAdvanceGridModule} from './ns-ag-library/ng-advance-grid/ng-advance-gr
     NgColumnSelectorComponent,
     NgShowcaseComponent,
     NgSampleGridComponent,
-    NgGroupbyGridComponent
+    NgGroupbyGridComponent,
+    NgFilterModalComponent
   ],
   imports: [
     BrowserAnimationsModule,
