@@ -25,4 +25,8 @@ export abstract class NgAdvanceGridBaseController {
     this.gridColumnApi = params.columnApi;
     this.gridApi.sizeColumnsToFit();
   }
+
+  onCellChanged() {
+
+  }
 }
