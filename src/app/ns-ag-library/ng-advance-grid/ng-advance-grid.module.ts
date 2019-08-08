@@ -11,6 +11,7 @@ import {
 } from '@angular/material';
 import {NgAdvanceGridComponent} from './ng-advance-grid.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {NgGridTbarModule} from '../ng-grid-tbar/ng-grid-tbar.module';
 
 
 
@@ -33,6 +34,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatOptionModule,
     MatSelectModule,
     MatFormFieldModule,
+    NgGridTbarModule,
   ],
   exports: [
     MatButtonModule,

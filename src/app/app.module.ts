@@ -12,7 +12,6 @@ import {
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgColumnSelectorComponent } from './ns-ag-library/ng-column-selector/ng-column-selector.component';
-import { NgGridTbarComponent } from './ns-ag-library/ng-grid-tbar/ng-grid-tbar.component';
 import { NgShowcaseComponent } from './ng-showcase/ng-showcase.component';
 import {NgSampleGridComponent} from './ng-showcase/ng-sample-grid/ng-sample-grid.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -23,7 +22,6 @@ import {NgAdvanceGridModule} from './ns-ag-library/ng-advance-grid/ng-advance-gr
   declarations: [
     AppComponent,
     NgColumnSelectorComponent,
-    NgGridTbarComponent,
     NgShowcaseComponent,
     NgSampleGridComponent,
     NgGroupbyGridComponent
