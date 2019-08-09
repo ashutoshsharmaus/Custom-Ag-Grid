@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { NgGroupbyGridComponent } from './ns-ag-library/ng-groupby-grid/ng-groupby-grid.component';
 import {NgAdvanceGridModule} from './ns-ag-library/ng-advance-grid/ng-advance-grid.module';
 import { NgFilterModalComponent } from './ns-ag-library/ng-filter-modal/ng-filter-modal.component';
+import {EquipmentIdComponent} from './ns-ag-library/ng-advance-grid/ns-custom-column/equipment-id/equipment-id.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { NgFilterModalComponent } from './ns-ag-library/ng-filter-modal/ng-filte
     NgAdvanceGridModule,
     BrowserModule,
     AppRoutingModule,
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([
+      EquipmentIdComponent
+    ]),
     HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {NgAdvanceGridBaseController} from '../../ns-ag-library/ng-advance-grid/ng-advance-grid-base-controller';
+import {EquipmentIdComponent} from '../../ns-ag-library/ng-advance-grid/ns-custom-column/equipment-id/equipment-id.component';
 
 @Component({
   selector: 'app-ng-sample-grid',
@@ -33,6 +34,11 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
       filter: true,
       enableRowGroup: true,
       width: 300
+    },
+    {
+      headerName: 'Equipment Id',
+      field: 'price',
+      cellRendererFramework: EquipmentIdComponent,
     }
   ];
 

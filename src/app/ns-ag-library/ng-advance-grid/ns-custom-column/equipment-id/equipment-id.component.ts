@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, TemplateRef} from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
 import { IAfterGuiAttachedParams } from 'ag-grid-community';
@@ -10,6 +10,8 @@ import { IAfterGuiAttachedParams } from 'ag-grid-community';
   styleUrls: ['./equipment-id.component.scss']
 })
 export class EquipmentIdComponent implements ICellRendererAngularComp {
+  template: TemplateRef<any>;
+  templateContext: { $implicit: any, params: any };
 
   constructor() { }
 
@@ -17,11 +19,18 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
   }
 
   agInit(params: ICellRendererParams): void {
+    this.refresh(params);
   }
 
   refresh(params: any): boolean {
-    return false;
+    this.templateContext = {
+      $implicit: params.data,
+      params
+    };
+    return true;
   }
 
-
+  onEquipmentIdClick(params) {
+    debugger;
+  }
 }
