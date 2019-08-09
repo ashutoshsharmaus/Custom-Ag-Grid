@@ -9,12 +9,14 @@ import { IAfterGuiAttachedParams } from 'ag-grid-community';
   styleUrls: ['./event-code.component.scss']
 })
 export class EventCodeComponent implements ICellRendererAngularComp {
+  eventCode: string;
   templateContext: { $implicit: any, params: any };
 
   afterGuiAttached(params?: IAfterGuiAttachedParams): void {
   }
 
   agInit(params: ICellRendererParams): void {
+    this.eventCode = params.getValue();
     this.refresh(params);
   }
 
