@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./ng-filter-modal.component.scss']
 })
 export class NgFilterModalComponent implements OnInit {
-  @Input() gridColumnApi: any;
+  @Input() gridApi: any;
 
   constructor() {
   }

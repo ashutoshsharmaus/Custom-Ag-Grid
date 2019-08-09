@@ -135,7 +135,7 @@ export class NgGridTbarComponent implements OnInit {
   onRemoveColumnSettingClick() {
     const userId = 'P4SEH';
     const savedColumnId = 'Something';
-    //TODO-This will remove the column setting
+    // TODO-This will remove the column setting
   }
 
   onGroupyByClick() {
@@ -145,7 +145,7 @@ export class NgGridTbarComponent implements OnInit {
 
   onFilterBtnClick() {
     const filterDialog = this.dialog.open(NgFilterModalComponent, {});
-    filterDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
+    filterDialog.componentInstance.gridApi = this.gridApi;
   }
 
 }
