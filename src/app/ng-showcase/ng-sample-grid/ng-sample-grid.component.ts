@@ -13,11 +13,9 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
   columnDefinition = [
     {
       headerName: 'make',
-      field: 'make', sortable: true,
+      field: 'make',
+      sortable: true,
       filter: true,
-      enableRowGroup: true,
-      // checkboxSelection: true,
-      // rowGroup: true
     },
     {
       headerName: 'model',

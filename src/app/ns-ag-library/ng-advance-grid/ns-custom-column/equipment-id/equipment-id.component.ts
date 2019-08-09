@@ -10,8 +10,8 @@ import { IAfterGuiAttachedParams } from 'ag-grid-community';
   styleUrls: ['./equipment-id.component.scss']
 })
 export class EquipmentIdComponent implements ICellRendererAngularComp {
-  template: TemplateRef<any>;
   templateContext: { $implicit: any, params: any };
+  equipmentId: string;
 
   constructor() { }
 
@@ -27,6 +27,7 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
       $implicit: params.data,
       params
     };
+    this.equipmentId = params.getValue();
     return true;
   }
 
