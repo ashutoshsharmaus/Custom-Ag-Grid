@@ -41,8 +41,12 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
   }
 
   applyWatchlistIcon() {
-    const something = (Math.random() * 100 >= 50);
-    (something) ? this.watchlistIcon = 'star' : this.watchlistIcon = 'star_border';
+    (this.checkOnWatch()) ? this.watchlistIcon = 'star' : this.watchlistIcon = 'star_border';
+  }
+
+  checkOnWatch() {
+    const savedWatchList = ['dsasdfa', 35000, 72000];
+    return savedWatchList.includes(this.equipmentId);
   }
 
   onEquipmentIdClick(params) {
