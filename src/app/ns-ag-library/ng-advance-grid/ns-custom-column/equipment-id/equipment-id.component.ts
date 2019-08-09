@@ -42,7 +42,6 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
   }
 
   onEquipmentIdClick(params) {
-    debugger;
     const equipmentId = params.currentTarget.attributes['equipment-id'].value;
     alert('You clicked: ' + equipmentId);
   }
