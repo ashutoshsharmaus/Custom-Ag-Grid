@@ -9,8 +9,8 @@
 
   <button matTooltip="Group By" (click)="onFilterBtnClick()">Filter {{filterCount}}</button>
   <button matTooltip="Group By" (click)="onGroupyByClick()">Group By {{groupByCount}}</button>
-  <button [hidden]="!groupByApplied" matTooltip="Group By +" (click)="onGroupByPlus()">+</button>
-  <button [hidden]="!groupByApplied" matTooltip="Group By -" (click)="onGroupByMinus()">-</button>
+  <button mat-button *ngIf="groupByApplied" matTooltip="Group By +" (click)="onGroupByPlus()">+</button>
+  <button mat-button *ngIf="groupByApplied" matTooltip="Group By -" (click)="onGroupByMinus()">-</button>
   <button mat-button matTooltip="Increase Font Size" (click)="onIncreaseFontSizeClick()">
     <mat-icon>zoom_in</mat-icon>
   </button>
