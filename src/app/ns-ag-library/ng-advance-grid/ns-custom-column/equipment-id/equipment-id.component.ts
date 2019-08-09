@@ -37,7 +37,7 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
   }
 
   onWatchListClick() {
-    this.watchlistIcon =  (this.watchlistIcon === 'start') ? 'star_border' :  'start';
+    this.watchlistIcon =  (this.watchlistIcon === 'star') ? 'star_border' :  'star';
   }
 
   applyWatchlistIcon() {
