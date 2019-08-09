@@ -29,4 +29,8 @@ export class EventCodeComponent implements ICellRendererAngularComp {
     };
     return true;
   }
+
+  onEventCodeClick() {
+    alert(this.eventCode);
+  }
 }

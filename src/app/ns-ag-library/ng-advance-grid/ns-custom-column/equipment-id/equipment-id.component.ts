@@ -49,8 +49,7 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
     return savedWatchList.includes(this.equipmentId);
   }
 
-  onEquipmentIdClick(params) {
-    const equipmentId = params.currentTarget.attributes['equipment-id'].value;
-    alert('You clicked: ' + equipmentId);
+  onEquipmentIdClick() {
+    alert('You clicked: ' + this.equipmentId);
   }
 }
