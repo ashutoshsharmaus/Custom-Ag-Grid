@@ -1,5 +1,5 @@
 <div>
-  <label [hidden]="hideTitle"> {{gridTitle}} </label>
+  <label *ngIf="showTitle"> {{gridTitle}} </label>
 
   <mat-form-field>
     <input matInput placeholder="Advance Search" (keyup)="onAdvanceSearchType($event)">

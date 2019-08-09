@@ -16,15 +16,15 @@ export class NgGridTbarComponent implements OnInit {
   @Input() groupByApplied: any;
 
   fullScreenRegularBtnIcon = 'fullscreen';
-  hideTitle = false;
-  hideAdvanceSearch = true;
-  hideGroupBy: false;
-  hideFontSizeChange: false;
-  hideHamburgerMenu: false;
-  hidePrintExcel: false;
-  hidePrintPDF: false;
-  hideDownloadPDF: false;
-  hideCustomizeReporting: false;
+  showTitle = true;
+  showAdvanceSearch = true;
+  showGroupBy: true;
+  showFontSizeChange: true;
+  showHamburgerMenu: true;
+  showPrintExcel: true;
+  showPrintPDF: true;
+  showDownloadPDF: true;
+  showCustomizeReporting: true;
   appliedGroupBy = true;
   filterCount = '(0)';
   groupByCount = '(0)';
