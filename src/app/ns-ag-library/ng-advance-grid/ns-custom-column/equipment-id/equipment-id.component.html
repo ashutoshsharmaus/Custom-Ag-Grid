@@ -1,2 +1,5 @@
-<button><mat-icon>{{watchlistIcon}}</mat-icon></button>
-<button (click)="onEquipmentIdClick($event)" [attr.equipment-id]="equipmentId"> {{equipmentId}}</button>
+<div [hidden]="hideButton">
+  <button><mat-icon>{{watchlistIcon}}</mat-icon></button>
+  <button (click)="onEquipmentIdClick($event)" [attr.equipment-id]="equipmentId"> {{equipmentId}}</button>
+</div>
+

@@ -1,4 +1,4 @@
-import {Component, TemplateRef} from '@angular/core';
+import {Component} from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
 import { IAfterGuiAttachedParams } from 'ag-grid-community';
@@ -14,12 +14,16 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
   equipmentId: string;
   watchlistIcon: string;
 
+  hideButton = false;
+
   constructor() { }
 
   afterGuiAttached(params?: IAfterGuiAttachedParams): void {
   }
 
   agInit(params: ICellRendererParams): void {
+    this.equipmentId = params.getValue();
+    (!params.getValue()) ? this.hideButton = true : this.hideButton = false;
     this.applyWatchlistIcon();
     this.refresh(params);
   }
@@ -29,7 +33,6 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
       $implicit: params.data,
       params
     };
-    this.equipmentId = params.getValue();
     return true;
   }
 
