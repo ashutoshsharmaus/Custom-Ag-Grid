@@ -24,7 +24,7 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
   agInit(params: ICellRendererParams): void {
     this.equipmentId = params.getValue();
     (!params.getValue()) ? this.hideButton = true : this.hideButton = false;
-    this.applyWatchlistIcon();
+    if (params.getValue()) { this.applyWatchlistIcon(); }
     this.refresh(params);
   }
 
