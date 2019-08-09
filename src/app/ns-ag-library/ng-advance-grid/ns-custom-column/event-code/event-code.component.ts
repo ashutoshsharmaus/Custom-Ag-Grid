@@ -9,6 +9,7 @@ import { IAfterGuiAttachedParams } from 'ag-grid-community';
   styleUrls: ['./event-code.component.scss']
 })
 export class EventCodeComponent implements ICellRendererAngularComp {
+  hideEventCode = false;
   eventCode: string;
   templateContext: { $implicit: any, params: any };
 
@@ -17,6 +18,7 @@ export class EventCodeComponent implements ICellRendererAngularComp {
 
   agInit(params: ICellRendererParams): void {
     this.eventCode = params.getValue();
+    (!params.getValue()) ? this.hideEventCode = true : this.hideEventCode = false;
     this.refresh(params);
   }
 
