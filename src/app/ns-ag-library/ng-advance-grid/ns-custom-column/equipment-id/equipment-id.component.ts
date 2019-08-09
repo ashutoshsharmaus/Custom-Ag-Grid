@@ -12,6 +12,7 @@ import { IAfterGuiAttachedParams } from 'ag-grid-community';
 export class EquipmentIdComponent implements ICellRendererAngularComp {
   templateContext: { $implicit: any, params: any };
   equipmentId: string;
+  watchlistIcon: string;
 
   constructor() { }
 
@@ -19,6 +20,7 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
   }
 
   agInit(params: ICellRendererParams): void {
+    this.applyWatchlistIcon();
     this.refresh(params);
   }
 
@@ -31,10 +33,14 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
     return true;
   }
 
+  applyWatchlistIcon() {
+    const something = (Math.random() * 100 >= 50);
+    (something) ? this.watchlistIcon = 'star' : this.watchlistIcon = 'star_border';
+  }
+
   onEquipmentIdClick(params) {
     debugger;
     const equipmentId = params.currentTarget.attributes['equipment-id'].value;
-
     alert('You clicked: ' + equipmentId);
   }
 }
