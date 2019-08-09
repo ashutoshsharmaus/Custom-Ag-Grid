@@ -19,6 +19,7 @@ import { NgGroupbyGridComponent } from './ns-ag-library/ng-groupby-grid/ng-group
 import {NgAdvanceGridModule} from './ns-ag-library/ng-advance-grid/ng-advance-grid.module';
 import { NgFilterModalComponent } from './ns-ag-library/ng-filter-modal/ng-filter-modal.component';
 import {EquipmentIdComponent} from './ns-ag-library/ng-advance-grid/ns-custom-column/equipment-id/equipment-id.component';
+import {EventCodeComponent} from './ns-ag-library/ng-advance-grid/ns-custom-column/event-code/event-code.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {EquipmentIdComponent} from './ns-ag-library/ng-advance-grid/ns-custom-co
     BrowserModule,
     AppRoutingModule,
     AgGridModule.withComponents([
-      EquipmentIdComponent
+      EquipmentIdComponent,
+      EventCodeComponent
     ]),
     HttpClientModule,
     BrowserAnimationsModule,
