@@ -128,9 +128,14 @@ export class NgGridTbarComponent implements OnInit {
   }
 
   onSaveColumnSettingClick() {
-    debugger;
     this.gridApi.api.columnController.getColumnState();
     // TODO - Save the column setting;
+  }
+
+  onRemoveColumnSettingClick() {
+    const userId = 'P4SEH';
+    const savedColumnId = 'Something';
+    //TODO-This will remove the column setting
   }
 
   onGroupyByClick() {
