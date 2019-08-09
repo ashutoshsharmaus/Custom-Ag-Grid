@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {NgAdvanceGridBaseController} from '../../ns-ag-library/ng-advance-grid/ng-advance-grid-base-controller';
 import {EquipmentIdComponent} from '../../ns-ag-library/ng-advance-grid/ns-custom-column/equipment-id/equipment-id.component';
+import {EventCodeComponent} from '../../ns-ag-library/ng-advance-grid/ns-custom-column/event-code/event-code.component';
 
 @Component({
   selector: 'app-ng-sample-grid',
@@ -37,6 +38,11 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
       headerName: 'Equipment Id',
       field: 'price',
       cellRendererFramework: EquipmentIdComponent,
+    },
+    {
+      headerName: 'Event Code',
+      field: 'make',
+      cellRendererFramework: EventCodeComponent,
     }
   ];
 
