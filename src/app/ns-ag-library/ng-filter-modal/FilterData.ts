@@ -7,6 +7,7 @@ export class FilterData {
   private dataType: string;
   private filterBoxId: string;
   private formControl: FormControl;
+  private filterCategory: string;
   filterData = [];
 
   constructor(column, columnHeader, formControl) {
@@ -18,6 +19,14 @@ export class FilterData {
 
   get getFormControl(): FormControl {
     return this.formControl;
+  }
+
+  set setFilterCategory(value: string) {
+    this.filterCategory = value;
+  }
+
+  get getFilterCategory(): string {
+    return this.filterCategory;
   }
 
   set setFormControl(value: FormControl) {
