@@ -29,7 +29,7 @@ export class NgFilterModalComponent implements OnInit {
     const columns = this.gridApi.columnApi.getAllColumns();
     columns.forEach(column => {
       if (column.visible && column.isFilterAllowed()) {
-        this.newFilterDataSet.push(new FilterData(column.colId));
+        this.newFilterDataSet.push(new FilterData(column.colDef.headerName, column.colId));
       }
     });
   }
