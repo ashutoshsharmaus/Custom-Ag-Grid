@@ -8,7 +8,7 @@
   <mat-form-field *ngFor="let newFilterData of newFilterDataSet">
     <mat-select placeholder="{{newFilterData.getColumnHeader}}" [formControl]="newFilterData.getFormControl" multiple>
       <mat-select-trigger> {{newFilterData.getFormControl.value}}</mat-select-trigger>
-      <button>Select All</button>
+      <button (click)="onSelectAllClick($event)" [attr.combobox-column] = newFilterData.getColumn>Select All</button>
       <button>Clear All</button>
       <mat-option *ngFor="let filterData of newFilterData.getFilterData" [value]="filterData">
         {{filterData}}

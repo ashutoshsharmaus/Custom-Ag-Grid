@@ -67,6 +67,11 @@ export class NgFilterModalComponent implements OnInit {
     });
   }
 
+  onSelectAllClick(event) {
+    const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
+    debugger;
+  }
+
   onFilterModalClose() {
     this.dialogRef.close();
   }
