@@ -23,7 +23,6 @@ export class NgFilterModalComponent implements OnInit {
   createFilterBox() {
     this.getFilterableColumnProperties();
     this.populateFilterDataSet();
-    debugger;
   }
 
   getFilterableColumnProperties() {
