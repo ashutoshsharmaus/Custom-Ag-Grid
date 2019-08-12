@@ -55,16 +55,19 @@ export class NgFilterModalComponent implements OnInit {
     });
   }
 
-  onFilterModalClose() {
-    this.dialogRef.close();
-  }
-
   onFilterApply() {
     this.applyFilterOnGrid();
     this.dialogRef.close();
   }
 
   applyFilterOnGrid() {
-    debugger;
+    const filterDataSetIndex = new Map();
+    this.newFilterDataSet.forEach((record, index) => {
+      filterDataSetIndex.set(record.getColumn, index);
+    });
+  }
+
+  onFilterModalClose() {
+    this.dialogRef.close();
   }
 }
