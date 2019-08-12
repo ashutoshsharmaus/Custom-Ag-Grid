@@ -1,12 +1,14 @@
 export class FilterData {
+  private columnHeader: string;
   private column: string;
   private filterType: string;
   private dataType: string;
   private filterBoxId: string;
   private filterData = [];
 
-  constructor(column) {
+  constructor(column, columnHeader) {
     this.column = column;
+    this.columnHeader = columnHeader;
     this.filterBoxId = column + 'filterBoxId';
   }
 
