@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FilterData} from './FilterData';
+import {MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-ng-filter-modal',
@@ -13,7 +14,7 @@ export class NgFilterModalComponent implements OnInit {
   newFilterDataSet: Array<FilterData> = [];
 
 
-  constructor() {
+  constructor(private dialogRef: MatDialogRef<NgFilterModalComponent>) {
   }
 
   ngOnInit() {
@@ -50,5 +51,13 @@ export class NgFilterModalComponent implements OnInit {
         }
       });
     });
+  }
+
+  onFilterModalClose() {
+    this.dialogRef.close();
+  }
+
+  onFilterApply() {
+    this.dialogRef.close();
   }
 }
