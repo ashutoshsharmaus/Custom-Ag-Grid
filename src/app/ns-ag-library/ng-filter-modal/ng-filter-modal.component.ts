@@ -7,9 +7,10 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class NgFilterModalComponent implements OnInit {
   @Input() gridApi: any;
+
   gridData: any;
   gridFilterByColumnId = [];
-
+  filterDataSet = {};
 
   constructor() {
   }
@@ -24,9 +25,16 @@ export class NgFilterModalComponent implements OnInit {
 
   initializeGridData() {
     this.gridData = this.gridApi.rowData;
-    const columns = this.gridApi.columnApi.getColumnState();
+    const columns = this.gridApi.columnApi.getAllColumns();
     columns.forEach(column => {
-      if (!column.hide) { this.gridFilterByColumnId.push(column.colId); }
+      if (column.visible && column.isFilterAllowed()) {
+        this.filterDataSet[column.colId] = {
+          filterType: '',
+          dataType: '',
+          filterBoxId: '',
+          filterData: []
+        };
+      }
     });
   }
 }
