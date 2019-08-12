@@ -1,15 +1,27 @@
+import {FormControl} from '@angular/forms';
+
 export class FilterData {
   private columnHeader: string;
   private column: string;
   private filterType: string;
   private dataType: string;
   private filterBoxId: string;
+  private formControl: FormControl;
   filterData = [];
 
-  constructor(column, columnHeader) {
+  constructor(column, columnHeader, formControl) {
     this.column = column;
     this.columnHeader = columnHeader;
     this.filterBoxId = column + 'filterBoxId';
+    this.formControl = formControl;
+  }
+
+  get getFormControl(): FormControl {
+    return this.formControl;
+  }
+
+  set setFormControl(value: FormControl) {
+    this.formControl = value;
   }
 
   get getColumnHeader(): string {

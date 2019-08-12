@@ -1,5 +1,5 @@
 <mat-form-field *ngFor="let newFilterData of newFilterDataSet">
-  <mat-select placeholder="{{newFilterData.getColumnHeader}}" multiple>
+  <mat-select placeholder="{{newFilterData.getColumnHeader}}" [formControl]="newFilterData.getFormControl" multiple>
     <mat-select-trigger></mat-select-trigger>
     <mat-option *ngFor="let filterData of newFilterData.getFilterData">
       {{filterData}}

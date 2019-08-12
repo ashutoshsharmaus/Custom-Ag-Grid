@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FilterData} from './FilterData';
 import {MatDialogRef} from '@angular/material';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-ng-filter-modal',
@@ -31,7 +32,8 @@ export class NgFilterModalComponent implements OnInit {
     const columns = this.gridApi.columnApi.getAllColumns();
     columns.forEach(column => {
       if (column.visible && column.isFilterAllowed()) {
-        this.newFilterDataSet.push(new FilterData(column.colDef.headerName, column.colId));
+        const newFormControl = new FormControl();
+        this.newFilterDataSet.push(new FilterData(column.colDef.headerName, column.colId, newFormControl));
       }
     });
   }
