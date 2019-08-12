@@ -1,13 +1,15 @@
 <header class="hbox">
   <h1>Filter</h1>
   <p>Saved Filters</p>
-  <button><mat-icon>close</mat-icon></button>
+  <button (click)="onFilterModalClose()"><mat-icon>close</mat-icon></button>
 </header>
 
 <div>
   <mat-form-field *ngFor="let newFilterData of newFilterDataSet">
     <mat-select placeholder="{{newFilterData.getColumnHeader}}" [formControl]="newFilterData.getFormControl" multiple>
       <mat-select-trigger> {{newFilterData.getFormControl.value}}</mat-select-trigger>
+      <button>Select All</button>
+      <button>Clear All</button>
       <mat-option *ngFor="let filterData of newFilterData.getFilterData" [value]="filterData">
         {{filterData}}
       </mat-option>
@@ -16,6 +18,6 @@
 </div>
 
 <footer>
-  <button mat-button (click)="onFilterModalClose()">Cancel</button>
-  <button mat-button (click)="onFilterApply()">Apply</button>
+  <button mat-button (click)="onClearFilterClick()">CLEAR</button>
+  <button mat-button (click)="onFilterApply()">APPLY</button>
 </footer>

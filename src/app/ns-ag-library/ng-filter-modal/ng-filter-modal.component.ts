@@ -70,4 +70,8 @@ export class NgFilterModalComponent implements OnInit {
   onFilterModalClose() {
     this.dialogRef.close();
   }
+
+  onClearFilterClick() {
+    console.log('Lets clear the filter');
+  }
 }
