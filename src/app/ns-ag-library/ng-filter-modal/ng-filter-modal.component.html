@@ -1,11 +1,19 @@
-<mat-form-field *ngFor="let newFilterData of newFilterDataSet">
-  <mat-select placeholder="{{newFilterData.getColumnHeader}}" [formControl]="newFilterData.getFormControl" multiple>
-    <mat-select-trigger> {{newFilterData.getFormControl.value}}</mat-select-trigger>
-    <mat-option *ngFor="let filterData of newFilterData.getFilterData" [value]="filterData">
-      {{filterData}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<header class="hbox">
+  <h1>Filter</h1>
+  <p>Saved Filters</p>
+  <button><mat-icon>close</mat-icon></button>
+</header>
+
+<div>
+  <mat-form-field *ngFor="let newFilterData of newFilterDataSet">
+    <mat-select placeholder="{{newFilterData.getColumnHeader}}" [formControl]="newFilterData.getFormControl" multiple>
+      <mat-select-trigger> {{newFilterData.getFormControl.value}}</mat-select-trigger>
+      <mat-option *ngFor="let filterData of newFilterData.getFilterData" [value]="filterData">
+        {{filterData}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 
 <footer>
   <button mat-button (click)="onFilterModalClose()">Cancel</button>
