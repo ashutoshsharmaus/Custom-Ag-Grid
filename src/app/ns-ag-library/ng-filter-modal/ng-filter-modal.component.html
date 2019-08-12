@@ -1,9 +1,9 @@
-<div *ngFor="let newFilterData of newFilterDataSet">
-  <h1>{{newFilterData.getColumnHeader}}</h1>
+<mat-form-field *ngFor="let newFilterData of newFilterDataSet">
+  <mat-select placeholder="{{newFilterData.getColumnHeader}}" multiple>
+    <mat-select-trigger></mat-select-trigger>
+    <mat-option *ngFor="let filterData of newFilterData.getFilterData">
+      {{filterData}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 
-  <div *ngIf="newFilterData.getDataType !== 'string'">
-    <div *ngFor="let filterData of newFilterData.getFilterData">
-      <p>{{filterData}}</p>
-    </div>
-  </div>
-</div>
