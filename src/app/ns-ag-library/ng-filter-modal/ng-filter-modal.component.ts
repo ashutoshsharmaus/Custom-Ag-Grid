@@ -10,7 +10,8 @@ export class NgFilterModalComponent implements OnInit {
   @Input() gridApi: any;
 
   gridData: any;
-  newFilterDataSet = [];
+  newFilterDataSet: Array<FilterData> = [];
+
 
   constructor() {
   }
@@ -22,6 +23,7 @@ export class NgFilterModalComponent implements OnInit {
   createFilterBox() {
     this.getFilterableColumnProperties();
     this.populateFilterDataSet();
+    debugger;
   }
 
   getFilterableColumnProperties() {

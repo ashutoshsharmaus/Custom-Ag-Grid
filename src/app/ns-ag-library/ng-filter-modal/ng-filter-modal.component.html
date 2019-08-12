@@ -1,1 +1,9 @@
-<p>ng-filter-modal works!</p>
+<div *ngFor="let newFilterData of newFilterDataSet">
+  <h1>{{newFilterData.getColumnHeader}}</h1>
+
+  <div *ngIf="newFilterData.getDataType !== 'string'">
+    <div *ngFor="let filterData of newFilterData.getFilterData">
+      <p>{{filterData}}</p>
+    </div>
+  </div>
+</div>
