@@ -1,6 +1,8 @@
 export abstract class NgAdvanceGridBaseController {
 
   agGridDefaultCss = 'ag-theme-balham ag-grid-style';
+  rowSelectionType = 'multiple';
+  enableGroupEdit = true;
   columnDefinition: any;
   rowData: any;
   gridColumnApi: any;

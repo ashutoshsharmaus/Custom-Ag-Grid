@@ -3,8 +3,8 @@
     #agGrid
     id="my-grid"
     class=" {{agGridDefaultCss}}"
-    rowSelection="multiple"
-    enableGroupEdit="true"
+    rowSelection="{{rowSelectionType}}"
+    enableGroupEdit="{{enableGroupEdit}}"
 
     [rowData]="rowData | async"
     [columnDefs]="columnDefinition"
