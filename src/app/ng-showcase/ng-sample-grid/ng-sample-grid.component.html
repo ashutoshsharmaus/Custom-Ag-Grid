@@ -1,4 +1,5 @@
 <app-ng-advance-grid [gridApi]="agGrid" [gridTitle]="gridTitle" [groupByApplied]="groupByApplied">
+  <button>Apply Filter</button>
   <ag-grid-angular
     #agGrid
     id="my-grid"
@@ -13,6 +14,7 @@
     [enableRangeSelection]="enableRangeSelection"
     [defaultColDef]="defaultColDef"
     [rowHeight]="getRowHeight"
+    isExternalFilterPresent="{{isExternalFilterPresent}}"
 
     (gridReady)="onGridReady($event)"
     (columnRowGroupChanged)="onGroupByChange()"

@@ -22,7 +22,8 @@ export abstract class NgAdvanceGridBaseController {
     filter: true
   };
   getRowHeight = 50;
-  enableRangeSelection = 'true';
+  enableRangeSelection = true;
+  isExternalFilterPresent = true;
 
   groupByApplied = false;
 
@@ -42,10 +43,6 @@ export abstract class NgAdvanceGridBaseController {
 
   onGroupByChange() {
     (this.gridColumnApi.getRowGroupColumns().length > 0) ? this.groupByApplied = true : this.groupByApplied = false;
-  }
-
-  isExternalFilterPresent() {
-    return true;
   }
 
   doesExternalFilterPass(node) {
