@@ -69,7 +69,21 @@ export class NgFilterModalComponent implements OnInit {
 
   onSelectAllClick(event) {
     const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
-    debugger;
+    this.newFilterDataSet.forEach(record => {
+      if (record.getColumn === currentTargetVal) {
+        const allValues = record.getFilterData;
+        record.getFormControl.setValue(allValues);
+      }
+    });
+  }
+
+  onClearAllButton(event) {
+    const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
+    this.newFilterDataSet.forEach(record => {
+      if (record.getColumn === currentTargetVal) {
+        record.getFormControl.setValue(null);
+      }
+    });
   }
 
   onFilterModalClose() {

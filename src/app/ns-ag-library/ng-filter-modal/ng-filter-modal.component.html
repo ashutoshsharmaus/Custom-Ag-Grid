@@ -9,7 +9,7 @@
     <mat-select placeholder="{{newFilterData.getColumnHeader}}" [formControl]="newFilterData.getFormControl" multiple>
       <mat-select-trigger> {{newFilterData.getFormControl.value}}</mat-select-trigger>
       <button (click)="onSelectAllClick($event)" [attr.combobox-column] = newFilterData.getColumn>Select All</button>
-      <button>Clear All</button>
+      <button (click)="onClearAllButton($event)" [attr.combobox-column] = newFilterData.getColumn>Clear All</button>
       <mat-option *ngFor="let filterData of newFilterData.getFilterData" [value]="filterData">
         {{filterData}}
       </mat-option>
