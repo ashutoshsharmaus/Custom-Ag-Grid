@@ -23,9 +23,10 @@ export abstract class NgAdvanceGridBaseController {
   };
   getRowHeight = 50;
   enableRangeSelection = true;
-  isExternalFilterPresent = true;
 
   groupByApplied = false;
+
+  isExternalFilter = false;
 
   onGridReady(params) {
     this.gridApi = params.api;
@@ -45,8 +46,19 @@ export abstract class NgAdvanceGridBaseController {
     (this.gridColumnApi.getRowGroupColumns().length > 0) ? this.groupByApplied = true : this.groupByApplied = false;
   }
 
+
+  isExternalFilterPresent() {
+    return (this.isExternalFilter);
+  }
+
   doesExternalFilterPass(node) {
     console.log('yo');
     return false;
+  }
+
+  onApplyFilterButtonClick() {
+    debugger;
+    this.isExternalFilter = true;
+    this.gridApi.onFilterChanged();
   }
 }
