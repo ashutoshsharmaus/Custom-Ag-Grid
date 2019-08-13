@@ -46,15 +46,6 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
     }
   ];
 
-  autoGroupColumnDef = {
-    headerName: 'Model',
-    field: 'model',
-    cellRenderer: 'agGroupCellRenderer',
-    cellRendererParams: {
-      checkbox: true
-    }
-  };
-
   constructor(private http: HttpClient) {
     super();
   }
