@@ -91,6 +91,8 @@ export class NgFilterModalComponent implements OnInit {
   }
 
   onClearFilterClick() {
-    console.log('Lets clear the filter');
+    this.newFilterDataSet.forEach(record => {
+      record.getFormControl.setValue(null);
+    });
   }
 }
