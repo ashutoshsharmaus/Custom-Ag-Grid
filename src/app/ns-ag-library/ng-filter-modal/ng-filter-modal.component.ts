@@ -12,7 +12,7 @@ export class NgFilterModalComponent implements OnInit {
   @Input() gridApi: any;
 
   gridData: any;
-  newFilterDataSet: Array<FilterData> = [];
+  filterDataSet: Array<FilterData> = [];
 
 
   constructor(private dialogRef: MatDialogRef<NgFilterModalComponent>) {
@@ -33,23 +33,23 @@ export class NgFilterModalComponent implements OnInit {
     columns.forEach(column => {
       if (column.visible && column.isFilterAllowed()) {
         const newFormControl = new FormControl();
-        this.newFilterDataSet.push(new FilterData(column.colDef.headerName, column.colId, newFormControl));
+        this.filterDataSet.push(new FilterData(column.colDef.headerName, column.colId, newFormControl));
       }
     });
   }
 
   populateFilterDataSet() {
     const filterDataSetIndex = new Map();
-    this.newFilterDataSet.forEach((record, index) => {
+    this.filterDataSet.forEach((record, index) => {
       filterDataSetIndex.set(record.getColumn, index);
     });
 
     this.gridData.forEach(record => {
       filterDataSetIndex.forEach((columnIndex, filterColumnId) => {
         const filterIdValue = record[filterColumnId];
-        const isIncluded = this.newFilterDataSet[columnIndex].filterData.includes(filterIdValue);
+        const isIncluded = this.filterDataSet[columnIndex].filterData.includes(filterIdValue);
         if (!isIncluded) {
-          this.newFilterDataSet[columnIndex].filterData.push(filterIdValue);
+          this.filterDataSet[columnIndex].filterData.push(filterIdValue);
         }
       });
     });
@@ -62,14 +62,14 @@ export class NgFilterModalComponent implements OnInit {
 
   applyFilterOnGrid() {
     const filterDataSetIndex = new Map();
-    this.newFilterDataSet.forEach((record, index) => {
+    this.filterDataSet.forEach((record, index) => {
       filterDataSetIndex.set(record.getColumn, index);
     });
   }
 
   onSelectAllClick(event) {
     const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
-    this.newFilterDataSet.forEach(record => {
+    this.filterDataSet.forEach(record => {
       if (record.getColumn === currentTargetVal) {
         const allValues = record.getFilterData;
         record.getFormControl.setValue(allValues);
@@ -79,7 +79,7 @@ export class NgFilterModalComponent implements OnInit {
 
   onClearAllButton(event) {
     const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
-    this.newFilterDataSet.forEach(record => {
+    this.filterDataSet.forEach(record => {
       if (record.getColumn === currentTargetVal) {
         record.getFormControl.setValue(null);
       }
@@ -91,7 +91,7 @@ export class NgFilterModalComponent implements OnInit {
   }
 
   onClearFilterClick() {
-    this.newFilterDataSet.forEach(record => {
+    this.filterDataSet.forEach(record => {
       record.getFormControl.setValue(null);
     });
   }
