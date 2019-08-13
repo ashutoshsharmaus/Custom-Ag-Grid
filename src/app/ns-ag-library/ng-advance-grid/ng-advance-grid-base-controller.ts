@@ -1,5 +1,6 @@
 export abstract class NgAdvanceGridBaseController {
 
+  agGridDefaultCss = 'ag-theme-balham ag-grid-style';
   columnDefinition: any;
   rowData: any;
   gridColumnApi: any;
@@ -39,5 +40,14 @@ export abstract class NgAdvanceGridBaseController {
 
   onGroupByChange() {
     (this.gridColumnApi.getRowGroupColumns().length > 0) ? this.groupByApplied = true : this.groupByApplied = false;
+  }
+
+  isExternalFilterPresent() {
+    return true;
+  }
+
+  doesExternalFilterPass(node) {
+    console.log('yo');
+    return false;
   }
 }
