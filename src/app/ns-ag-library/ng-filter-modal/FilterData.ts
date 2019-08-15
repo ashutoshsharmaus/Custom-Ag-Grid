@@ -1,7 +1,7 @@
 import {FormControl} from '@angular/forms';
 
 export class FilterData {
-  private columnHeader: string;
+  private headerName: string;
   private column: string;
   private filterType: string;
   private dataType: string;
@@ -12,7 +12,7 @@ export class FilterData {
 
   constructor(column, columnHeader, formControl) {
     this.column = column;
-    this.columnHeader = columnHeader;
+    this.headerName = columnHeader;
     this.filterBoxId = column + 'filterBoxId';
     this.formControl = formControl;
   }
@@ -33,12 +33,12 @@ export class FilterData {
     this.formControl = value;
   }
 
-  get getColumnHeader(): string {
-    return this.columnHeader;
+  get getHeaderName(): string {
+    return this.headerName;
   }
 
   set setColumnHeader(value: string) {
-    this.columnHeader = value;
+    this.headerName = value;
   }
 
   get getColumn(): string {

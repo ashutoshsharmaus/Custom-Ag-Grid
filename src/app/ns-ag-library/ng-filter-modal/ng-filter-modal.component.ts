@@ -41,7 +41,7 @@ export class NgFilterModalComponent implements OnInit {
   populateFilterDataSet() {
     const filterDataSetIndex = new Map();
     this.filterDataSet.forEach((record, index) => {
-      filterDataSetIndex.set(record.getColumnHeader, index);
+      filterDataSetIndex.set(record.getHeaderName, index);
     });
 
     this.gridData.forEach(record => {
