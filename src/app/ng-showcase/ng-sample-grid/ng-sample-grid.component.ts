@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {NgAdvanceGridBaseController} from '../../ns-ag-library/ng-advance-grid/ng-advance-grid-base-controller';
 import {EquipmentIdComponent} from '../../ns-ag-library/ng-advance-grid/ns-custom-column/equipment-id/equipment-id.component';
 import {EventCodeComponent} from '../../ns-ag-library/ng-advance-grid/ns-custom-column/event-code/event-code.component';
+import DummyJSON from '../../../assets/dummy/DummyJson.json';
 
 @Component({
   selector: 'app-ng-sample-grid',
@@ -36,12 +37,12 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
     },
     {
       headerName: 'Equipment Id',
-      field: 'price',
+      field: 'equipmentId',
       cellRendererFramework: EquipmentIdComponent,
     },
     {
       headerName: 'Event Code',
-      field: 'make',
+      field: 'eventCode',
       cellRendererFramework: EventCodeComponent,
     }
   ];
@@ -51,7 +52,8 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
   }
 
   ngOnInit() {
-    this.rowData = this.http.get('https://api.myjson.com/bins/15psn9');
+    this.rowData =  DummyJSON;
+    // this.rowData = this.http.get('https://api.myjson.com/bins/15psn9');
   }
 
 }

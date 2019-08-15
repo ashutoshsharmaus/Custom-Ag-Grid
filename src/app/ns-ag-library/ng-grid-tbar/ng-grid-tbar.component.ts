@@ -18,6 +18,7 @@ export class NgGridTbarComponent implements OnInit {
   fullScreenRegularBtnIcon = 'fullscreen';
   showTitle = true;
   showAdvanceSearch = true;
+  showFilterBtn: true;
   showGroupBy: true;
   showFontSizeChange: true;
   showHamburgerMenu: true;
