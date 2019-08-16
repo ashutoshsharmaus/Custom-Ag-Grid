@@ -65,6 +65,7 @@ export class NgFilterModalComponent implements OnInit {
     this.filterDataSet.forEach((record, index) => {
       filterDataSetIndex.set(record.getColumn, index);
     });
+    debugger;
   }
 
   onSelectAllClick(event) {

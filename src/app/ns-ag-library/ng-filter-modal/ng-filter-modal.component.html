@@ -1,17 +1,16 @@
 <div class="ng-filter-modal">
-  <header class="container">
-    <div class="row">
-      <div class="col-sm"><h1>Filter</h1></div>
-      <div class="col-sm"><button class="float-right" (click)="onFilterModalClose()"><mat-icon>close</mat-icon></button></div>
-    </div>
+  <header class="ng-filter-modal-header">
+    <span>Filter</span>
+    <button mat-button class="float-right" (click)="onFilterModalClose()"><mat-icon>close</mat-icon></button>
   </header>
 
-  <section>
+  <section class="ng-filter-modal-section">
+    <h2>General</h2>
     <mat-form-field *ngFor="let filterData of filterDataSet">
       <mat-select placeholder="{{filterData.getHeaderName}}" [formControl]="filterData.getFormControl" multiple>
         <mat-select-trigger> {{filterData.getFormControl.value}}</mat-select-trigger>
-        <button class="link-btn transparent" (click)="onSelectAllClick($event)" [attr.combobox-column] = filterData.getColumn>Select All</button>
-        <button class="link-btn transparent align-right" (click)="onClearAllButton($event)" [attr.combobox-column] = filterData.getColumn>Clear All</button>
+        <button class="link-btn transparent" (click)="onSelectAllClick($event)" [attr.combobox-column]=filterData.getColumn>Select All</button>
+        <button class="link-btn transparent align-right" (click)="onClearAllButton($event)" [attr.combobox-column]=filterData.getColumn>Clear All</button>
         <mat-option *ngFor="let filterData of filterData.getFilterData" [value]="filterData">
           {{filterData}}
         </mat-option>

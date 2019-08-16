@@ -1,25 +1,22 @@
 .ng-filter-modal {
-  min-height: 300px;
+  min-width: 300px;
 }
 
-.link-btn {
-  text-decoration: underline;
-  color: cornflowerblue;
+.ng-filter-modal-section {
+  width: 100%;
+  height: 100%;
+  //background-color: #4f772c;
 }
 
-.transparent {
-  background: transparent;
-  border: transparent;
-}
-
-.float-right {
-  float: right;
-}
-
-.float-left {
-  float: left;
+.ng-filter-modal-header {
+  width: 100%;
+  height: 100%;
+  //background-color: deeppink;
 }
 
 .ng-filter-modal-footer {
+  width: 100%;
+  height: 100%;
+  //background-color: red;
 }
 

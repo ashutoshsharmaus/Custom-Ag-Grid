@@ -4,6 +4,24 @@ html, body {
   height: 95%;
 }
 
+.link-btn {
+  text-decoration: underline;
+  color: cornflowerblue;
+}
+
+.transparent {
+  background: transparent;
+  border: transparent;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
 ///* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "assets/styles/ng_all.scss";
