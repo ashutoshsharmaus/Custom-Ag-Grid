@@ -1,11 +1,10 @@
-.hbox {
-  float: left;
-  flex: 1;
-  width: 100%;
+.ng-filter-modal {
+  min-height: 300px;
 }
 
-.vbox {
-
+.link-btn {
+  text-decoration: underline;
+  color: cornflowerblue;
 }
 
 .transparent {
@@ -13,8 +12,14 @@
   border: transparent;
 }
 
-.btn-link {
-  text-decoration: underline;
-  color: cornflowerblue;
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.ng-filter-modal-footer {
 }
 
