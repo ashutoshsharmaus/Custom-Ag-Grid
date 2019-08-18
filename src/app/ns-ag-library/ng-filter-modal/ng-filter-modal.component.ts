@@ -3,6 +3,32 @@ import {FilterData} from './FilterData';
 import {MatDialogRef} from '@angular/material';
 import {FormControl} from '@angular/forms';
 
+class FilterCategoryBy {
+  private filterCategory: string;
+  private filterCategoryArray: Array<FilterData>;
+
+  constructor(filterCategory, filterCategoryArray) {
+    this.filterCategory = filterCategory;
+    this.filterCategoryArray = filterCategoryArray;
+  }
+
+  get getFilterCategory(): string {
+    return this.filterCategory;
+  }
+
+  set setFilterCategory(value: string) {
+    this.filterCategory = value;
+  }
+
+  get getFilterCategoryArray(): Array<FilterData> {
+    return this.filterCategoryArray;
+  }
+
+  set setFilterCategoryArray(value: Array<FilterData>) {
+    this.filterCategoryArray = value;
+  }
+}
+
 @Component({
   selector: 'app-ng-filter-modal',
   templateUrl: './ng-filter-modal.component.html',
@@ -13,6 +39,7 @@ export class NgFilterModalComponent implements OnInit {
 
   gridData: any;
   filterDataSet: Array<FilterData> = [];
+  filterDataByCategory: Array<FilterCategoryBy> = [];
 
 
   constructor(private dialogRef: MatDialogRef<NgFilterModalComponent>) {
@@ -25,6 +52,7 @@ export class NgFilterModalComponent implements OnInit {
   createFilterBox() {
     this.getFilterableColumnProperties();
     this.populateFilterDataSet();
+    this.populateFilterDataByCategory();
   }
 
   getFilterableColumnProperties() {
@@ -33,7 +61,7 @@ export class NgFilterModalComponent implements OnInit {
     columns.forEach(column => {
       if (column.visible && column.isFilterAllowed()) {
         const newFormControl = new FormControl();
-        this.filterDataSet.push(new FilterData(column.colDef.headerName, column.colId, newFormControl));
+        this.filterDataSet.push(new FilterData(column.colDef.headerName, column.colId, newFormControl, column.filterCategory));
       }
     });
   }
@@ -55,6 +83,23 @@ export class NgFilterModalComponent implements OnInit {
     });
   }
 
+  populateFilterDataByCategory() {
+    const checkInFilterCategory = new Map();
+    let filterDataByCategoryIndex = 0;
+    debugger;
+    this.filterDataSet.forEach(filterData => {
+      const filterCategoryIndex = checkInFilterCategory.get(filterData.getFilterCategory);
+      if (filterCategoryIndex >= 0) {
+        this.filterDataByCategory[filterCategoryIndex].getFilterCategoryArray.push(filterData);
+      } else {
+        const newFilterByCategory = new FilterCategoryBy(filterData.getFilterCategory, [filterData]);
+        this.filterDataByCategory.push(newFilterByCategory);
+        checkInFilterCategory.set(filterData.getFilterCategory, filterDataByCategoryIndex);
+        filterDataByCategoryIndex++;
+      }
+    });
+  }
+
   onFilterApply() {
     this.applyFilterOnGrid();
     this.dialogRef.close();
@@ -65,7 +110,6 @@ export class NgFilterModalComponent implements OnInit {
     this.filterDataSet.forEach((record, index) => {
       filterDataSetIndex.set(record.getColumn, index);
     });
-    debugger;
   }
 
   onSelectAllClick(event) {

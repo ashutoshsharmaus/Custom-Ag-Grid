@@ -10,11 +10,12 @@ export class FilterData {
   private filterCategory: string;
   filterData = [];
 
-  constructor(column, columnHeader, formControl) {
+  constructor(column, columnHeader, formControl, filterCategory) {
     this.column = column;
     this.headerName = columnHeader;
     this.filterBoxId = column + 'filterBoxId';
     this.formControl = formControl;
+    this.filterCategory = (filterCategory) ? filterCategory : 'General';
   }
 
   get getFormControl(): FormControl {
