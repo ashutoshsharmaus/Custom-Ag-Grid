@@ -5,17 +5,19 @@
   </header>
 
   <section class="ng-filter-modal-section">
-    <h2>General</h2>
-    <mat-form-field *ngFor="let filterData of filterDataSet">
-      <mat-select placeholder="{{filterData.getHeaderName}}" [formControl]="filterData.getFormControl" multiple>
-        <mat-select-trigger> {{filterData.getFormControl.value}}</mat-select-trigger>
-        <button class="link-btn transparent" (click)="onSelectAllClick($event)" [attr.combobox-column]=filterData.getColumn>Select All</button>
-        <button class="link-btn transparent align-right" (click)="onClearAllButton($event)" [attr.combobox-column]=filterData.getColumn>Clear All</button>
-        <mat-option *ngFor="let filterData of filterData.getFilterData" [value]="filterData">
-          {{filterData}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div *ngFor="let eachCategory of filterDataByCategory">
+      <h2>{{eachCategory.getFilterCategory}}</h2>
+      <mat-form-field *ngFor="let filterData of eachCategory.getFilterCategoryArray">
+        <mat-select placeholder="{{filterData.getHeaderName}}" [formControl]="filterData.getFormControl" multiple>
+          <mat-select-trigger> {{filterData.getFormControl.value}}</mat-select-trigger>
+          <button class="link-btn transparent" (click)="onSelectAllClick($event)" [attr.combobox-column]=filterData.getColumn>Select All</button>
+          <button class="link-btn transparent align-right" (click)="onClearAllButton($event)" [attr.combobox-column]=filterData.getColumn>Clear All</button>
+          <mat-option *ngFor="let filterData of filterData.getFilterData" [value]="filterData">
+            {{filterData}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </section>
 
   <footer class="ng-filter-modal-footer">
