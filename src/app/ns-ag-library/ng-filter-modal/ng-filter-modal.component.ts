@@ -61,7 +61,7 @@ export class NgFilterModalComponent implements OnInit {
     columns.forEach(column => {
       if (column.visible && column.isFilterAllowed()) {
         const newFormControl = new FormControl();
-        this.filterDataSet.push(new FilterData(column.colDef.headerName, column.colId, newFormControl, column.colDef.filterCategory));
+        this.filterDataSet.push(new FilterData(column.colId, column.colDef.headerName,  newFormControl, column.colDef.filterCategory));
       }
     });
   }
