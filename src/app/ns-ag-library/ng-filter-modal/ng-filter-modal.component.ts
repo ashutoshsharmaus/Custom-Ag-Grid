@@ -61,7 +61,7 @@ export class NgFilterModalComponent implements OnInit {
     columns.forEach(column => {
       if (column.visible && column.isFilterAllowed()) {
         const newFormControl = new FormControl();
-        this.filterDataSet.push(new FilterData(column.colDef.headerName, column.colId, newFormControl, column.filterCategory));
+        this.filterDataSet.push(new FilterData(column.colDef.headerName, column.colId, newFormControl, column.colDef.filterCategory));
       }
     });
   }
@@ -86,7 +86,6 @@ export class NgFilterModalComponent implements OnInit {
   populateFilterDataByCategory() {
     const checkInFilterCategory = new Map();
     let filterDataByCategoryIndex = 0;
-    debugger;
     this.filterDataSet.forEach(filterData => {
       const filterCategoryIndex = checkInFilterCategory.get(filterData.getFilterCategory);
       if (filterCategoryIndex >= 0) {
@@ -98,6 +97,7 @@ export class NgFilterModalComponent implements OnInit {
         filterDataByCategoryIndex++;
       }
     });
+    debugger;
   }
 
   onFilterApply() {

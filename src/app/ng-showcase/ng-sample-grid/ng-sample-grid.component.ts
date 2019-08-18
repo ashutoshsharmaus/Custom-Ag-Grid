@@ -18,6 +18,7 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
       field: 'make',
       sortable: true,
       filter: true,
+      filterCategory: 'Something Else'
     },
     {
       headerName: 'model',
