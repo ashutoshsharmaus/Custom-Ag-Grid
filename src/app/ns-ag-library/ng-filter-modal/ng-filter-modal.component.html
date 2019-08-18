@@ -9,7 +9,14 @@
       <h3>{{eachCategory.getFilterCategory}}</h3>
       <mat-form-field *ngFor="let filterData of eachCategory.getFilterCategoryArray">
         <mat-select placeholder="{{filterData.getHeaderName}}" [formControl]="filterData.getFormControl" multiple>
-          <mat-select-trigger> {{filterData.getFormControl.value}}</mat-select-trigger>
+          <mat-select-trigger>
+            {{filterData.getFormControl.value ? filterData.getFormControl.value[0] : ''}}
+
+            <span *ngIf="filterData.getFormControl.value ?.length > 1" class="example-additional-selection">
+            (+{{filterData.getFormControl.value.length - 1}} {{filterData.getFormControl.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+
+          </mat-select-trigger>
           <button class="link-btn transparent" (click)="onSelectAllClick($event)" [attr.combobox-column]=filterData.getColumn>Select All</button>
           <button class="link-btn transparent align-right" (click)="onClearAllButton($event)" [attr.combobox-column]=filterData.getColumn>Clear All</button>
           <mat-option *ngFor="let filterData of filterData.getFilterData" [value]="filterData">
