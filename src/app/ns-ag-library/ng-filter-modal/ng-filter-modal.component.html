@@ -6,7 +6,7 @@
 
   <section class="ng-filter-modal-section">
     <div *ngFor="let eachCategory of filterDataByCategory">
-      <h2>{{eachCategory.getFilterCategory}}</h2>
+      <h3>{{eachCategory.getFilterCategory}}</h3>
       <mat-form-field *ngFor="let filterData of eachCategory.getFilterCategoryArray">
         <mat-select placeholder="{{filterData.getHeaderName}}" [formControl]="filterData.getFormControl" multiple>
           <mat-select-trigger> {{filterData.getFormControl.value}}</mat-select-trigger>

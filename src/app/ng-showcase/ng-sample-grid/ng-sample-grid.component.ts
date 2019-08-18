@@ -18,7 +18,7 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
       field: 'make',
       sortable: true,
       filter: true,
-      filterCategory: 'Something Else'
+      filterCategory: 'Description'
     },
     {
       headerName: 'model',
@@ -27,6 +27,7 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
       filter: true,
       width: 300,
       enableRowGroup: true,
+      filterCategory: 'Description'
     },
     {
       headerName: 'price',
