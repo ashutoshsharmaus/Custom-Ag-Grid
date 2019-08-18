@@ -14,6 +14,16 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
   gridTitle = 'Pacesetter Grid';
   columnDefinition = [
     {
+      headerName: 'Equipment Id',
+      field: 'equipmentId',
+      cellRendererFramework: EquipmentIdComponent,
+    },
+    {
+      headerName: 'Event Code',
+      field: 'eventCode',
+      cellRendererFramework: EventCodeComponent,
+    },
+    {
       headerName: 'make',
       field: 'make',
       sortable: true,
@@ -36,16 +46,6 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
       filter: true,
       enableRowGroup: true,
       width: 300
-    },
-    {
-      headerName: 'Equipment Id',
-      field: 'equipmentId',
-      cellRendererFramework: EquipmentIdComponent,
-    },
-    {
-      headerName: 'Event Code',
-      field: 'eventCode',
-      cellRendererFramework: EventCodeComponent,
     }
   ];
 
