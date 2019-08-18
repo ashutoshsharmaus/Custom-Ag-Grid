@@ -74,7 +74,6 @@ export class NgFilterModalComponent implements OnInit {
 
     this.gridData.forEach(record => {
       filterDataSetIndex.forEach((columnIndex, filterColumnId) => {
-        debugger;
         const filterIdValue = record[filterColumnId];
         const isIncluded = this.filterDataSet[columnIndex].filterData.includes(filterIdValue);
         if (!isIncluded) {
