@@ -97,7 +97,6 @@ export class NgFilterModalComponent implements OnInit {
         filterDataByCategoryIndex++;
       }
     });
-    debugger;
   }
 
   onFilterApply() {
