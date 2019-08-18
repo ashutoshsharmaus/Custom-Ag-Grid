@@ -58,4 +58,8 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
     // this.rowData = this.http.get('https://api.myjson.com/bins/15psn9');
   }
 
+  getCustomizeReportingEndpointDetail(): void {
+    console.log('ok I have implemented this method');
+  }
+
 }

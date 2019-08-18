@@ -3,7 +3,7 @@ export abstract class NgAdvanceGridBaseController {
   agGridDefaultCss = 'ag-theme-balham ag-grid-style';
   rowSelectionType = 'multiple';
   enableGroupEdit = true;
-  columnDefinition: any;
+  columnDefinition: any ;
   rowData: any;
   gridColumnApi: any;
   gridApi: any;
@@ -57,8 +57,9 @@ export abstract class NgAdvanceGridBaseController {
   }
 
   onApplyFilterButtonClick() {
-    debugger;
     this.isExternalFilter = true;
     this.gridApi.onFilterChanged();
   }
+
+  abstract getCustomizeReportingEndpointDetail();
 }
