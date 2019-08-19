@@ -101,7 +101,6 @@ export class NgFilterModalComponent implements OnInit {
 
   onFilterApply() {
     this.applyFilterOnGrid();
-    debugger;
     this.dialogRef.close();
   }
 
