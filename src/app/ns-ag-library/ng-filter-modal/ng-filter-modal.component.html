@@ -12,7 +12,7 @@
           <mat-select-trigger>
             {{filterData.getFormControl.value ? filterData.getFormControl.value[0] : ''}}
 
-            <span *ngIf="filterData.getFormControl.value ?.length > 1" class="example-additional-selection">
+            <span *ngIf="filterData.getFormControl.value ?.length > 1" class="combobox-additional-selection">
             (+{{filterData.getFormControl.value.length - 1}} {{filterData.getFormControl.value?.length === 2 ? 'other' : 'others'}})
             </span>
 
