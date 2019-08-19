@@ -48,17 +48,17 @@ export abstract class NgAdvanceGridBaseController {
     (this.gridColumnApi.getRowGroupColumns().length > 0) ? this.groupByApplied = true : this.groupByApplied = false;
   }
 
-  onApplyFilterButtonClick() {
-    this.isExternalFilter = !this.isExternalFilter;
-    this.gridApi.onFilterChanged();
-  }
-
   isExternalFilterPresent() {
     return this.isExternalFilter;
   }
 
   doesExternalFilterPass(node) {
     return false;
+  }
+
+  onFilterDataChange(data) {
+    this.isExternalFilter = !this.isExternalFilter;
+    this.gridApi.onFilterChanged();
   }
 
   abstract getCustomizeReportingEndpointDetail();

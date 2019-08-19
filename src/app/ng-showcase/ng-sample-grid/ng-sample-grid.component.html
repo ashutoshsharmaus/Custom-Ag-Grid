@@ -1,5 +1,4 @@
-<app-ng-advance-grid [gridApi]="agGrid" [gridTitle]="gridTitle" [groupByApplied]="groupByApplied">
-  <button (click)="onApplyFilterButtonClick()">Apply Filter</button>
+<app-ng-advance-grid [gridApi]="agGrid" [gridTitle]="gridTitle" [groupByApplied]="groupByApplied" (appliedFilterData)="onFilterDataChange($event)">
   <ag-grid-angular
     #agGrid
     id="my-grid"
