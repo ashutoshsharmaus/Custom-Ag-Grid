@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FilterData} from './FilterData';
 import {MatDialogRef} from '@angular/material';
 import {FormControl} from '@angular/forms';
@@ -36,10 +36,12 @@ class FilterCategoryBy {
 })
 export class NgFilterModalComponent implements OnInit {
   @Input() gridApi: any;
+  @Output() appliedFilterData = new EventEmitter();
 
   gridData: any;
   filterDataSet: Array<FilterData> = [];
   filterDataByCategory: Array<FilterCategoryBy> = [];
+  testing = 'this is a test data';
 
 
   constructor(private dialogRef: MatDialogRef<NgFilterModalComponent>) {
@@ -61,7 +63,7 @@ export class NgFilterModalComponent implements OnInit {
     columns.forEach(column => {
       if (column.visible && column.isFilterAllowed()) {
         const newFormControl = new FormControl();
-        this.filterDataSet.push(new FilterData(column.colId, column.colDef.headerName,  newFormControl, column.colDef.filterCategory));
+        this.filterDataSet.push(new FilterData(column.colId, column.colDef.headerName, newFormControl, column.colDef.filterCategory));
       }
     });
   }
@@ -100,7 +102,9 @@ export class NgFilterModalComponent implements OnInit {
   }
 
   onFilterApply() {
+    debugger;
     this.applyFilterOnGrid();
+    this.appliedFilterData.emit('ok something');
     this.dialogRef.close();
   }
 

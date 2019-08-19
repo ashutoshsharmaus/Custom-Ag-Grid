@@ -28,7 +28,7 @@
   </section>
 
   <footer class="ng-filter-modal-footer">
-    <button mat-button class="float-right" (click)="onClearFilterClick()">CLEAR</button>
-    <button mat-button class="float-right" (click)="onFilterApply()">APPLY</button>
-  </footer>
+<button mat-button class="float-right" (click)="onClearFilterClick()">CLEAR</button>
+<button [mat-dialog-close]="testing" mat-button class="float-right" (click)="onFilterApply()">APPLY</button>
+</footer>
 </div>
