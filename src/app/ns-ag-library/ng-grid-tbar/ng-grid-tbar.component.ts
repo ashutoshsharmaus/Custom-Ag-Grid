@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {NgColumnSelectorComponent} from '../ng-column-selector/ng-column-selector.component';
 import {NgGroupbyGridComponent} from '../ng-groupby-grid/ng-groupby-grid.component';
@@ -14,6 +14,7 @@ export class NgGridTbarComponent implements OnInit {
   @Input() gridTitle: string;
   @Input() nsAdvanceGridWrapper: any;
   @Input() groupByApplied: any;
+  @Output() appliedFilterDataEvent: any;
 
   fullScreenRegularBtnIcon = 'fullscreen';
   showTitle = true;
@@ -147,7 +148,7 @@ export class NgGridTbarComponent implements OnInit {
   onFilterBtnClick() {
     const filterDialog = this.dialog.open(NgFilterModalComponent, {});
     filterDialog.componentInstance.appliedFilterDataEvent.subscribe(result => {
-      debugger;
+      this.appliedFilterDataEvent = result;
     });
     filterDialog.componentInstance.gridApi = this.gridApi;
   }
