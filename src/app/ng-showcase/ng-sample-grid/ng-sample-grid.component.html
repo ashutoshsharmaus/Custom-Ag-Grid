@@ -6,15 +6,14 @@
     class="{{agGridDefaultCss}}"
     rowSelection="{{rowSelectionType}}"
     enableGroupEdit="{{enableGroupEdit}}"
-
     [rowData]="rowData"
     [columnDefs]="columnDefinition"
     [statusBar]="statusBar"
     [enableRangeSelection]="enableRangeSelection"
     [defaultColDef]="defaultColDef"
     [rowHeight]="getRowHeight"
-    isExternalFilterPresent="{{isExternalFilterPresent}}"
-    [doesExternalFilterPass]="doesExternalFilterPass"
+    [isExternalFilterPresent]="isExternalFilterPresent()"
+    [doesExternalFilterPass]="doesExternalFilterPass()"
 
     (gridReady)="onGridReady($event)"
     (columnRowGroupChanged)="onGroupByChange()"

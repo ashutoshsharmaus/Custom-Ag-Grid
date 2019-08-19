@@ -61,5 +61,4 @@ export class NgSampleGridComponent extends NgAdvanceGridBaseController implement
   getCustomizeReportingEndpointDetail(): void {
     console.log('ok I have implemented this method');
   }
-
 }

@@ -30,6 +30,8 @@ export abstract class NgAdvanceGridBaseController {
 
   onGridReady(params) {
     this.gridApi = params.api;
+    params.api.gridOptionsWrapper.gridOptions.isExternalFilterPresent = this.isExternalFilterPresent.bind(this);
+    params.api.gridOptionsWrapper.gridOptions.doesExternalFilterPass = this.doesExternalFilterPass.bind(this);
     this.gridColumnApi = params.columnApi;
     this.gridApi.sizeColumnsToFit();
     this.applyColumnSetting(false);
@@ -46,19 +48,17 @@ export abstract class NgAdvanceGridBaseController {
     (this.gridColumnApi.getRowGroupColumns().length > 0) ? this.groupByApplied = true : this.groupByApplied = false;
   }
 
+  onApplyFilterButtonClick() {
+    this.isExternalFilter = !this.isExternalFilter;
+    this.gridApi.onFilterChanged();
+  }
 
   isExternalFilterPresent() {
-    return (this.isExternalFilter);
+    return this.isExternalFilter;
   }
 
   doesExternalFilterPass(node) {
-    console.log('yo');
     return false;
-  }
-
-  onApplyFilterButtonClick() {
-    this.isExternalFilter = true;
-    this.gridApi.onFilterChanged();
   }
 
   abstract getCustomizeReportingEndpointDetail();
