@@ -53,7 +53,8 @@ export abstract class NgAdvanceGridBaseController {
   }
 
   doesExternalFilterPass(node) {
-    return false;
+    const something = Math.random() * 100;
+    return something >= 50;
   }
 
   onFilterDataChange(data) {
