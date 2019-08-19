@@ -36,12 +36,11 @@ class FilterCategoryBy {
 })
 export class NgFilterModalComponent implements OnInit {
   @Input() gridApi: any;
-  @Output() appliedFilterData = new EventEmitter();
+  @Output() appliedFilterDataEvent = new EventEmitter();
 
   gridData: any;
   filterDataSet: Array<FilterData> = [];
   filterDataByCategory: Array<FilterCategoryBy> = [];
-  testing = 'this is a test data';
 
 
   constructor(private dialogRef: MatDialogRef<NgFilterModalComponent>) {
@@ -102,9 +101,8 @@ export class NgFilterModalComponent implements OnInit {
   }
 
   onFilterApply() {
-    debugger;
     this.applyFilterOnGrid();
-    this.appliedFilterData.emit('ok something');
+    this.appliedFilterDataEvent.emit(this.filterDataSet);
     this.dialogRef.close();
   }
 

@@ -146,9 +146,8 @@ export class NgGridTbarComponent implements OnInit {
 
   onFilterBtnClick() {
     const filterDialog = this.dialog.open(NgFilterModalComponent, {});
-    filterDialog.afterClosed().subscribe(result => {
+    filterDialog.componentInstance.appliedFilterDataEvent.subscribe(result => {
       debugger;
-      console.log(result);
     });
     filterDialog.componentInstance.gridApi = this.gridApi;
   }
