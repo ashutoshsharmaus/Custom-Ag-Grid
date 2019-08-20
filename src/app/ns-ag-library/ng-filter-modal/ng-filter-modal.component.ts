@@ -2,32 +2,33 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FilterData} from './FilterData';
 import {MatDialogRef} from '@angular/material';
 import {FormControl} from '@angular/forms';
+import {FilterDataSetByCategory} from './FilterDataSetByCategory';
 
-class FilterCategoryBy {
-  private filterCategory: string;
-  private filterCategoryArray: Array<FilterData>;
-
-  constructor(filterCategory, filterCategoryArray) {
-    this.filterCategory = filterCategory;
-    this.filterCategoryArray = filterCategoryArray;
-  }
-
-  get getFilterCategory(): string {
-    return this.filterCategory;
-  }
-
-  set setFilterCategory(value: string) {
-    this.filterCategory = value;
-  }
-
-  get getFilterCategoryArray(): Array<FilterData> {
-    return this.filterCategoryArray;
-  }
-
-  set setFilterCategoryArray(value: Array<FilterData>) {
-    this.filterCategoryArray = value;
-  }
-}
+// class FilterCategoryBy {
+//   private filterCategory: string;
+//   private filterCategoryArray: Array<FilterData>;
+//
+//   constructor(filterCategory, filterCategoryArray) {
+//     this.filterCategory = filterCategory;
+//     this.filterCategoryArray = filterCategoryArray;
+//   }
+//
+//   get getFilterCategory(): string {
+//     return this.filterCategory;
+//   }
+//
+//   set setFilterCategory(value: string) {
+//     this.filterCategory = value;
+//   }
+//
+//   get getFilterCategoryArray(): Array<FilterData> {
+//     return this.filterCategoryArray;
+//   }
+//
+//   set setFilterCategoryArray(value: Array<FilterData>) {
+//     this.filterCategoryArray = value;
+//   }
+// }
 
 @Component({
   selector: 'app-ng-filter-modal',
@@ -41,7 +42,7 @@ export class NgFilterModalComponent implements OnInit {
 
   gridData: any;
   filterDataSet: Array<FilterData> = [];
-  filterDataByCategory: Array<FilterCategoryBy> = [];
+  filterDataByCategory: Array<FilterDataSetByCategory> = [];
 
 
   constructor(private dialogRef: MatDialogRef<NgFilterModalComponent>) {
@@ -98,7 +99,7 @@ export class NgFilterModalComponent implements OnInit {
       if (filterCategoryIndex >= 0) {
         this.filterDataByCategory[filterCategoryIndex].getFilterCategoryArray.push(filterData);
       } else {
-        const newFilterByCategory = new FilterCategoryBy(filterData.getFilterCategory, [filterData]);
+        const newFilterByCategory = new FilterDataSetByCategory(filterData.getFilterCategory, [filterData]);
         this.filterDataByCategory.push(newFilterByCategory);
         checkInFilterCategory.set(filterData.getFilterCategory, filterDataByCategoryIndex);
         filterDataByCategoryIndex++;
