@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material';
 import {NgColumnSelectorComponent} from '../ng-column-selector/ng-column-selector.component';
 import {NgGroupbyGridComponent} from '../ng-groupby-grid/ng-groupby-grid.component';
 import {NgFilterModalComponent} from '../ng-filter-modal/ng-filter-modal.component';
+import {FilterData} from '../ng-filter-modal/FilterData';
 
 @Component({
   selector: 'app-ng-grid-tbar',
@@ -30,6 +31,7 @@ export class NgGridTbarComponent implements OnInit {
   appliedGroupBy = true;
   filterCount = '(0)';
   groupByCount = '(0)';
+  currentFilter: Array<FilterData>;
 
   constructor(private dialog: MatDialog) {
   }
@@ -148,9 +150,12 @@ export class NgGridTbarComponent implements OnInit {
   onFilterBtnClick() {
     const filterDialog = this.dialog.open(NgFilterModalComponent, {});
     filterDialog.componentInstance.appliedFilterDataEvent.subscribe(result => {
+      this.currentFilter = result;
       this.appliedFilterDataEvent.emit(result);
     });
     filterDialog.componentInstance.gridApi = this.gridApi;
+    debugger;
+    filterDialog.componentInstance.currentlyAppliedFilter = this.currentFilter;
   }
 
 }

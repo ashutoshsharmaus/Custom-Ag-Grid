@@ -36,6 +36,7 @@ class FilterCategoryBy {
 })
 export class NgFilterModalComponent implements OnInit {
   @Input() gridApi: any;
+  @Input() currentlyAppliedFilter: Array<FilterData>;
   @Output() appliedFilterDataEvent = new EventEmitter();
 
   gridData: any;
@@ -51,9 +52,14 @@ export class NgFilterModalComponent implements OnInit {
   }
 
   createFilterBox() {
-    this.getFilterableColumnProperties();
-    this.populateFilterDataSet();
-    this.populateFilterDataByCategory();
+    if (this.currentlyAppliedFilter) {
+      this.filterDataSet = this.currentlyAppliedFilter;
+      this.populateFilterDataByCategory();
+    } else {
+      this.getFilterableColumnProperties();
+      this.populateFilterDataSet();
+      this.populateFilterDataByCategory();
+    }
   }
 
   getFilterableColumnProperties() {
