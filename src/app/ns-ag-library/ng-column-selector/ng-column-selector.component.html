@@ -1,19 +1,19 @@
 <div cdkDropListGroup>
-  <div class="example-container">
+  <div class="column-selector-container">
     <h2>Unselected</h2>
     <div cdkDropList [cdkDropListData]="unSelectedColumn" class="column-selector-list" (cdkDropListDropped)="drop($event)">
       <mat-checkbox class="example-box" *ngFor="let item of unSelectedColumn" cdkDrag>{{item}}</mat-checkbox>
     </div>
   </div>
 
-  <div class="example-container">
+  <div class="column-selector-container">
     <button class="column-selector-list" (click)="onLeftClick()"><mat-icon>arrow_back</mat-icon></button>
     <button class="column-selector-list" (click)="onRightClick()"><mat-icon>arrow_forward</mat-icon></button>
     <button class="column-selector-list" (click)="onRightClick()"><mat-icon>arrow_upward</mat-icon></button>
     <button class="column-selector-list" (click)="onDownClick()"><mat-icon>arrow_downward</mat-icon></button>
   </div>
 
-  <div class="example-container">
+  <div class="column-selector-container">
     <h2>Selected</h2>
     <div cdkDropList [cdkDropListData]="selectedColumn" class="column-selector-list" (cdkDropListDropped)="drop($event)">
       <mat-checkbox class="example-box" *ngFor="let item of selectedColumn" cdkDrag>{{item}}</mat-checkbox>
