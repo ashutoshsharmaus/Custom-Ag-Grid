@@ -60,16 +60,15 @@ export abstract class NgAdvanceGridBaseController {
    * @param node it does something
    */
   doesExternalFilterPass(node): boolean {
-    debugger;
-    let matched = false;
+    const matched: Array<boolean> = [];
     this.appliedFilterDataSet.forEach(filterData => {
       const nodeColumnData = node.data[filterData.getColumn];
       const selectedValues = filterData.getFormControl.value;
       if (selectedValues) {
-        matched = selectedValues.includes(nodeColumnData);
+        matched.push(selectedValues.includes(nodeColumnData));
       }
     });
-    return matched;
+    return !matched.includes(false);
   }
 
   onFilterDataChange(filterDataSet: Array<FilterData >): void {
