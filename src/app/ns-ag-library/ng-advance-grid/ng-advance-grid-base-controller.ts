@@ -1,3 +1,5 @@
+import {FilterData} from '../ng-filter-modal/FilterData';
+
 export abstract class NgAdvanceGridBaseController {
 
   agGridDefaultCss = 'ag-theme-balham ag-grid-style';
@@ -27,6 +29,7 @@ export abstract class NgAdvanceGridBaseController {
   groupByApplied = false;
 
   appliedExternalFilter = false;
+  appliedFilterDataSet: Array<FilterData >;
 
   onGridReady(params) {
     this.gridApi = params.api;
@@ -37,28 +40,35 @@ export abstract class NgAdvanceGridBaseController {
     this.applyColumnSetting(false);
   }
 
-  applyColumnSetting(hasSavedColumn) {
+  applyColumnSetting(hasSavedColumn): void {
     const savedColumnState = '[{"colId":"ag-Grid-AutoColumn","hide":false,"aggFunc":null,"width":200,"pivotIndex":null,"pinned":null,"rowGroupIndex":null},{"colId":"model","hide":false,"aggFunc":null,"width":102,"pivotIndex":null,"pinned":null,"rowGroupIndex":null},{"colId":"make","hide":false,"aggFunc":null,"width":475,"pivotIndex":null,"pinned":null,"rowGroupIndex":0},{"colId":"price","hide":false,"aggFunc":null,"width":713,"pivotIndex":null,"pinned":null,"rowGroupIndex":null}]';
     if (hasSavedColumn) {
       this.gridApi.columnController.setColumnState(JSON.parse(savedColumnState));
     }
   }
 
-  onGroupByChange() {
+  onGroupByChange(): void {
     (this.gridColumnApi.getRowGroupColumns().length > 0) ? this.groupByApplied = true : this.groupByApplied = false;
   }
 
-  isExternalFilterPresent() {
+  isExternalFilterPresent(): boolean {
     return this.appliedExternalFilter;
   }
 
-  doesExternalFilterPass(node) {
+  doesExternalFilterPass(node): boolean {
+    debugger;
     const something = Math.random() * 100;
     return something >= 50;
   }
 
-  onFilterDataChange(data) {
+  onFilterDataChange(filterDataSet: Array<FilterData >): void {
+    this.appliedFilterDataSet = filterDataSet;
+    this.appliedExternalFilter = true;
     this.gridApi.onFilterChanged();
+  }
+
+  checkIfFilterApplied(filterDataSet: Array<FilterData >): boolean {
+    return true;
   }
 
   abstract getCustomizeReportingEndpointDetail();
