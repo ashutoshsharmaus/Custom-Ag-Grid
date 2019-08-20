@@ -26,7 +26,7 @@ export abstract class NgAdvanceGridBaseController {
 
   groupByApplied = false;
 
-  isExternalFilter = false;
+  appliedExternalFilter = false;
 
   onGridReady(params) {
     this.gridApi = params.api;
@@ -49,7 +49,7 @@ export abstract class NgAdvanceGridBaseController {
   }
 
   isExternalFilterPresent() {
-    return this.isExternalFilter;
+    return this.appliedExternalFilter;
   }
 
   doesExternalFilterPass(node) {
@@ -58,7 +58,6 @@ export abstract class NgAdvanceGridBaseController {
   }
 
   onFilterDataChange(data) {
-    this.isExternalFilter = !this.isExternalFilter;
     this.gridApi.onFilterChanged();
   }
 
