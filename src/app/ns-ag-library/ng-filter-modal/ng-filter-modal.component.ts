@@ -107,16 +107,8 @@ export class NgFilterModalComponent implements OnInit {
   }
 
   onFilterApply() {
-    this.applyFilterOnGrid();
     this.appliedFilterDataEvent.emit(this.filterDataSet);
     this.dialogRef.close();
-  }
-
-  applyFilterOnGrid() {
-    const filterDataSetIndex = new Map();
-    this.filterDataSet.forEach((record, index) => {
-      filterDataSetIndex.set(record.getColumn, index);
-    });
   }
 
   onSelectAllClick(event) {
@@ -146,5 +138,6 @@ export class NgFilterModalComponent implements OnInit {
     this.filterDataSet.forEach(record => {
       record.getFormControl.setValue(null);
     });
+    this.appliedFilterDataEvent.emit(this.filterDataSet);
   }
 }
