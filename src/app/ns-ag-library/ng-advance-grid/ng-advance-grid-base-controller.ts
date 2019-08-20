@@ -55,6 +55,10 @@ export abstract class NgAdvanceGridBaseController {
     return this.appliedExternalFilter;
   }
 
+  /**
+   *
+   * @param node it does something
+   */
   doesExternalFilterPass(node): boolean {
     debugger;
     let matched = false;
