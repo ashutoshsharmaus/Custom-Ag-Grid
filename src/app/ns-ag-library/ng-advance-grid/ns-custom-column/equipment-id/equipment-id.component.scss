@@ -2,6 +2,10 @@
   color: var(--primary-gold);
   background: transparent;
   border: transparent;
+
+  .mat-icon {
+    vertical-align: middle;
+  }
 }
 
 .equipment-id {
