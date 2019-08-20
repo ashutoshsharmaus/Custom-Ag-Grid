@@ -57,8 +57,15 @@ export abstract class NgAdvanceGridBaseController {
 
   doesExternalFilterPass(node): boolean {
     debugger;
-    const something = Math.random() * 100;
-    return something >= 50;
+    let matched = false;
+    this.appliedFilterDataSet.forEach(filterData => {
+      const nodeColumnData = node.data[filterData.getColumn];
+      const selectedValues = filterData.getFormControl.value;
+      if (selectedValues) {
+        matched = selectedValues.includes(nodeColumnData);
+      }
+    });
+    return matched;
   }
 
   onFilterDataChange(filterDataSet: Array<FilterData >): void {
@@ -67,9 +74,5 @@ export abstract class NgAdvanceGridBaseController {
     this.gridApi.onFilterChanged();
   }
 
-  checkIfFilterApplied(filterDataSet: Array<FilterData >): boolean {
-    return true;
-  }
-
-  abstract getCustomizeReportingEndpointDetail();
+  abstract getCustomizeReportingEndpointDetail(): void;
 }
