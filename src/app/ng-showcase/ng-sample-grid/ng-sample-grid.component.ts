@@ -12,6 +12,7 @@ import DummyJSON from '../../../assets/dummy/DummyJson.json';
 })
 export class NgSampleGridComponent extends NgAdvanceGridBaseController implements OnInit {
   gridTitle = 'Pacesetter Grid';
+  getRowHeight = 80;
   columnDefinition = [
     {
       headerName: 'Equipment Id',
