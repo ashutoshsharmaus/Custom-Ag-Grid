@@ -20,6 +20,7 @@ import {NgAdvanceGridModule} from './ns-ag-library/ng-advance-grid/ng-advance-gr
 import { NgFilterModalComponent } from './ns-ag-library/ng-filter-modal/ng-filter-modal.component';
 import {EquipmentIdComponent} from './ns-ag-library/ng-advance-grid/ns-custom-column/equipment-id/equipment-id.component';
 import {EventCodeComponent} from './ns-ag-library/ng-advance-grid/ns-custom-column/event-code/event-code.component';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {EventCodeComponent} from './ns-ag-library/ng-advance-grid/ns-custom-colu
     ]),
     HttpClientModule,
     BrowserAnimationsModule,
+    ButtonModule,
     BrowserModule,
     FormsModule,
     MatCheckboxModule,
