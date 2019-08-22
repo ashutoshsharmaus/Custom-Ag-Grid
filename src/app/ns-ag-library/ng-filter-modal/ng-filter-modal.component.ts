@@ -59,7 +59,6 @@ export class NgFilterModalComponent implements OnInit {
         this.filterDataSet[columnIndex].filterData.add(filterIdValue);
       }
     }
-    debugger;
   }
 
   populateFilterDataByCategory() {
