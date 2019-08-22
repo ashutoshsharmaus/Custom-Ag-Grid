@@ -8,7 +8,7 @@ export class FilterData {
   private filterBoxId: string;
   private formControl: FormControl;
   private filterCategory: string;
-  filterData = [];
+  filterData = new Set();
 
   constructor(column, columnHeader, formControl, filterCategory) {
     this.column = column;
@@ -66,11 +66,7 @@ export class FilterData {
     this.dataType = value;
   }
 
-  get getFilterData(): any[] {
+  get getFilterData(): Set<any> {
     return this.filterData;
-  }
-
-  set setFilterData(value: any[]) {
-    this.filterData = value;
   }
 }
