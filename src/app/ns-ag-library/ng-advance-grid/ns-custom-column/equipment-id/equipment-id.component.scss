@@ -1,5 +1,8 @@
 .watchlist-icon {
-  //color: var(--primary-gold);
+
+  @supports (display: var(--prop)) {
+    color: var(--primary-gold);
+  }
   background: transparent;
   border: transparent;
 
