@@ -36,6 +36,9 @@
             "scripts": []
           },
           "configurations": {
+            "es5": {
+              "tsConfig": "./tsconfig.es5.json"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -73,6 +76,9 @@
             "browserTarget": "ashu-project:build"
           },
           "configurations": {
+            "es5": {
+              "browserTarget": "ashu-project:build:es5"
+            },
             "production": {
               "browserTarget": "ashu-project:build:production"
             }
