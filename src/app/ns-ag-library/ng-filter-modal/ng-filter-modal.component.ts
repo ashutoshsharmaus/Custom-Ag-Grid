@@ -68,7 +68,7 @@ export class NgFilterModalComponent implements OnInit {
   populateFilterDataByCategory() {
     const checkInFilterCategory = new Map();
     let filterDataByCategoryIndex = 0;
-    this.filterDataSet.forEach(filterData => {
+    for (const filterData of this.filterDataSet) {
       const filterCategoryIndex = checkInFilterCategory.get(filterData.getFilterCategory);
       if (filterCategoryIndex >= 0) {
         this.filterDataByCategory[filterCategoryIndex].getFilterCategoryArray.push(filterData);
@@ -78,7 +78,7 @@ export class NgFilterModalComponent implements OnInit {
         checkInFilterCategory.set(filterData.getFilterCategory, filterDataByCategoryIndex);
         filterDataByCategoryIndex++;
       }
-    });
+    }
   }
 
   onFilterApply() {
@@ -88,21 +88,21 @@ export class NgFilterModalComponent implements OnInit {
 
   onSelectAllClick(event) {
     const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
-    this.filterDataSet.forEach(record => {
+    for (const record of this.filterDataSet) {
       if (record.getColumn === currentTargetVal) {
         const allValues = record.getFilterData;
         record.getFormControl.setValue(allValues);
       }
-    });
+    }
   }
 
   onClearAllButton(event) {
     const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
-    this.filterDataSet.forEach(record => {
+    for (const record of this.filterDataSet) {
       if (record.getColumn === currentTargetVal) {
         record.getFormControl.setValue(null);
       }
-    });
+    }
   }
 
   onFilterModalClose() {
