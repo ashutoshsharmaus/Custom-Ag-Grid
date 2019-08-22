@@ -36,11 +36,11 @@ export class NgGroupbyGridComponent implements OnInit {
   populateGroupBy() {
     const columns = this.gridColumnApi.getAllColumns();
     this.groupByList.push(new GroupByObject(null, 'None', true));
-    columns.forEach(column => {
+    for (const column of columns) {
       if (column.visible) {
-        this.groupByList.push(new GroupByObject(column.colDef.field, column.colDef.headerName, column.rowGroupActive));
-      }
-    });
+            this.groupByList.push(new GroupByObject(column.colDef.field, column.colDef.headerName, column.rowGroupActive));
+          }
+    }
   }
 
   onGroupByClose() {
