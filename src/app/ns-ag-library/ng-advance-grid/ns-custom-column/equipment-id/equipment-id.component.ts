@@ -46,7 +46,7 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
 
   checkOnWatch() {
     const savedWatchList = ['dsasdfa', 35000, 72000];
-    return savedWatchList.includes(this.equipmentId);
+    return (savedWatchList.indexOf(this.equipmentId) === 0);
   }
 
   onEquipmentIdClick() {

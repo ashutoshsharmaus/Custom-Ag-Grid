@@ -65,10 +65,10 @@ export abstract class NgAdvanceGridBaseController {
       const nodeColumnData = node.data[filterData.getColumn];
       const selectedValues = filterData.getFormControl.value;
       if (selectedValues) {
-        matched.push(selectedValues.includes(nodeColumnData));
+        matched.push((selectedValues.indexOf(nodeColumnData) === 0));
       }
     });
-    return !matched.includes(false);
+    return !(matched.indexOf(false) === 0);
   }
 
   onFilterDataChange(filterDataSet: Array<FilterData >): void {

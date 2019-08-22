@@ -63,10 +63,10 @@ export class NgColumnSelectorComponent implements OnInit {
   onSaveColumnSettingClick() {
     const selectedColumn = this.selectedColumn;
     const unSelectedColumn = this.unSelectedColumn;
-    selectedColumn.forEach(function(record, index) {
-      this.moveColumn(record, index);
-      this.setColumnVisible(record, true);
-    }, this.gridColumnApi);
+    for (const [index, record] of selectedColumn) {
+        this.gridColumnApi.moveColumn(record, index);
+        this.gridColumnApi.setColumnVisible(record, true);
+    }
 
     unSelectedColumn.forEach(function(record) {
       this.setColumnVisible(record, false);
