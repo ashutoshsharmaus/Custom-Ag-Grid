@@ -102,7 +102,7 @@ export class NgGridTbarComponent implements OnInit {
   getFontDetail(newFontOperation) {
     const currentGrid = this.gridApi._nativeElement;
     const classList = [];
-    currentGrid.classList.forEach(eachClass => classList.push(eachClass));
+    for (const eachClass of currentGrid.classList) {classList.push(eachClass); }
     const currentFont = classList.filter(record => {
       const reg = new RegExp('font-');
       return typeof record === 'string' && record.match(reg);

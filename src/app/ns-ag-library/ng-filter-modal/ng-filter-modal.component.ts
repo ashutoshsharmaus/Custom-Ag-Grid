@@ -40,12 +40,12 @@ export class NgFilterModalComponent implements OnInit {
   getFilterableColumnProperties() {
     this.gridData = this.gridApi.rowData;
     const columns = this.gridApi.columnApi.getAllColumns();
-    columns.forEach(column => {
+    for (const column of columns) {
       if (column.visible && column.isFilterAllowed()) {
         const newFormControl = new FormControl();
         this.filterDataSet.push(new FilterData(column.colId, column.colDef.headerName, newFormControl, column.colDef.filterCategory));
       }
-    });
+    }
   }
 
   populateFilterDataSet() {
@@ -54,7 +54,7 @@ export class NgFilterModalComponent implements OnInit {
       filterDataSetIndex.set(record.getColumn, index);
     });
 
-    this.gridData.forEach(record => {
+    for (const record of this.gridData) {
       filterDataSetIndex.forEach((columnIndex, filterColumnId) => {
         const filterIdValue = record[filterColumnId];
         const isIncluded = (this.filterDataSet[columnIndex].filterData.indexOf(filterIdValue) === 0);
@@ -62,7 +62,7 @@ export class NgFilterModalComponent implements OnInit {
           this.filterDataSet[columnIndex].filterData.push(filterIdValue);
         }
       });
-    });
+    }
   }
 
   populateFilterDataByCategory() {
@@ -110,9 +110,9 @@ export class NgFilterModalComponent implements OnInit {
   }
 
   onClearFilterClick() {
-    this.filterDataSet.forEach(record => {
+    for (const record of this.filterDataSet) {
       record.getFormControl.setValue(null);
-    });
+    }
     this.appliedFilterDataEvent.emit(this.filterDataSet);
   }
 }

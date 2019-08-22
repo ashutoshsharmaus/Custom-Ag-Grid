@@ -61,13 +61,13 @@ export abstract class NgAdvanceGridBaseController {
    */
   doesExternalFilterPass(node): boolean {
     const matched: Array<boolean> = [];
-    this.appliedFilterDataSet.forEach(filterData => {
+    for (const filterData of this.appliedFilterDataSet) {
       const nodeColumnData = node.data[filterData.getColumn];
       const selectedValues = filterData.getFormControl.value;
       if (selectedValues) {
         matched.push((selectedValues.indexOf(nodeColumnData) === 0));
       }
-    });
+    }
     return !(matched.indexOf(false) === 0);
   }
 
