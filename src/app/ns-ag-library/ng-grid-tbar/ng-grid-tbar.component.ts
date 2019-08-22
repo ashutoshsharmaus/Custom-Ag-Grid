@@ -154,7 +154,6 @@ export class NgGridTbarComponent implements OnInit {
       this.appliedFilterDataEvent.emit(result);
     });
     filterDialog.componentInstance.gridApi = this.gridApi;
-    debugger;
     filterDialog.componentInstance.currentlyAppliedFilter = this.currentFilter;
   }
 
