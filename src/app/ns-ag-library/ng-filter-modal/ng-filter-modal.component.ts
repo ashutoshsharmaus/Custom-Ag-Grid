@@ -26,7 +26,7 @@ export class NgFilterModalComponent implements OnInit {
     this.createFilterBox();
   }
 
-  createFilterBox() {
+  createFilterBox(): void {
     if (this.currentlyAppliedFilter) {
       this.filterDataSet = this.currentlyAppliedFilter;
       this.populateFilterDataByCategory();
@@ -37,7 +37,7 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
-  getFilterableColumnProperties() {
+  getFilterableColumnProperties(): void {
     this.gridData = this.gridApi.rowData;
     const columns = this.gridApi.columnApi.getAllColumns();
     for (const column of columns) {
@@ -48,7 +48,7 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
-  populateFilterDataSet() {
+  populateFilterDataSet(): void {
     const filterDataSetIndex = new Map();
     this.filterDataSet.forEach((record, index) => {
       filterDataSetIndex.set(record.getColumn, index);
@@ -61,7 +61,7 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
-  populateFilterDataByCategory() {
+  populateFilterDataByCategory(): void {
     const checkInFilterCategory = new Map();
     let filterDataByCategoryIndex = 0;
     for (const filterData of this.filterDataSet) {
@@ -77,12 +77,12 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
-  onFilterApply() {
+  onFilterApply(): void {
     this.appliedFilterDataEvent.emit(this.filterDataSet);
     this.dialogRef.close();
   }
 
-  onSelectAllClick(event) {
+  onSelectAllClick(event): void {
     const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
     for (const record of this.filterDataSet) {
       if (record.getColumn === currentTargetVal) {
@@ -92,7 +92,7 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
-  onClearAllButton(event) {
+  onClearAllButton(event): void {
     const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
     for (const record of this.filterDataSet) {
       if (record.getColumn === currentTargetVal) {
@@ -101,11 +101,11 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
-  onFilterModalClose() {
+  onFilterModalClose(): void {
     this.dialogRef.close();
   }
 
-  onClearFilterClick() {
+  onClearFilterClick(): void {
     for (const record of this.filterDataSet) {
       record.getFormControl.setValue(null);
     }
