@@ -1,6 +1,7 @@
 import {FilterData} from '../ng-filter-modal/FilterData';
 
-export abstract class NgAdvanceGridBaseController {
+
+export abstract class NgAdvanceGridBase {
 
   agGridDefaultCss = 'ag-theme-balham ag-grid-style';
   rowSelectionType = 'multiple';

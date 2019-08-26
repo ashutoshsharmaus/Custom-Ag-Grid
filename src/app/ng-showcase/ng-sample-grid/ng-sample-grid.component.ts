@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {NgAdvanceGridBaseController} from '../../ns-ag-library/ng-advance-grid/ng-advance-grid-base-controller';
 import {EquipmentIdComponent} from '../../ns-ag-library/ng-advance-grid/ns-custom-column/equipment-id/equipment-id.component';
 import {EventCodeComponent} from '../../ns-ag-library/ng-advance-grid/ns-custom-column/event-code/event-code.component';
 import DummyJSON from '../../../assets/dummy/DummyJson.json';
+import {NgAdvanceGridBase} from '../../ns-ag-library/ng-advance-grid/ng-advance-grid.base';
 
 @Component({
   selector: 'app-ng-sample-grid',
   templateUrl: './ng-sample-grid.component.html',
   styleUrls: ['./ng-sample-grid.component.scss']
 })
-export class NgSampleGridComponent extends NgAdvanceGridBaseController implements OnInit {
+export class NgSampleGridComponent extends NgAdvanceGridBase implements OnInit {
   gridTitle = 'Pacesetter Grid';
   getRowHeight = 80;
   columnDefinition = [
