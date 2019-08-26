@@ -1,4 +1,6 @@
 import {FilterData} from '../ng-filter-modal/FilterData';
+import {GridApi, ColumnApi} from 'ag-grid-community';
+import {ColumnState} from 'ag-grid-community/dist/lib/columnController/columnController';
 
 
 export abstract class NgAdvanceGridBase {
@@ -8,8 +10,8 @@ export abstract class NgAdvanceGridBase {
   enableGroupEdit = true;
   columnDefinition: any ;
   rowData: any;
-  gridColumnApi: any;
-  gridApi: any;
+  gridColumnApi: ColumnApi;
+  gridApi: GridApi;
   gridTitle: string;
   statusBar = {
     statusPanels: [
@@ -31,6 +33,7 @@ export abstract class NgAdvanceGridBase {
 
   appliedExternalFilter = false;
   appliedFilterDataSet: Array<FilterData >;
+  savedColumn: ColumnState[];
 
   onGridReady(params) {
     this.gridApi = params.api;
@@ -42,9 +45,8 @@ export abstract class NgAdvanceGridBase {
   }
 
   applyColumnSetting(hasSavedColumn): void {
-    const savedColumnState = '[{"colId":"ag-Grid-AutoColumn","hide":false,"aggFunc":null,"width":200,"pivotIndex":null,"pinned":null,"rowGroupIndex":null},{"colId":"model","hide":false,"aggFunc":null,"width":102,"pivotIndex":null,"pinned":null,"rowGroupIndex":null},{"colId":"make","hide":false,"aggFunc":null,"width":475,"pivotIndex":null,"pinned":null,"rowGroupIndex":0},{"colId":"price","hide":false,"aggFunc":null,"width":713,"pivotIndex":null,"pinned":null,"rowGroupIndex":null}]';
     if (hasSavedColumn) {
-      this.gridApi.columnController.setColumnState(JSON.parse(savedColumnState));
+      this.gridColumnApi.setColumnState(this.savedColumn);
     }
   }
 

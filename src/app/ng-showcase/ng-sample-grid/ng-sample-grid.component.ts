@@ -4,6 +4,7 @@ import {EquipmentIdComponent} from '../../ns-ag-library/ng-advance-grid/ns-custo
 import {EventCodeComponent} from '../../ns-ag-library/ng-advance-grid/ns-custom-column/event-code/event-code.component';
 import DummyJSON from '../../../assets/dummy/DummyJson.json';
 import {NgAdvanceGridBase} from '../../ns-ag-library/ng-advance-grid/ng-advance-grid.base';
+import {AgGridColumn} from 'ag-grid-angular';
 
 @Component({
   selector: 'app-ng-sample-grid',
