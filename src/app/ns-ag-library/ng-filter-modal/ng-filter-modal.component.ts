@@ -3,6 +3,7 @@ import {FilterData} from './FilterData';
 import {MatDialogRef} from '@angular/material';
 import {FormControl} from '@angular/forms';
 import {FilterDataSetByCategory} from './FilterDataSetByCategory';
+import {AgGridAngular} from 'ag-grid-angular';
 
 @Component({
   selector: 'app-ng-filter-modal',
@@ -10,7 +11,7 @@ import {FilterDataSetByCategory} from './FilterDataSetByCategory';
   styleUrls: ['./ng-filter-modal.component.scss']
 })
 export class NgFilterModalComponent implements OnInit {
-  @Input() gridApi: any;
+  @Input() gridApi: AgGridAngular;
   @Input() currentlyAppliedFilter: Array<FilterData>;
   @Output() appliedFilterDataEvent = new EventEmitter();
 
@@ -38,12 +39,15 @@ export class NgFilterModalComponent implements OnInit {
   }
 
   getFilterableColumnProperties(): void {
+    debugger;
     this.gridData = this.gridApi.rowData;
     const columns = this.gridApi.columnApi.getAllColumns();
     for (const column of columns) {
-      if (column.visible && column.isFilterAllowed()) {
+      if (column.isVisible() && column.isFilterAllowed()) {
         const newFormControl = new FormControl();
-        this.filterDataSet.push(new FilterData(column.colId, column.colDef.headerName, newFormControl, column.colDef.filterCategory));
+        this.filterDataSet.push(
+          // @ts-ignore
+          new FilterData(column.getColId(), column.getColDef().headerName, newFormControl, column.getColDef().filterCategory));
       }
     }
   }

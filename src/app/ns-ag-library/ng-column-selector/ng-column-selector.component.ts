@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {ColumnApi} from 'ag-grid-community';
 
 @Component({
   selector: 'app-ng-column-selector',
@@ -8,7 +9,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./ng-column-selector.component.scss']
 })
 export class NgColumnSelectorComponent implements OnInit {
-  @Input() gridColumnApi: any;
+  @Input() gridColumnApi: ColumnApi;
 
   unSelectedColumn = [];
   selectedColumn = [];
