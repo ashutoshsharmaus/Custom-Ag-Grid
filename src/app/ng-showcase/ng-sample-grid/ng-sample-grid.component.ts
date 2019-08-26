@@ -52,6 +52,7 @@ export class NgSampleGridComponent extends NgAdvanceGridBase implements OnInit {
 
   constructor(private http: HttpClient) {
     super();
+    this.getCustomizeReportingEndpointDetail();
   }
 
   ngOnInit() {
