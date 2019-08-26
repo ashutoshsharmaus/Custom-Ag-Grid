@@ -9,7 +9,7 @@ export abstract class NgAdvanceGridBase {
   rowSelectionType = 'multiple';
   enableGroupEdit = true;
   columnDefinition: any ;
-  rowData: any;
+  rowData: any[];
   gridColumnApi: ColumnApi;
   gridApi: GridApi;
   gridTitle: string;
