@@ -33,6 +33,11 @@ export class NgGroupbyGridComponent implements OnInit {
     this.populateGroupBy();
   }
 
+  /**
+   * This method is called in the init of the function.
+   * It will get the list of all the visible columns in the grid and
+   * populate the groupByList object
+   */
   populateGroupBy() {
     const columns = this.gridColumnApi.getAllColumns();
     this.groupByList.push(new GroupByObject(null, 'None', true));
@@ -43,11 +48,17 @@ export class NgGroupbyGridComponent implements OnInit {
     }
   }
 
+  /**
+   *  Closes the grouby dialog box.
+   */
   onGroupByClose() {
     this.dialogRef.close();
   }
 
-  onGroupyByApply() {
+  /**
+   * Applied the groupby by getting the currently selected group by option.
+   */
+  onGroupyByApply(): void {
     if (this.groupByForm.value) {
       this.gridColumnApi.addRowGroupColumn(this.groupByForm.value);
     } else {
