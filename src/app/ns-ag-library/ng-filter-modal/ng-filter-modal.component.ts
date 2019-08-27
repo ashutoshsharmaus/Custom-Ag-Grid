@@ -27,6 +27,12 @@ export class NgFilterModalComponent implements OnInit {
     this.createFilterBox();
   }
 
+  /**
+   * This method is called on the Init of the component.
+   * If the filter has already been applied in the grid it will take the existing filter and
+   * set it to the filterDataSet other wise create filterDataSet and filterDataSetByCategory by reading
+   * the current state of the grid.
+   */
   createFilterBox(): void {
     if (this.currentlyAppliedFilter) {
       this.filterDataSet = this.currentlyAppliedFilter;
@@ -38,8 +44,10 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
+  /**
+   * This method is initially used to set the private variables gridData and empty filterDataSet.
+   */
   getFilterableColumnProperties(): void {
-    debugger;
     this.gridData = this.gridApi.rowData;
     const columns = this.gridApi.columnApi.getAllColumns();
     for (const column of columns) {
@@ -52,6 +60,9 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
+  /**
+   * This method will get the grid Data and populate the filterDataSet.
+   */
   populateFilterDataSet(): void {
     const filterDataSetIndex = new Map();
     this.filterDataSet.forEach((record, index) => {
@@ -65,6 +76,9 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
+  /**
+   * This method will populate filterDataByCategory with the existing filterDataSet
+   */
   populateFilterDataByCategory(): void {
     const checkInFilterCategory = new Map();
     let filterDataByCategoryIndex = 0;
@@ -81,11 +95,20 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
+  /**
+   * This method emits and event on when apply filter is clicked.
+   * Array<FilterData> is passed while emitting the appliedFilterDataSet.
+   */
   onFilterApply(): void {
     this.appliedFilterDataEvent.emit(this.filterDataSet);
     this.dialogRef.close();
   }
 
+  /**
+   *
+   * Attributes to the buttons are added in the html portion
+   * @param event: This is the button event that has the button attributes
+   */
   onSelectAllClick(event): void {
     const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
     for (const record of this.filterDataSet) {
@@ -96,6 +119,10 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
+  /**
+   * @param event: This is the button event that has the button attributes
+   * Attributes to the buttons are added in the html portion
+   */
   onClearAllButton(event): void {
     const currentTargetVal = event.currentTarget.attributes['combobox-column'].value;
     for (const record of this.filterDataSet) {
@@ -105,10 +132,16 @@ export class NgFilterModalComponent implements OnInit {
     }
   }
 
+  /**
+   * Closes the filter modal
+   */
   onFilterModalClose(): void {
     this.dialogRef.close();
   }
 
+  /**
+   * Clears the filter of the filter modal.
+   */
   onClearFilterClick(): void {
     for (const record of this.filterDataSet) {
       record.getFormControl.setValue(null);
