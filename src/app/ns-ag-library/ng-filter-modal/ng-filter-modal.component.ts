@@ -91,7 +91,7 @@ export class NgFilterModalComponent implements OnInit {
     for (const record of this.filterDataSet) {
       if (record.getColumn === currentTargetVal) {
         const allValues = record.getFilterData;
-        record.getFormControl.setValue(allValues);
+        record.getFormControl.setValue([...allValues]);
       }
     }
   }
