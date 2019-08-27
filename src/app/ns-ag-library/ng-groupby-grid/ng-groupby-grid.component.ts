@@ -49,14 +49,14 @@ export class NgGroupbyGridComponent implements OnInit {
   }
 
   /**
-   *  Closes the grouby dialog box.
+   *  Closes the Group By dialog box.
    */
   onGroupByClose() {
     this.dialogRef.close();
   }
 
   /**
-   * Applied the groupby by getting the currently selected group by option.
+   * Applied the Group By by getting the currently selected group by option.
    */
   onGroupyByApply(): void {
     if (this.groupByForm.value) {
