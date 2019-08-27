@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {GridApi} from 'ag-grid-community';
+import {AgGridAngular} from 'ag-grid-angular';
 
 @Component({
   selector: 'app-ng-advance-grid',
@@ -7,7 +7,7 @@ import {GridApi} from 'ag-grid-community';
   styleUrls: ['./ng-advance-grid.component.scss']
 })
 export class NgAdvanceGridComponent implements OnInit {
-  @Input() gridApi: GridApi;
+  @Input() agGridAngular: AgGridAngular;
   @Input() gridTitle: string;
   @Input() groupByApplied: boolean;
   @Output() appliedFilterData = new EventEmitter();
