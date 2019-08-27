@@ -15,10 +15,10 @@ export abstract class NgAdvanceGridBase {
   gridTitle: string;
   statusBar = {
     statusPanels: [
-      {statusPanel: 'agTotalRowCountComponent', align: 'left'},
-      { statusPanel: 'agFilteredRowCountComponent', align: 'left'},
-      { statusPanel: 'agSelectedRowCountComponent', align: 'left'},
-      { statusPanel: 'agAggregationComponent', align: 'left'}
+      {statusPanel: 'agTotalRowCountComponent', align: 'right'},
+      { statusPanel: 'agFilteredRowCountComponent', align: 'right'},
+      { statusPanel: 'agSelectedRowCountComponent', align: 'right'},
+      { statusPanel: 'agAggregationComponent', align: 'right'}
     ]
   };
   defaultColDef = {
