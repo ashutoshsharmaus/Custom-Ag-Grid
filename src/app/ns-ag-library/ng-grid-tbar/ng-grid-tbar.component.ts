@@ -131,22 +131,34 @@ export class NgGridTbarComponent implements OnInit {
     columnSelectorDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
   }
 
+  /**
+   *
+   */
   onSaveColumnSettingClick() {
     this.gridApi.api.columnController.getColumnState();
     // TODO - Save the column setting;
   }
 
+  /**
+   * This will remove the grid column setting by passing the unique grid Id.
+   */
   onRemoveColumnSettingClick() {
-    const userId = 'P4SEH';
     const savedColumnId = 'Something';
     // TODO-This will remove the column setting
   }
 
+  /**
+   * This will open the group By Dialog box and pass the columnApi to the group by modal
+   */
   onGroupyByClick() {
     const groupByDialog = this.dialog.open(NgGroupbyGridComponent, {});
     groupByDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
   }
 
+  /**
+   * The follow function opens the filter modal.
+   * It also passes the currentFilter result to the filter modal and the grid API
+   */
   onFilterBtnClick() {
     const filterDialog = this.dialog.open(NgFilterModalComponent, {});
     filterDialog.componentInstance.appliedFilterDataEvent.subscribe(result => {
