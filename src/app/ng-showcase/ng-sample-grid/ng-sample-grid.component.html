@@ -1,10 +1,10 @@
+<p>Implement me if you want to have a custom grid definition</p>
 <app-ng-advance-grid [agGridAngular]="agGrid"
                      [gridTitle]="gridTitle"
                      [groupByApplied]="groupByApplied"
                      (appliedFilterData)="onFilterDataChange($event)">
   <ag-grid-angular
     #agGrid
-    id="my-grid"
     class="{{agGridDefaultCss}}"
     rowSelection="{{rowSelectionType}}"
     enableGroupEdit="{{enableGroupEdit}}"
