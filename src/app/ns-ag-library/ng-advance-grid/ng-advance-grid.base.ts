@@ -27,7 +27,7 @@ export abstract class NgAdvanceGridBase {
     resizable: true,
     filter: true
   };
-  getRowHeight = 50;
+  getRowHeight = 60;
   enableRangeSelection = true;
 
   groupByApplied = false;
