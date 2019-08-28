@@ -39,6 +39,11 @@ export class NgGridTbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   *  The function will listen for the keyup event and if enter is pressed than
+   *  it will setQuickFilter with the typed value.
+   * @param event: Keypup event;
+   */
   onAdvanceSearchType(event) {
     if (event.key === 'Enter') {
       const typedValue = event.currentTarget.value;
@@ -46,28 +51,49 @@ export class NgGridTbarComponent implements OnInit {
     }
   }
 
+  /**
+   * The function will expand all the groupy for the grid
+   */
   onGroupByPlus() {
     this.gridApi.api.expandAll();
   }
 
+  /**
+   * The function will collapse all the groupy for the grid
+   */
   onGroupByMinus() {
     this.gridApi.api.collapseAll();
   }
 
+  /**
+   * The function will export the current grid data to excel.
+   */
   onGridExportExcelClick() {
     this.gridApi.api.exportDataAsExcel();
   }
 
+  /**
+   * The function will first set the grid to print friendly.
+   * Than it will print the document and reset back the view to
+   * it's original state.
+   */
   onGridPrintPdfClick() {
     this.setPrinterFriendly();
     print();
   }
 
+  /**
+   *  THe function get the current grid and set the grid to it's DOM Layout
+   */
   setPrinterFriendly() {
     const currentGrid = this.gridApi.api;
     currentGrid.setDomLayout('print');
   }
 
+  /**
+   * The grid will get teh current grid font-size and decrease the font-size
+   * by 1 px until it is 14 pixel.
+   */
   onDecreaseFontSizeClick() {
     const currentGrid = this.gridApi._nativeElement;
     const fontDetail = this.getFontDetail('-');
@@ -83,6 +109,10 @@ export class NgGridTbarComponent implements OnInit {
     }
   }
 
+  /**
+   * The grid will get teh current grid font-size and increase the font-size
+   * by 1 px until it is 50 pixel.
+   */
   onIncreaseFontSizeClick() {
     const currentGrid = this.gridApi._nativeElement;
     const fontDetail = this.getFontDetail('+');
@@ -99,6 +129,11 @@ export class NgGridTbarComponent implements OnInit {
     }
   }
 
+  /**
+   * The function will check the current font-size and give you
+   * new font-size depending on the input params.
+   * @param newFontOperation: The variable inupt can be '+' or '-'
+   */
   getFontDetail(newFontOperation) {
     const currentGrid = this.gridApi._nativeElement;
     const classList = [];
@@ -119,6 +154,9 @@ export class NgGridTbarComponent implements OnInit {
     return {currentFont, newFontCss};
   }
 
+  /**
+   *
+   */
   onToggleFullScreenClick() {
     const gridWrapperClassList = this.nsAdvanceGridWrapper.classList;
     const activeFullScreen = !gridWrapperClassList.contains('full-screen');
@@ -132,7 +170,8 @@ export class NgGridTbarComponent implements OnInit {
   }
 
   /**
-   *
+   * This method will get the current state of the grid and
+   * save the column setting in the database.
    */
   onSaveColumnSettingClick() {
     this.gridApi.api.columnController.getColumnState();
@@ -143,7 +182,6 @@ export class NgGridTbarComponent implements OnInit {
    * This will remove the grid column setting by passing the unique grid Id.
    */
   onRemoveColumnSettingClick() {
-    const savedColumnId = 'Something';
     // TODO-This will remove the column setting
   }
 
