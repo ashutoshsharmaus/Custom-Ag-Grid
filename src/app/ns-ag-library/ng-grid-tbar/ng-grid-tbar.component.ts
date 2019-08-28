@@ -155,7 +155,9 @@ export class NgGridTbarComponent implements OnInit {
   }
 
   /**
-   *
+   * The function will apply/remove the css 'full-screen' grid wrapper that surrounds the
+   * title bar, ag-grid and the footer content.
+   * The 'full-screen' css is defined in the ng-advance-grid
    */
   onToggleFullScreenClick() {
     const gridWrapperClassList = this.nsAdvanceGridWrapper.classList;
