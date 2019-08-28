@@ -1,0 +1,23 @@
+<p>ns-grid works!</p>
+
+<app-ng-advance-grid [agGridAngular]="agGrid"
+                     [gridTitle]="gridTitle"
+                     [groupByApplied]="groupByApplied"
+                     (appliedFilterData)="onFilterDataChange($event)">
+  <ag-grid-angular
+    #agGrid
+    id="my-grid"
+    class="{{agGridDefaultCss}}"
+    rowSelection="{{rowSelectionType}}"
+    enableGroupEdit="{{enableGroupEdit}}"
+    [rowData]="rowData"
+    [columnDefs]="columnDefinition"
+    [statusBar]="statusBar"
+    [enableRangeSelection]="enableRangeSelection"
+    [defaultColDef]="defaultColDef"
+    [rowHeight]="getRowHeight"
+
+    (gridReady)="onGridReady($event)"
+    (columnRowGroupChanged)="onGroupByChange()">
+  </ag-grid-angular>
+</app-ng-advance-grid>
