@@ -1,6 +1,7 @@
 import {FilterData} from '../ng-filter-modal/FilterData';
 import {GridApi, ColumnApi} from 'ag-grid-community';
 import {ColumnState} from 'ag-grid-community/dist/lib/columnController/columnController';
+import {ColDef, ColGroupDef} from 'ag-grid-community/src/ts/entities/colDef';
 
 
 export abstract class NgAdvanceGridBase {
@@ -8,7 +9,7 @@ export abstract class NgAdvanceGridBase {
   agGridDefaultCss = 'ag-theme-balham ag-grid-style';
   rowSelectionType = 'multiple';
   enableGroupEdit = true;
-  columnDefinition: any ;
+  columnDefinition: (ColDef | ColGroupDef)[];
   rowData: any[];
   gridColumnApi: ColumnApi;
   gridApi: GridApi;

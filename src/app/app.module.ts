@@ -21,6 +21,7 @@ import { NgFilterModalComponent } from './ns-ag-library/ng-filter-modal/ng-filte
 import {EquipmentIdComponent} from './ns-ag-library/ng-advance-grid/ns-custom-column/equipment-id/equipment-id.component';
 import {EventCodeComponent} from './ns-ag-library/ng-advance-grid/ns-custom-column/event-code/event-code.component';
 import {ButtonModule} from 'primeng/button';
+import { NsGridComponent } from './ns-ag-library/ns-grid/ns-grid.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {ButtonModule} from 'primeng/button';
     NgShowcaseComponent,
     NgSampleGridComponent,
     NgGroupbyGridComponent,
-    NgFilterModalComponent
+    NgFilterModalComponent,
+    NsGridComponent
   ],
   imports: [
     BrowserAnimationsModule,
