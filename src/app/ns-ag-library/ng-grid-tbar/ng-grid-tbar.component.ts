@@ -166,6 +166,9 @@ export class NgGridTbarComponent implements OnInit {
     this.fullScreenRegularBtnIcon = (activeFullScreen) ? 'fullscreen_exit' : 'fullscreen';
   }
 
+  /**
+   * The function will open the Column Selector Component and pass the grid column api to the modal.
+   */
   onColumnSelectorClick() {
     const columnSelectorDialog = this.dialog.open(NgColumnSelectorComponent, {});
     columnSelectorDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
