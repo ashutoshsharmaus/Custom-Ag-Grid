@@ -1,9 +1,5 @@
-<h1>
-  Advance Grid Implementation
-</h1>
-<app-ng-advance-grid [agGridAngular]="agGrid"
-                     [gridTitle]="gridTitle"
-                     [groupByApplied]="groupByApplied"
+<h1>Advance Grid Implementation</h1>
+<app-ng-advance-grid [agGridAngular]="agGrid" [gridTitle]="gridTitle" [groupByApplied]="groupByApplied"
                      (appliedFilterData)="onFilterDataChange($event)">
   <ag-grid-angular
     #agGrid
@@ -16,15 +12,14 @@
     [enableRangeSelection]="enableRangeSelection"
     [defaultColDef]="defaultColDef"
     [rowHeight]="getRowHeight"
-
     (gridReady)="onGridReady($event)"
     (columnRowGroupChanged)="onGroupByChange()">
   </ag-grid-angular>
 </app-ng-advance-grid>
 
-<h2>
-  Simple Grid Implementation
-</h2>
+
+
+<h2>Simple Grid Implementation</h2>
 <app-ns-grid
   [gridTitle]="gridTitle"
   [columnDefinition]="columnDefinition"
