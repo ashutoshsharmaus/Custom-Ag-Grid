@@ -10,18 +10,8 @@ import {ColumnApi} from 'ag-grid-community';
 export class NgColumnSelectorComponent implements OnInit {
   @Input() gridColumnApi: ColumnApi;
 
-  unSelectedColumn = [];
-  selectedColumn = [];
-
-  sourceCars = [{
-    title: 'Something',
-    brand: 'something type'
-  }];
-
-  targetCars = [{
-    title: 'something Again',
-    brand: 'not something again'
-    }];
+  visibleColumns = [];
+  hiddenColumns = [];
 
   constructor(private dialogRef: MatDialogRef<NgColumnSelectorComponent>) {
   }
@@ -31,13 +21,18 @@ export class NgColumnSelectorComponent implements OnInit {
   }
 
   initializeColumnSelectorData() {
-    const allColumns = this.gridColumnApi.getColumnState();
+    const allColumns = this.gridColumnApi.getAllColumns();
+    const columnReference = new Map();
     for (const column of allColumns) {
-      const columnHidden = column.hide;
-      if (columnHidden) {
-        this.unSelectedColumn.push(column.colId);
+      columnReference.set(column.getId(), column);
+    }
+
+    const columnState = this.gridColumnApi.getColumnState();
+    for (const column of columnState) {
+      if (column.hide) {
+        this.hiddenColumns.push(columnReference.get(column.colId));
       } else {
-        this.selectedColumn.push(column.colId);
+        this.visibleColumns.push(columnReference.get(column.colId));
       }
     }
   }
@@ -47,14 +42,16 @@ export class NgColumnSelectorComponent implements OnInit {
   }
 
   onSaveColumnSettingClick() {
-    const selectedColumn = this.selectedColumn;
-    const unSelectedColumn = this.unSelectedColumn;
-    for (const [index, record] of selectedColumn) {
-        this.gridColumnApi.moveColumn(record, index);
-        this.gridColumnApi.setColumnVisible(record, true);
+    let visibleColumnIndex = 0;
+    debugger;
+    for (const record of this.visibleColumns) {
+      this.gridColumnApi.moveColumn(record, visibleColumnIndex);
+      this.gridColumnApi.setColumnVisible(record, true);
+      visibleColumnIndex ++;
     }
-    for (const record of unSelectedColumn) {
-      this.gridColumnApi.setColumnVisible(record, false);
+
+    for (const record of this.hiddenColumns) {
+      this.gridColumnApi.setColumnVisible(record.columnId, false);
     }
     this.dialogRef.close();
   }

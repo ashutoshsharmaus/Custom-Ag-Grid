@@ -22,6 +22,31 @@ html, body {
   float: left;
 }
 
+.ui-picklist-source-controls {
+  &.ui-picklist-buttons {
+    &.ng-star-inserted {
+      button {
+        color: black;
+        background-color: #dbdbdb;
+        border: transparent;
+      }
+    }
+  }
+}
+
+.ui-picklist-target-controls {
+  &.ui-picklist-buttons {
+    &.ng-star-inserted {
+      button {
+        color: black;
+        background-color: #dbdbdb;
+        border: transparent;
+      }
+    }
+  }
+}
+
+
 ///* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "assets/styles/ng_all.scss";

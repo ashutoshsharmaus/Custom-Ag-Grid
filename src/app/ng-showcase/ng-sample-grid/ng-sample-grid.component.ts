@@ -12,7 +12,7 @@ import {NgAdvanceGridBase} from '../../ns-ag-library/ng-advance-grid/ng-advance-
 })
 export class NgSampleGridComponent extends NgAdvanceGridBase implements OnInit {
   gridTitle = 'Pacesetter Grid';
-  getRowHeight = 80;
+  getRowHeight = 50;
   columnDefinition = [
     {
       headerName: 'Equipment Id',
