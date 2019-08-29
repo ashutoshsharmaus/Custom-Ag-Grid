@@ -172,6 +172,7 @@ export class NgGridTbarComponent implements OnInit {
   onColumnSelectorClick() {
     const columnSelectorDialog = this.dialog.open(NgColumnSelectorComponent, {});
     columnSelectorDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
+    columnSelectorDialog.componentInstance.gridApi = this.gridApi;
   }
 
   /**

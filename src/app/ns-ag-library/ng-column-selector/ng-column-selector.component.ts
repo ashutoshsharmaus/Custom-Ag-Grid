@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
-import {ColumnApi} from 'ag-grid-community';
+import {ColumnApi, GridApi} from 'ag-grid-community';
+import {AgGridAngular} from 'ag-grid-angular';
 
 @Component({
   selector: 'app-ng-column-selector',
@@ -9,6 +10,7 @@ import {ColumnApi} from 'ag-grid-community';
 })
 export class NgColumnSelectorComponent implements OnInit {
   @Input() gridColumnApi: ColumnApi;
+  @Input() gridApi: AgGridAngular;
 
   visibleColumns = [];
   hiddenColumns = [];
@@ -59,6 +61,7 @@ export class NgColumnSelectorComponent implements OnInit {
     for (const record of this.hiddenColumns) {
       this.gridColumnApi.setColumnVisible(record.columnId, false);
     }
+    this.gridApi.api.sizeColumnsToFit();
     this.dialogRef.close();
   }
 
