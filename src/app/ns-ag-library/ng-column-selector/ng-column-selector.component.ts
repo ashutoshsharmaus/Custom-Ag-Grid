@@ -29,12 +29,20 @@ export class NgColumnSelectorComponent implements OnInit {
 
     const columnState = this.gridColumnApi.getColumnState();
     for (const column of columnState) {
+      const currentColumn = columnReference.get(column.colId);
       if (column.hide) {
-        this.hiddenColumns.push(columnReference.get(column.colId));
+        this.hiddenColumns.push({
+          columnId: currentColumn.getId(),
+          columnHeader: currentColumn.getColDef().headerName
+        });
       } else {
-        this.visibleColumns.push(columnReference.get(column.colId));
+        this.visibleColumns.push({
+          columnId: currentColumn.getId(),
+          columnHeader: currentColumn.getColDef().headerName
+        });
       }
     }
+    debugger;
   }
 
   onCancelColumnSelectorClick() {
@@ -45,8 +53,8 @@ export class NgColumnSelectorComponent implements OnInit {
     let visibleColumnIndex = 0;
     debugger;
     for (const record of this.visibleColumns) {
-      this.gridColumnApi.moveColumn(record, visibleColumnIndex);
-      this.gridColumnApi.setColumnVisible(record, true);
+      this.gridColumnApi.moveColumn(record.columnId, visibleColumnIndex);
+      this.gridColumnApi.setColumnVisible(record.columnId, true);
       visibleColumnIndex ++;
     }
 

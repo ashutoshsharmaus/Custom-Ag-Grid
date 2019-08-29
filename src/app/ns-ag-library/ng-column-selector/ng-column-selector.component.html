@@ -3,7 +3,7 @@
             sourceHeader="Hide"
             targetHeader="Visible"
             [responsive]="true"
-            filterBy="brand"
+            filterBy="headerName"
             dragdrop="true"
             sourceFilterPlaceholder="Search by Column Name"
             targetFilterPlaceholder="Search by Column Name"
@@ -13,7 +13,7 @@
 
   <ng-template let-column pTemplate="item">
     <div class="ui-helper-clearfix">
-      <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{column.getColDef().headerName}}</div>
+      <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{column.columnHeader}}</div>
     </div>
   </ng-template>
 
