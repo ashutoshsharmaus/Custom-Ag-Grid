@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
-import {ColumnApi, GridApi} from 'ag-grid-community';
+import {ColumnApi} from 'ag-grid-community';
 import {AgGridAngular} from 'ag-grid-angular';
 
 @Component({
