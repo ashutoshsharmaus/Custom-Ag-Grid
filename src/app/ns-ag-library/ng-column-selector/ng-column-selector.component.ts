@@ -65,4 +65,8 @@ export class NgColumnSelectorComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  onItemDrop(event) {
+    debugger;
+  }
+
 }

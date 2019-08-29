@@ -9,6 +9,7 @@
             targetFilterPlaceholder="Search by Column Name"
             [sourceStyle]="{'height':'200px'}"
             [targetStyle]="{'height':'200px'}"
+            (onMoveToSource)="onItemDrop($event)"
 >
 
   <ng-template let-column pTemplate="item">
