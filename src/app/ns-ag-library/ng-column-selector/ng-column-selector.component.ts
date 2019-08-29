@@ -42,7 +42,6 @@ export class NgColumnSelectorComponent implements OnInit {
         });
       }
     }
-    debugger;
   }
 
   onCancelColumnSelectorClick() {
@@ -51,7 +50,6 @@ export class NgColumnSelectorComponent implements OnInit {
 
   onSaveColumnSettingClick() {
     let visibleColumnIndex = 0;
-    debugger;
     for (const record of this.visibleColumns) {
       this.gridColumnApi.moveColumn(record.columnId, visibleColumnIndex);
       this.gridColumnApi.setColumnVisible(record.columnId, true);
