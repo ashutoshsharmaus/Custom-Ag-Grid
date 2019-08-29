@@ -1,28 +1,40 @@
-<div cdkDropListGroup>
-  <div class="column-selector-container">
-    <h2>Unselected</h2>
-    <div cdkDropList [cdkDropListData]="unSelectedColumn" class="column-selector-list" (cdkDropListDropped)="drop($event)">
-      <mat-checkbox class="example-box" *ngFor="let item of unSelectedColumn" cdkDrag>{{item}}</mat-checkbox>
+<!--<div cdkDropListGroup>-->
+  <!--<div class="column-selector-container">-->
+    <!--<h2>Unselected</h2>-->
+    <!--<div cdkDropList [cdkDropListData]="unSelectedColumn" class="column-selector-list" (cdkDropListDropped)="drop($event)">-->
+      <!--<mat-checkbox class="example-box" *ngFor="let item of unSelectedColumn" cdkDrag>{{item}}</mat-checkbox>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="column-selector-container">-->
+    <!--<button class="column-selector-list" (click)="onLeftClick()"><mat-icon>arrow_back</mat-icon></button>-->
+    <!--<button class="column-selector-list" (click)="onRightClick()"><mat-icon>arrow_forward</mat-icon></button>-->
+    <!--<button class="column-selector-list" (click)="onRightClick()"><mat-icon>arrow_upward</mat-icon></button>-->
+    <!--<button class="column-selector-list" (click)="onDownClick()"><mat-icon>arrow_downward</mat-icon></button>-->
+  <!--</div>-->
+
+  <!--<div class="column-selector-container">-->
+    <!--<h2>Selected</h2>-->
+    <!--<div cdkDropList [cdkDropListData]="selectedColumn" class="column-selector-list" (cdkDropListDropped)="drop($event)">-->
+      <!--<mat-checkbox class="example-box" *ngFor="let item of selectedColumn" cdkDrag>{{item}}</mat-checkbox>-->
+    <!--</div>-->
+  <!--</div>-->
+
+<!--</div>-->
+
+<p-pickList [source]="sourceCars"
+            [target]="targetCars"
+            sourceHeader="Hide" targetHeader="Visible" [responsive]="true" filterBy="brand"
+            dragdrop="true" sourceFilterPlaceholder="Search by brand" targetFilterPlaceholder="Search by brand"
+            [sourceStyle]="{'height':'200px'}" [targetStyle]="{'height':'200px'}">
+  <ng-template let-car pTemplate="item">
+    <div class="ui-helper-clearfix">
+      <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{car.brand}} - {{car.title}} - {{car.title}}</div>
     </div>
-  </div>
-
-  <div class="column-selector-container">
-    <button class="column-selector-list" (click)="onLeftClick()"><mat-icon>arrow_back</mat-icon></button>
-    <button class="column-selector-list" (click)="onRightClick()"><mat-icon>arrow_forward</mat-icon></button>
-    <button class="column-selector-list" (click)="onRightClick()"><mat-icon>arrow_upward</mat-icon></button>
-    <button class="column-selector-list" (click)="onDownClick()"><mat-icon>arrow_downward</mat-icon></button>
-  </div>
-
-  <div class="column-selector-container">
-    <h2>Selected</h2>
-    <div cdkDropList [cdkDropListData]="selectedColumn" class="column-selector-list" (cdkDropListDropped)="drop($event)">
-      <mat-checkbox class="example-box" *ngFor="let item of selectedColumn" cdkDrag>{{item}}</mat-checkbox>
-    </div>
-  </div>
-
-</div>
+  </ng-template>
+</p-pickList>
 
 <footer>
-  <button mat-button (click)="onCancelColumnSelectorClick()">Cancel</button>
-  <button mat-button (click)="onSaveColumnSettingClick()">Save Column Setting</button>
+  <button class="float-left" mat-button (click)="onCancelColumnSelectorClick()">Cancel</button>
+  <button class="float-right" mat-button (click)="onSaveColumnSettingClick()">Save Column Setting</button>
 </footer>

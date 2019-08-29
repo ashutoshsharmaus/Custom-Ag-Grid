@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {ColumnApi} from 'ag-grid-community';
 
 @Component({
@@ -13,6 +12,16 @@ export class NgColumnSelectorComponent implements OnInit {
 
   unSelectedColumn = [];
   selectedColumn = [];
+
+  sourceCars = [{
+    title: 'Something',
+    brand: 'something type'
+  }];
+
+  targetCars = [{
+    title: 'something Again',
+    brand: 'not something again'
+    }];
 
   constructor(private dialogRef: MatDialogRef<NgColumnSelectorComponent>) {
   }
@@ -31,30 +40,6 @@ export class NgColumnSelectorComponent implements OnInit {
         this.selectedColumn.push(column.colId);
       }
     }
-  }
-
-  drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-    }
-  }
-
-  onLeftClick() {
-    // transferArrayItem(this.selectedColumn, this.selectedColumn, 0, 0);
-  }
-
-  onRightClick() {
-  }
-
-  onUpClick() {
-  }
-
-  onDownClick() {
   }
 
   onCancelColumnSelectorClick() {

@@ -22,6 +22,7 @@ import {EquipmentIdComponent} from './ns-ag-library/ng-advance-grid/ns-custom-co
 import {EventCodeComponent} from './ns-ag-library/ng-advance-grid/ns-custom-column/event-code/event-code.component';
 import {ButtonModule} from 'primeng/button';
 import { NsGridComponent } from './ns-ag-library/ns-grid/ns-grid.component';
+import {PickListModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NsGridComponent } from './ns-ag-library/ns-grid/ns-grid.component';
     BrowserModule,
     FormsModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PickListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
