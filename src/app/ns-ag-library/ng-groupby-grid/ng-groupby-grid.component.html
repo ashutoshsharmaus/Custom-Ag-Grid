@@ -1,4 +1,4 @@
-<div *ngFor="let groupedColumn of gridColumnApi.getRowGroupColumns()">
+<div *ngFor="let groupedColumn of gridColumnApi.getRowGroupColumns(); index as i">
   <p class="group-by-indicator">{{groupedColumn.getColDef().headerName}}</p>
 </div>
 
