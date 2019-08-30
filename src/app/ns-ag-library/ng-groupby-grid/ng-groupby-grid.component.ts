@@ -35,7 +35,8 @@ export class NgGroupbyGridComponent implements OnInit {
       this.gridColumnApi.addRowGroupColumn(this.groupByForm.value);
     } else {
       const allGroupBy = this.gridColumnApi.getRowGroupColumns();
-      this.gridColumnApi.removeRowGroupColumns(allGroupBy);
+      const removeGroupByColumn = (allGroupBy.length > 0) ? allGroupBy[allGroupBy.length - 1 ] : null;
+      this.gridColumnApi.removeRowGroupColumns([removeGroupByColumn]);
     }
   }
 }
