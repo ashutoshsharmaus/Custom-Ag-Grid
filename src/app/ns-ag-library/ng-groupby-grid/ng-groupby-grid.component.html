@@ -3,8 +3,9 @@
 </div>
 
 <mat-radio-group [formControl]="groupByForm" name="groupBySelectedValue" ngModel="" #groupByRadioGroup
-                  *ngFor="let groupByItem of groupByList">
-  <mat-radio-button name="groupBySelectedValue" value="{{groupByItem.groupById}}">{{groupByItem.columnName}}</mat-radio-button><br>
+                 *ngFor="let groupByItem of gridColumnApi.getAllColumns(); index as i">
+  <mat-radio-button *ngIf="i === 0" name="groupBySelectedValue" value="">None</mat-radio-button><br>
+  <mat-radio-button name="groupBySelectedValue" value="{{groupByItem.getId()}}">{{groupByItem.getColDef().headerName}}</mat-radio-button><br>
 </mat-radio-group>
 
 <footer>
