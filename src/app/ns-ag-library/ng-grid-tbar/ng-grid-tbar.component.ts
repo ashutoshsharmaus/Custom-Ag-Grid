@@ -4,6 +4,7 @@ import {NgColumnSelectorComponent} from '../ng-column-selector/ng-column-selecto
 import {NgGroupbyGridComponent} from '../ng-groupby-grid/ng-groupby-grid.component';
 import {NgFilterModalComponent} from '../ng-filter-modal/ng-filter-modal.component';
 import {FilterData} from '../ng-filter-modal/FilterData';
+import {ExcelExportParams} from 'ag-grid-community';
 
 @Component({
   selector: 'app-ng-grid-tbar',
@@ -66,7 +67,12 @@ export class NgGridTbarComponent implements OnInit {
    * The function will export the current grid data to excel.
    */
   onGridExportExcelClick() {
-    this.gridApi.api.exportDataAsExcel();
+    const excelParams: ExcelExportParams = {
+      sheetName: this.gridTitle,
+      fileName: this.gridTitle
+    };
+
+    this.gridApi.api.exportDataAsExcel(excelParams);
   }
 
   /**
@@ -76,7 +82,10 @@ export class NgGridTbarComponent implements OnInit {
    */
   onGridPrintPdfClick() {
     this.setPrinterFriendly();
-    print();
+    setTimeout(() => {
+      print();
+      this.setNormal();
+    });
   }
 
   /**
@@ -84,7 +93,15 @@ export class NgGridTbarComponent implements OnInit {
    */
   setPrinterFriendly() {
     const currentGrid = this.gridApi.api;
+    debugger;
     currentGrid.setDomLayout('print');
+  }
+
+  setNormal() {
+    // var eGridDiv = document.querySelector(".my-grid");
+    // eGridDiv.style.width = "600px";
+    // eGridDiv.style.height = "200px";
+    this.gridApi.setDomLayout(null);
   }
 
   /**
@@ -133,6 +150,7 @@ export class NgGridTbarComponent implements OnInit {
    */
   getFontDetail(newFontOperation) {
     const currentGrid = this.gridApi._nativeElement;
+    debugger;
     const classList = [];
     for (const eachClass of currentGrid.classList) {classList.push(eachClass); }
     const currentFont = classList.filter(record => {
@@ -177,7 +195,7 @@ export class NgGridTbarComponent implements OnInit {
    * save the column setting in the database.
    */
   onSaveColumnSettingClick() {
-    this.gridApi.api.columnController.getColumnState();
+    this.gridApi.columnApi.getColumnState();
     // TODO - Save the column setting;
   }
 
