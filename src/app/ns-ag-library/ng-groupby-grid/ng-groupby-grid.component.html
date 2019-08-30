@@ -1,24 +1,28 @@
-<mat-icon>group</mat-icon><br>
-<div *ngFor="let groupedColumn of gridColumnApi.getRowGroupColumns(); index as groupByIndex">
-  <ng-container *ngIf="groupByIndex!==0 && groupByIndex!==gridColumnApi.getRowGroupColumns().length">
-    <ng-container *ngFor="let i of getIndexArray(groupByIndex-1)">&nbsp;&nbsp;&nbsp;&nbsp;</ng-container>
-    <mat-icon>subdirectory_arrow_right</mat-icon>
-  </ng-container>
-  <span>{{groupedColumn.getColDef().headerName}}</span>
-  <button class="float-right" (click)="onIndividualGroupByRemove($event)" *ngIf="gridColumnApi.getRowGroupColumns().length -1 === groupByIndex"
-          [attr.column-id] = groupedColumn.getId()>X</button>
-</div>
+<h2 mat-dialog-title>
+  <mat-icon>group</mat-icon> Group By
+</h2>
+<p>(Multi Group By)</p>
 
-<mat-radio-group [formControl]="groupByForm" name="groupBySelectedValue" ngModel="" #groupByRadioGroup
-                 *ngFor="let groupByItem of gridColumnApi.getAllColumns(); index as i">
-  <!--<mat-radio-button *ngIf="i === 0" name="groupBySelectedValue" value="">None</mat-radio-button>-->
-  <!--<br>-->
-  <mat-radio-button name="groupBySelectedValue"
-                    value="{{groupByItem.getId()}}">{{groupByItem.getColDef().headerName}}</mat-radio-button>
-  <br>
-</mat-radio-group>
+<mat-dialog-content class="mat-typography">
+  <div *ngFor="let groupedColumn of gridColumnApi.getRowGroupColumns(); index as groupByIndex">
+    <ng-container *ngIf="groupByIndex!==0 && groupByIndex!==gridColumnApi.getRowGroupColumns().length">
+      <ng-container *ngFor="let i of getIndexArray(groupByIndex-1)">&nbsp;&nbsp;&nbsp;&nbsp;</ng-container>
+      <mat-icon>subdirectory_arrow_right</mat-icon>
+    </ng-container>
+    <span>{{groupedColumn.getColDef().headerName}}</span>
+    <button class="float-right" (click)="onIndividualGroupByRemove($event)" *ngIf="gridColumnApi.getRowGroupColumns().length -1 === groupByIndex"
+            [attr.column-id] = groupedColumn.getId()>X</button>
+  </div>
 
-<footer>
-  <button mat-button matTooltip="Close Group By" (click)="onGroupByClose()">CLOSE</button>
+  <mat-radio-group [formControl]="groupByForm" name="groupBySelectedValue" ngModel="" #groupByRadioGroup
+                   *ngFor="let groupByItem of gridColumnApi.getAllColumns();">
+    <mat-radio-button name="groupBySelectedValue"
+                      value="{{groupByItem.getId()}}">{{groupByItem.getColDef().headerName}}</mat-radio-button>
+    <br>
+  </mat-radio-group>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>CLOSE</button>
   <button mat-button matTooltip="Apply Groupy By" (click)="onGroupyByApply()">APPLY</button>
-</footer>
+</mat-dialog-actions>
