@@ -39,4 +39,16 @@ export class NgGroupbyGridComponent implements OnInit {
       this.gridColumnApi.removeRowGroupColumns([removeGroupByColumn]);
     }
   }
+
+  getIndexArray(count: number) {
+    if (count < 0) {
+      return [];
+    }
+    return Array(count).fill(0).map((x, i) => i);
+  }
+
+  onIndividualGroupByRemove(event) {
+    const columnId = event.target.attributes['column-id'].value;
+    this.gridColumnApi.removeRowGroupColumns([columnId]);
+  }
 }

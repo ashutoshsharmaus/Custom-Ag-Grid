@@ -210,7 +210,10 @@ export class NgGridTbarComponent implements OnInit {
    * This will open the group By Dialog box and pass the columnApi to the group by modal
    */
   onGroupyByClick() {
-    const groupByDialog = this.dialog.open(NgGroupbyGridComponent, {});
+    const groupByDialog = this.dialog.open(NgGroupbyGridComponent, {
+      minWidth: '350px',
+      height: '600px',
+    });
     groupByDialog.componentInstance.gridColumnApi = this.gridApi.columnApi;
   }
 
@@ -221,6 +224,7 @@ export class NgGridTbarComponent implements OnInit {
   onFilterBtnClick() {
     const filterDialog = this.dialog.open(NgFilterModalComponent, {});
     filterDialog.componentInstance.appliedFilterDataEvent.subscribe(result => {
+      this.currentFilter = result;
       this.currentFilter = result;
       this.appliedFilterDataEvent.emit(result);
     });

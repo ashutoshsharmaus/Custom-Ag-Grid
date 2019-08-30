@@ -1,11 +1,21 @@
-<div *ngFor="let groupedColumn of gridColumnApi.getRowGroupColumns(); index as i">
-  <p class="group-by-indicator">{{groupedColumn.getColDef().headerName}}</p>
+<mat-icon>group</mat-icon><br>
+<div *ngFor="let groupedColumn of gridColumnApi.getRowGroupColumns(); index as groupByIndex">
+  <ng-container *ngIf="groupByIndex!==0 && groupByIndex!==gridColumnApi.getRowGroupColumns().length">
+    <ng-container *ngFor="let i of getIndexArray(groupByIndex-1)">&nbsp;&nbsp;&nbsp;&nbsp;</ng-container>
+    <mat-icon>subdirectory_arrow_right</mat-icon>
+  </ng-container>
+  <span>{{groupedColumn.getColDef().headerName}}</span>
+  <button class="float-right" (click)="onIndividualGroupByRemove($event)" *ngIf="gridColumnApi.getRowGroupColumns().length -1 === groupByIndex"
+          [attr.column-id] = groupedColumn.getId()>X</button>
 </div>
 
 <mat-radio-group [formControl]="groupByForm" name="groupBySelectedValue" ngModel="" #groupByRadioGroup
                  *ngFor="let groupByItem of gridColumnApi.getAllColumns(); index as i">
-  <mat-radio-button *ngIf="i === 0" name="groupBySelectedValue" value="">None</mat-radio-button><br>
-  <mat-radio-button name="groupBySelectedValue" value="{{groupByItem.getId()}}">{{groupByItem.getColDef().headerName}}</mat-radio-button><br>
+  <!--<mat-radio-button *ngIf="i === 0" name="groupBySelectedValue" value="">None</mat-radio-button>-->
+  <!--<br>-->
+  <mat-radio-button name="groupBySelectedValue"
+                    value="{{groupByItem.getId()}}">{{groupByItem.getColDef().headerName}}</mat-radio-button>
+  <br>
 </mat-radio-group>
 
 <footer>
