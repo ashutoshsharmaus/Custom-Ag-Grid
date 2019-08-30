@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
 import {FormControl} from '@angular/forms';
+import {ColumnApi} from 'ag-grid-community';
 
 class GroupByObject {
   groupById: string;
@@ -20,7 +21,7 @@ class GroupByObject {
   styleUrls: ['./ng-groupby-grid.component.scss']
 })
 export class NgGroupbyGridComponent implements OnInit {
-  @Input() gridColumnApi: any;
+  @Input() gridColumnApi: ColumnApi;
   @ViewChild('groupByRadioGroup', {static: false}) groupByRadioGroup;
   groupByList: Array<GroupByObject> = [];
   groupByForm = new FormControl('');
@@ -30,6 +31,7 @@ export class NgGroupbyGridComponent implements OnInit {
   }
 
   ngOnInit() {
+    debugger;
     this.populateGroupBy();
   }
 
@@ -42,8 +44,8 @@ export class NgGroupbyGridComponent implements OnInit {
     const columns = this.gridColumnApi.getAllColumns();
     this.groupByList.push(new GroupByObject(null, 'None', true));
     for (const column of columns) {
-      if (column.visible) {
-            this.groupByList.push(new GroupByObject(column.colDef.field, column.colDef.headerName, column.rowGroupActive));
+      if (column.isVisible()) {
+            this.groupByList.push(new GroupByObject(column.getColDef().field, column.getColDef().headerName, column.isRowGroupActive()));
           }
     }
   }

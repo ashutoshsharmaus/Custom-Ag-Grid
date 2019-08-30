@@ -1,3 +1,7 @@
+<div *ngFor="let groupedColumn of gridColumnApi.getRowGroupColumns()">
+  <p class="group-by-indicator">{{groupedColumn.getColDef().headerName}}</p>
+</div>
+
 <mat-radio-group [formControl]="groupByForm" name="groupBySelectedValue" ngModel="" #groupByRadioGroup
                   *ngFor="let groupByItem of groupByList">
   <mat-radio-button name="groupBySelectedValue" value="{{groupByItem.groupById}}">{{groupByItem.columnName}}</mat-radio-button><br>

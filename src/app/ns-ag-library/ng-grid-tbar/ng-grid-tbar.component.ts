@@ -23,12 +23,8 @@ export class NgGridTbarComponent implements OnInit {
   showFilterBtn = true;
   showGroupBy = true;
   showFontSizeChange = true;
-  showHamburgerMenu = true;
   showPrintExcel = true;
   showPrintPDF = true;
-  showDownloadPDF = true;
-  showCustomizeReporting = true;
-  appliedGroupBy = true;
   showColumnSelector = true;
   filterCount = '(0)';
   groupByCount = '(0)';
