@@ -1,5 +1,7 @@
 .ng-grid-tbar {
-  &.ng-grid-tbar> *:first-child {
-    padding: 0 2em 0 0.5em;
-  }
+  width: 100%;
+  margin: 0;
+  //&.ng-grid-tbar> *:first-child {
+  //  padding: 0 2em 0 0.5em;
+  //}
 }

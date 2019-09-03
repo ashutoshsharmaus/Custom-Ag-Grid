@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
 import { IAfterGuiAttachedParams } from 'ag-grid-community';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
 
   hideButton = false;
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   afterGuiAttached(params?: IAfterGuiAttachedParams): void {
   }
@@ -37,7 +38,17 @@ export class EquipmentIdComponent implements ICellRendererAngularComp {
   }
 
   onWatchListClick(): void {
-    this.watchlistIcon =  (this.watchlistIcon === 'star') ? 'star_border' :  'star';
+    if (this.watchlistIcon === 'star') {
+      this.watchlistIcon = 'star_border';
+      this.snackBar.open(this.equipmentId.toUpperCase() + ' removed from the watchlist', null, {
+        duration: 1000
+      });
+    } else {
+      this.watchlistIcon = 'star';
+      this.snackBar.open(this.equipmentId.toUpperCase() + ' added in the watchlist', null, {
+        duration: 1000
+      });
+    }
   }
 
   applyWatchlistIcon(): void {

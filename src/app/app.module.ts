@@ -8,7 +8,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import 'ag-grid-enterprise';
 
 import {
- MatCheckboxModule
+  MatCheckboxModule, MatSnackBarModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgColumnSelectorComponent } from './ns-ag-library/ng-column-selector/ng-column-selector.component';
@@ -50,7 +50,8 @@ import {PickListModule} from 'primeng/primeng';
     FormsModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    PickListModule
+    PickListModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
