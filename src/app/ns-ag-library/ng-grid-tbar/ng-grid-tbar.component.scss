@@ -1,6 +1,8 @@
 .ng-grid-tbar {
   width: 100%;
   margin: 0;
+  max-width: none;
+  padding: 0;
   //&.ng-grid-tbar> *:first-child {
   //  padding: 0 2em 0 0.5em;
   //}
@@ -10,10 +12,19 @@
   width: 100%;
 }
 
+.grid-title-label {
+ padding: 10px;
+}
+
 .tbar-middle-section {
   display: inherit;
 }
 
 .display-inherit {
   display: inherit;
+}
+
+.tbar-right-section {
+  display: inline-flex;
+  justify-content: flex-end;
 }
