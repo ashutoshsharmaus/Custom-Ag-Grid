@@ -25,9 +25,7 @@
         <mat-icon>zoom_out</mat-icon>
       </button>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
       <mat-menu #menu="matMenu">
         <button *ngIf="showPrintExcel" mat-menu-item (click)="onGridExportExcelClick()">
           <mat-icon>save_alt</mat-icon>Export Excel
@@ -35,18 +33,18 @@
         <button *ngIf="showPrintPDF" mat-menu-item (click)="onGridPrintPdfClick()">
           <mat-icon>print</mat-icon>Print PDF
         </button>
-        <button *ngIf="showColumnSelector" mat-menu-item matTooltip="Column Selector" (click)="onColumnSelectorClick()">
+        <button *ngIf="showColumnSelector" mat-menu-item (click)="onColumnSelectorClick()">
           <mat-icon>settings</mat-icon>Column Selector
         </button>
-        <button *ngIf="showColumnSelector" mat-menu-item matTooltip="Save Column Selector" (click)="onSaveColumnSettingClick()">
+        <button *ngIf="showColumnSelector" mat-menu-item (click)="onSaveColumnSettingClick()">
           <mat-icon>save</mat-icon>Save Column Setting
         </button>
-        <button *ngIf="showColumnSelector" mat-menu-item matTooltip="Save Column Selector" (click)="onRemoveColumnSettingClick()">
+        <button *ngIf="showColumnSelector" mat-menu-item (click)="onRemoveColumnSettingClick()">
           <mat-icon>remove_circle</mat-icon>Remove Column Setting
         </button>
       </mat-menu>
 
-      <button class="float-right" mat-button matTooltip="Expand Grid" (click)="onToggleFullScreenClick()">
+      <button mat-button matTooltip="Expand Grid" (click)="onToggleFullScreenClick()">
         <mat-icon>{{fullScreenRegularBtnIcon}}</mat-icon>
       </button>
     </div>
