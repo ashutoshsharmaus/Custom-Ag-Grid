@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-ng-showcase',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ng-showcase.component.scss']
 })
 export class NgShowcaseComponent implements OnInit {
-
+  value = 50;
+  valueHundred = 100;
   constructor() { }
 
   ngOnInit() {

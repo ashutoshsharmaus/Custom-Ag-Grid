@@ -1,0 +1,51 @@
+.progress-bar-all {
+  background-color: transparent;
+  & .row {
+    & .col-sm {
+      padding: 3px;
+    }
+  }
+}
+
+.progress-bar-left {
+  .ui-progressbar-label.ng-star-inserted {
+    color: #f4ba05;
+  }
+  & .ui-progressbar {
+    & .ui-progressbar-value {
+      background: #f4ba05;
+    }
+  }
+
+  .ui-corner-all {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+}
+
+.progress-bar-right {
+  .ui-progressbar-label.ng-star-inserted {
+    color: #f4ba05;
+  }
+  & .ui-progressbar {
+    & .ui-progressbar-value {
+      background: #f4ba05;
+    }
+  }
+
+  .ui-corner-all {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+}
+
+.progress-bar-center {
+  .ui-progressbar-label.ng-star-inserted {
+    color: #f4b02b;
+  }
+  & .ui-progressbar {
+    & .ui-progressbar-value {
+      background: #f4b02b;
+    }
+  }
+}
