@@ -62,3 +62,13 @@
   left: 1px;
   color: #2c2d28;
 }
+
+.progress-bar-right-dot {
+  transform: skewX(20deg);
+  font-size: 70px;
+  position: fixed;
+  top: -63px;
+  right: -60px;
+  width: 100px;
+  color: #2c2d28;
+}
