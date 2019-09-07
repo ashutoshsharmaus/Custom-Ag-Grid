@@ -10,34 +10,39 @@
 .progress-bar-left {
   & .ui-progressbar {
     & .ui-progressbar-value {
-      background: #f4ba05;
+      background: #a28113;
     }
   }
 
   .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
     border-top-left-radius: 25px;
     border-bottom-left-radius: 80px;
+    background-color: #555650;
   }
 }
 
 .progress-bar-right {
   & .ui-progressbar {
     & .ui-progressbar-value {
-      background: #f4ba05;
+      background: #f3b905;
     }
   }
 
   .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
       border-top-right-radius: 80px;
       border-bottom-right-radius: 25px;
+      background-color: #555650;
   }
 }
 
 .progress-bar-center {
   & .ui-progressbar {
     & .ui-progressbar-value {
-      background: #f4b02b;
+      background: #a28113;
     }
+  }
+  .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
+    background-color: #555650;
   }
 }
 
