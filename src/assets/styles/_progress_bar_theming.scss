@@ -8,44 +8,41 @@
 }
 
 .progress-bar-left {
-  .ui-progressbar-label.ng-star-inserted {
-    color: #f4ba05;
-  }
   & .ui-progressbar {
     & .ui-progressbar-value {
       background: #f4ba05;
     }
   }
 
-  .ui-corner-all {
+  .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
     border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
+    border-bottom-left-radius: 80px;
   }
 }
 
 .progress-bar-right {
-  .ui-progressbar-label.ng-star-inserted {
-    color: #f4ba05;
-  }
   & .ui-progressbar {
     & .ui-progressbar-value {
       background: #f4ba05;
     }
   }
 
-  .ui-corner-all {
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+  .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
+      border-top-right-radius: 80px;
+      border-bottom-right-radius: 25px;
   }
 }
 
 .progress-bar-center {
-  .ui-progressbar-label.ng-star-inserted {
-    color: #f4b02b;
-  }
   & .ui-progressbar {
     & .ui-progressbar-value {
       background: #f4b02b;
     }
   }
+}
+
+.progress-bar-all .row .col-sm {
+  -ms-transform: skewX(-20deg); /* IE 9 */
+  -webkit-transform: skewX(-20deg); /* Safari prior 9.0 */
+  transform: skewX(-20deg);
 }

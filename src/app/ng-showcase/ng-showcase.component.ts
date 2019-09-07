@@ -8,6 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class NgShowcaseComponent implements OnInit {
   value = 50;
   valueHundred = 100;
+  showValue = false;
   constructor() { }
 
   ngOnInit() {
