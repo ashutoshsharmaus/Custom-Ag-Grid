@@ -93,7 +93,6 @@ export class NgGridTbarComponent implements OnInit {
    */
   setPrinterFriendly() {
     const currentGrid = this.gridApi.api;
-    debugger;
     currentGrid.setDomLayout('print');
   }
 
@@ -150,7 +149,6 @@ export class NgGridTbarComponent implements OnInit {
    */
   getFontDetail(newFontOperation) {
     const currentGrid = this.gridApi._nativeElement;
-    debugger;
     const classList = [];
     for (const eachClass of currentGrid.classList) {classList.push(eachClass); }
     const currentFont = classList.filter(record => {

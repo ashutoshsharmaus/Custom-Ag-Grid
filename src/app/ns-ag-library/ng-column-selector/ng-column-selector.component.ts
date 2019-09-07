@@ -66,7 +66,6 @@ export class NgColumnSelectorComponent implements OnInit {
   }
 
   onItemDrop(event) {
-    debugger;
   }
 
 }

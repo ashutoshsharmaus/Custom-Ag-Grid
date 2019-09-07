@@ -51,3 +51,14 @@
   -webkit-transform: skewX(-20deg); /* Safari prior 9.0 */
   transform: skewX(-20deg);
 }
+
+.progress-bar-left-dot {
+  transform: skewX(20deg);
+  font-size: 70px;
+  position: fixed;
+  top: -63px;
+  right: 0;
+  width: 100px;
+  left: 1px;
+  color: #2c2d28;
+}
