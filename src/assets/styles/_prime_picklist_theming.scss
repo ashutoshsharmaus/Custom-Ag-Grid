@@ -1,0 +1,24 @@
+
+.ui-picklist-source-controls {
+  &.ui-picklist-buttons {
+    &.ng-star-inserted {
+      button {
+        color: black;
+        background-color: #dbdbdb;
+        border: transparent;
+      }
+    }
+  }
+}
+
+.ui-picklist-target-controls {
+  &.ui-picklist-buttons {
+    &.ng-star-inserted {
+      button {
+        color: black;
+        background-color: #dbdbdb;
+        border: transparent;
+      }
+    }
+  }
+}

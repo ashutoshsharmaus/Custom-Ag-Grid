@@ -10,11 +10,6 @@ html, body {
   color: white;
 }
 
-.link-btn {
-  text-decoration: underline;
-  color: cornflowerblue;
-}
-
 .transparent {
   background: transparent;
   border: transparent;
@@ -26,29 +21,5 @@ html, body {
 
 .float-left {
   float: left;
-}
-
-.ui-picklist-source-controls {
-  &.ui-picklist-buttons {
-    &.ng-star-inserted {
-      button {
-        color: black;
-        background-color: #dbdbdb;
-        border: transparent;
-      }
-    }
-  }
-}
-
-.ui-picklist-target-controls {
-  &.ui-picklist-buttons {
-    &.ng-star-inserted {
-      button {
-        color: black;
-        background-color: #dbdbdb;
-        border: transparent;
-      }
-    }
-  }
 }
 
