@@ -1,10 +1,10 @@
 /** Progress Bar 2.0 **/
-
 .ns-progress-bar {
   & .col {
     -ms-transform: skewX(-20deg); /* IE 9 */
     -webkit-transform: skewX(-20deg); /* Safari prior 9.0 */
     transform: skewX(-20deg);
+    padding: 0 0 0 3px;
   }
 
   & .progress-bar__left {
