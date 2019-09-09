@@ -1,9 +1,9 @@
 /** Progress Bar 2.0 **/
 .ns-progress-bar {
   & [class^="col"] {
-    -ms-transform: skewX(-20deg); /* IE 9 */
-    -webkit-transform: skewX(-20deg); /* Safari prior 9.0 */
-    transform: skewX(-20deg);
+    -ms-transform: skewX(-25deg); /* IE 9 */
+    -webkit-transform: skewX(-25deg); /* Safari prior 9.0 */
+    transform: skewX(-25deg);
     padding: 0 0 0 3px;
   }
 
@@ -15,9 +15,10 @@
         }
 
         .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
-          border-top-left-radius: 25px;
+          border-top-left-radius: 40px;
           border-bottom-left-radius: 80px;
           background-color: var(--secondary-medium-grey);
+          height: 1em;
         }
   }
 
@@ -30,8 +31,9 @@
 
       .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
           border-top-right-radius: 80px;
-          border-bottom-right-radius: 25px;
+          border-bottom-right-radius: 40px;
         background-color: var(--secondary-medium-grey);
+        height: 1em;
       }
   }
 
@@ -43,24 +45,25 @@
       }
       .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
         background-color: var(--secondary-medium-grey);
+        height: 1em;
       }
   }
 
   & .progress-bar-right-dot {
     transform: skewX(20deg);
-    font-size: 70px;
+    font-size: 60px;
     position: fixed;
-    top: -66px;
-    right: -68px;
+    top: -60px;
+    right: -76px;
     width: 100px;
-    color: #2c2d28;
+    color: var(--primary-darkgrey);
   }
 
   & .progress-bar-left-dot {
     transform: skewX(20deg);
-    font-size: 70px;
+    font-size: 60px;
     position: fixed;
-    top: -66px;
+    top: -60px;
     right: 0;
     width: 100px;
     left: 1px;
