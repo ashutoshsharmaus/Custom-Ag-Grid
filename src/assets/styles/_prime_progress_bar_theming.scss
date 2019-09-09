@@ -45,4 +45,25 @@
         background-color: var(--secondary-medium-grey);
       }
   }
+
+  & .progress-bar-right-dot {
+    transform: skewX(20deg);
+    font-size: 70px;
+    position: fixed;
+    top: -63px;
+    right: -60px;
+    width: 100px;
+    color: #2c2d28;
+  }
+
+  & .progress-bar-left-dot {
+    transform: skewX(20deg);
+    font-size: 70px;
+    position: fixed;
+    top: -63px;
+    right: 0;
+    width: 100px;
+    left: 1px;
+    color: #2c2d28;
+  }
 }
