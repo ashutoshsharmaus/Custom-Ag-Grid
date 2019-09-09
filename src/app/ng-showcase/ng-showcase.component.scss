@@ -5,3 +5,8 @@
   max-width: unset;
   color: var(--supporting-white);
 }
+
+.justify-right {
+  display: inline-flex;
+  justify-content: flex-end;
+}
