@@ -3,11 +3,19 @@
 @import "assets/styles/ng_all.scss";
 
 /* You can add global styles to this file, and also import other style files */
+@mixin access-ns-light-theme() {
+  background-color: var(--supporting-white);
+  color: var(--secondary-black)
+}
+
+@mixin access-ns-dark-theme() {
+  background-color: var(--primary-darkgrey);
+  color: var(--supporting-white);
+}
+
 html, body {
   width: 99%;
   height: 88%;
-  background-color: #2c2d28;
-  color: white;
 }
 
 .transparent {
@@ -22,4 +30,3 @@ html, body {
 .float-left {
   float: left;
 }
-
