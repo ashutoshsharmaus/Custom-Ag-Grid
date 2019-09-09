@@ -1,6 +1,6 @@
 /** Progress Bar 2.0 **/
 .ns-progress-bar {
-  & .col {
+  & [class^="col"] {
     -ms-transform: skewX(-20deg); /* IE 9 */
     -webkit-transform: skewX(-20deg); /* Safari prior 9.0 */
     transform: skewX(-20deg);
