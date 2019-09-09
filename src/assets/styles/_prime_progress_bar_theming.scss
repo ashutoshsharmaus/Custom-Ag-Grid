@@ -1,74 +1,48 @@
-.progress-bar-all {
-  background-color: transparent;
-  & .row {
-    & .col-sm {
-      padding: 3px;
-    }
-  }
-}
+/** Progress Bar 2.0 **/
 
-.progress-bar-left {
-  & .ui-progressbar {
-    & .ui-progressbar-value {
-      background: #a28113;
-    }
+.ns-progress-bar {
+  & .col {
+    -ms-transform: skewX(-20deg); /* IE 9 */
+    -webkit-transform: skewX(-20deg); /* Safari prior 9.0 */
+    transform: skewX(-20deg);
   }
 
-  .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 80px;
-    background-color: #555650;
+  & .progress-bar__left {
+    & .ui-progressbar {
+          & .ui-progressbar-value {
+            background: #a28113;
+          }
+        }
+
+        .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
+          border-top-left-radius: 25px;
+          border-bottom-left-radius: 80px;
+          background-color: var(--secondary-medium-grey);
+        }
   }
-}
 
-.progress-bar-right {
-  & .ui-progressbar {
-    & .ui-progressbar-value {
-      background: #f3b905;
-    }
+  & .progress-bar__right {
+      & .ui-progressbar {
+        & .ui-progressbar-value {
+          background: var(--primary-gold);
+        }
+      }
+
+      .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
+          border-top-right-radius: 80px;
+          border-bottom-right-radius: 25px;
+        background-color: var(--secondary-medium-grey);
+      }
   }
 
-  .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
-      border-top-right-radius: 80px;
-      border-bottom-right-radius: 25px;
-      background-color: #555650;
+  & .progress-bar__middle {
+      & .ui-progressbar {
+        & .ui-progressbar-value {
+          background: var(--secondary-dark-gold);
+        }
+      }
+      .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
+        background-color: var(--secondary-medium-grey);
+      }
   }
-}
-
-.progress-bar-center {
-  & .ui-progressbar {
-    & .ui-progressbar-value {
-      background: #a28113;
-    }
-  }
-  .ui-progressbar.ui-widget.ui-widget-content.ui-corner-all.ui-progressbar-determinate {
-    background-color: #555650;
-  }
-}
-
-.progress-bar-all .row .col-sm {
-  -ms-transform: skewX(-20deg); /* IE 9 */
-  -webkit-transform: skewX(-20deg); /* Safari prior 9.0 */
-  transform: skewX(-20deg);
-}
-
-.progress-bar-left-dot {
-  transform: skewX(20deg);
-  font-size: 70px;
-  position: fixed;
-  top: -63px;
-  right: 0;
-  width: 100px;
-  left: 1px;
-  color: #2c2d28;
-}
-
-.progress-bar-right-dot {
-  transform: skewX(20deg);
-  font-size: 70px;
-  position: fixed;
-  top: -63px;
-  right: -60px;
-  width: 100px;
-  color: #2c2d28;
 }

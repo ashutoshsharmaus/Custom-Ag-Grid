@@ -1,20 +1,30 @@
 <p>AccessNS Header</p>
 
-<div class="container progress-bar-all">
-  <div class="row">
-    <div class="col-sm">
-      <p-progressBar [showValue]="showValue" class="progress-bar-left" [value]="leftValue"></p-progressBar>
-      <div class="progress-bar-left-dot">.</div>
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col">
+      One of three columns
     </div>
-    <div class="col-sm">
-      <p-progressBar [showValue]="showValue" class="progress-bar-center" [value]="centerValue1"></p-progressBar>
+    <div class="col">
+      <div class="row ns-progress-bar">
+        <div class="col">
+          <p-progressBar [showValue]="showValue" class="progress-bar__left" [value]="leftValue"></p-progressBar>
+          <div class="progress-bar-left-dot">.</div>
+        </div>
+        <div class="col">
+          <p-progressBar [showValue]="showValue" class="progress-bar__middle" [value]="centerValue1"></p-progressBar>
+        </div>
+        <div class="col">
+          <p-progressBar [showValue]="showValue" class="progress-bar__middle" [value]="centerValue2"></p-progressBar>
+        </div>
+        <div class="col">
+          <p-progressBar [showValue]="showValue" class="progress-bar__right" [value]="rightValue"></p-progressBar>
+          <div class="progress-bar-right-dot">.</div>
+        </div>
+      </div>
     </div>
-    <div class="col-sm">
-      <p-progressBar [showValue]="showValue" class="progress-bar-center" [value]="centerValue2"></p-progressBar>
-    </div>
-    <div class="col-sm">
-      <p-progressBar [showValue]="showValue" class="progress-bar-right" [value]="rightValue"></p-progressBar>
-      <div class="progress-bar-right-dot">.</div>
+    <div class="col">
+      One of three columns
     </div>
   </div>
 </div>
