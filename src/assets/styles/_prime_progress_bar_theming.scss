@@ -50,23 +50,25 @@
   }
 
   & .progress-bar-right-dot {
-    transform: skewX(20deg);
+    transform: skewX(25deg);
     font-size: 60px;
+    font-weight: 300;
     position: fixed;
-    top: -60px;
+    top: -61px;
     right: -76px;
     width: 100px;
     color: var(--primary-darkgrey);
   }
 
   & .progress-bar-left-dot {
-    transform: skewX(20deg);
+    transform: skewX(25deg);
     font-size: 60px;
     position: fixed;
-    top: -60px;
+    top: -61px;
     right: 0;
     width: 100px;
-    left: 1px;
+    left: -7px;
     color: #2c2d28;
+    font-weight: 300;
   }
 }
